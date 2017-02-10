@@ -35,4 +35,9 @@ router.get('/addactivity', function(req, res, next) {
   res.render('addactivity', { title: 'IXD' });
 });
 
+/* GET addActivity page. */
+router.get('/filterpopup', function(req, res, next) {
+  res.render('filterpopup', { title: 'IXD' });
+});
+
 module.exports = router;
