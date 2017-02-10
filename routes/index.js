@@ -11,6 +11,10 @@ router.get('/logexperience', function(req, res, next) {
   res.render('logexperience', { title: 'IXD' });
 });
 
+router.get('/logexperiencepopup', function(req, res, next) {
+  res.render('logexperiencepopup', { title: 'IXD' });
+});
+
 /* GET chat page. */
 router.get('/chat', function(req, res, next) {
   res.render('chat', { title: 'IXD' });
@@ -24,6 +28,11 @@ router.get('/viewmemories', function(req, res, next) {
 /* GET about page. */
 router.get('/about', function(req, res, next) {
   res.render('about', { title: 'IXD' });
+});
+
+/* GET addActivity page. */
+router.get('/addactivity', function(req, res, next) {
+  res.render('addactivity', { title: 'IXD' });
 });
 
 module.exports = router;
