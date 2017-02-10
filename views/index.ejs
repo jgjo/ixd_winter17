@@ -32,6 +32,7 @@
 
 <body>
 
+<div>
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
     <nav id="sidebar-wrapper">
@@ -41,21 +42,14 @@
                 <a>John Doe</a>
             </li>
             <li>
-                <a href="/index.html" onclick=$("#menu-close").click(); class="btn-light"><i class="fa fa-home" aria-hidden="true"></i>  Home</a>
+                <a href="/my-profile.ejs" onclick=$("#menu-close").click();><i class="fa fa-user" aria-hidden="true"></i>   My Profile</a>
             </li>
             <li>
-                <a href="/my-profile.html" onclick=$("#menu-close").click();><i class="fa fa-user" aria-hidden="true"></i>   My Profile</a>
+                <a href="/my-memories.ejs" onclick=$("#menu-close").click();><i class="fa fa-comments-o" aria-hidden="true"></i>   My Memories</a>
             </li>
             <li>
-                <a href="/my-memories.html" onclick=$("#menu-close").click();><i class="fa fa-comments-o" aria-hidden="true"></i>   My Memories</a>
-            </li>
-            <li>
-                <a href="/about.html" onclick=$("#menu-close").click();><i class="fa fa-info-circle" aria-hidden="true"></i>
+                <a href="/about.ejs" onclick=$("#menu-close").click();><i class="fa fa-info-circle" aria-hidden="true"></i>
   About</a>
-            </li>
-            <li>
-                <a href="/help.html" onclick=$("#menu-close").click();><i class="fa fa-question" aria-hidden="true"></i>
-   Help</a>
             </li>
         </ul>
     </nav>
@@ -65,31 +59,40 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3>App Name</h3>
-                    <!--a href="#" class="btn btn-lg btn-light">Click Me!</a>
-                    <a href="#" class="btn btn-lg btn-dark">Look at Me!</a-->
+                    <a href="/" class="btn btn-lg btn-dark">Home</a>
                 </div>
             </div>
         </div>
     </aside>
 
+	<div id="wrapper">
+	   <div id="google_map">
 
-    <!-- Map -->
-    <section id="contact" class="map">
-        <!--iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe-->
-        
-        <div><iframe width="100%" height="600px" src="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="10" marginwidth="0"></iframe></div>
-        <small>
-            <a href="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></a>
-        </small>
-    </section>
+			<!-- Map -->
+		    <section id="contact" class="map">
+		        <!--iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe-->
+		        
+		        <div><iframe width="100%" height="600px" src="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="10" marginwidth="0"></iframe></div>
+		        <small>
+		            <a href="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></a>
+		        </small>
+		    </section>
+
+	   </div>
+
+	   <div id="over_map">
+	   	
+			<button type="submit">Text</button>
+
+	   </div>
+	</div>
 
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="javascripts/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script>

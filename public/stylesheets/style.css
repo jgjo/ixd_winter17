@@ -6,3 +6,5 @@ body {
 a {
   color: #00B7FF;
 }
+
+.main-wrapper { max-width: 50%;}
