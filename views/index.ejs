@@ -72,15 +72,15 @@
 		    <section id="contact" class="map">
 		        <!--iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe-->
 		        
-		        <div><iframe width="100%" height="600px" src="//www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="10" marginwidth="0"></iframe></div>
-		        <small>
-		            <a href="//www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></a>
-		        </small>
+		        <div><iframe width="100%" height="500px" src="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=500&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+	<!-- 	        <small>
+		            <a href="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></a>
+		        </small> -->
 		    </section>
 
 	   </div>
 
-    <div id="over_map">
+    <div id="over_map" width="100%" height="500px">
 
       <!--button type="submit">Text</button-->
       <div class="row">
@@ -94,7 +94,15 @@
 
     </div>
 
+
+    <div style="text-align: center">
+        <p>PAINT WITH WINE!</p><br>
+        <p>Ann Paul</p>
+        <button onclick="activityclick()">View Activity</button>
+    </div>
+
 	</div>
+
 
 
     <!-- jQuery -->
@@ -201,6 +209,10 @@
           var memoryclick = function() 
           {
             window.location.href = '/viewmemories'
+          }
+          var activityclick = function() 
+          {
+            window.location.href = '/activity'
           }
     </script>
 </div>

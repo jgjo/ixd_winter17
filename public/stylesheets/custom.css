@@ -9,3 +9,10 @@
 
 #wrapper { position: relative; }
 #over_map { position: absolute; top: 10px; left: 10px; z-index: 99; }
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
