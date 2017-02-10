@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>EJS</title>
+    <title>IXD</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
@@ -42,15 +42,15 @@
                 <a>John Doe</a>
             </li>
             <li>
-                <a href="/my-profile.html" onclick=$("#menu-close").click();><i class="fa fa-user" aria-hidden="true"></i>   My Profile</a>
+                <a href="#" onclick='profileclick()'><i class="fa fa-user" aria-hidden="true"></i>   My Profile</a>
             </li>
             <li>
-                <a href="/my-memories.ejs" onclick=$("#menu-close").click();><i class="fa fa-comments-o" aria-hidden="true"></i>   My Memories</a>
+                <a href="#" onclick='memoryclick()';><i class="fa fa-comments-o" aria-hidden="true"></i>   My Memories</a>
             </li>
-            <!--li>
-                <a href="/about.ejs" onclick=$("#menu-close").click();><i class="fa fa-info-circle" aria-hidden="true"></i>
+            <li>
+                <a href="#" onclick='aboutclick()'><i class="fa fa-info-circle" aria-hidden="true"></i>
   About</a>
-            </li-->
+            </li>
         </ul>
     </nav>
     
@@ -72,9 +72,9 @@
 		    <section id="contact" class="map">
 		        <!--iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe-->
 		        
-		        <div><iframe width="100%" height="600px" src="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="10" marginwidth="0"></iframe></div>
+		        <div><iframe width="100%" height="600px" src="//www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="10" marginwidth="0"></iframe></div>
 		        <small>
-		            <a href="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></a>
+		            <a href="//www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></a>
 		        </small>
 		    </section>
 
@@ -85,10 +85,10 @@
       <!--button type="submit">Text</button-->
       <div class="row">
         <div class="col-lg-12 text-center" style="margin: 5px 5px;">
-          <a href="/" class="btn btn-lg btn-light" style="color: darkcyan;"><i class="fa fa-plus" aria-hidden="true"></i></a>
+          <a class="btn btn-lg btn-light" style="color: darkcyan;" onclick='addclick()'><i class="fa fa-plus" aria-hidden="true"></i></a>
         </div>
         <div class="col-lg-12 text-center" style="margin: 5px 5px;">
-          <a href="/" class="btn btn-lg btn-light" style="color: darkcyan;"><i class="fa fa-filter" aria-hidden="true"></i></a>
+          <a class="btn btn-lg btn-light" style="color: darkcyan;" onclick='filterclick()'><i class="fa fa-filter" aria-hidden="true"></i></a>
         </div>
       </div>
 
@@ -175,6 +175,33 @@
         }
         // Enable map zooming with mouse scroll when the user clicks the map
     $('.map').on('click', onMapClickHandler);
+    </script>
+
+    <script>
+          var addclick = function() 
+          {
+            window.location.href = '/addactivity'
+          }
+
+          var filterclick = function() 
+          {
+            window.location.href = '/filterpopup'
+          }
+
+          var profileclick = function() 
+          {
+            window.location.href = '/myprofile'
+          }
+
+          var aboutclick = function() 
+          {
+            window.location.href = '/about'
+          }
+
+          var memoryclick = function() 
+          {
+            window.location.href = '/viewmemories'
+          }
     </script>
 </div>
 </body>

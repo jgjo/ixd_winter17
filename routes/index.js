@@ -25,6 +25,11 @@ router.get('/viewmemories', function(req, res, next) {
   res.render('viewmemories', { title: 'IXD' });
 });
 
+/* GET viememories page. */
+router.get('/viewactivity', function(req, res, next) {
+  res.render('viewactivity', { title: 'IXD' });
+});
+
 /* GET about page. */
 router.get('/about', function(req, res, next) {
   res.render('about', { title: 'IXD' });
@@ -43,6 +48,11 @@ router.get('/filterpopup', function(req, res, next) {
 /* GET activity page. */
 router.get('/activity', function(req, res, next) {
   res.render('activity', { title: 'IXD' });
+});
+
+/* GET activity page. */
+router.get('/myprofile', function(req, res, next) {
+  res.render('myprofile', { title: 'IXD' });
 });
 
 module.exports = router;
