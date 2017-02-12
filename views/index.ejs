@@ -77,6 +77,7 @@
 		            <a href="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></a>
 		        </small> -->
 		    </section>
+            <button onclick="changediv()">Choose activity</button>
 
 	   </div>
 
@@ -95,7 +96,7 @@
     </div>
 
 
-    <div style="text-align: center">
+    <div id="activityDiv" style="text-align: center, color: grey">
         <p>PAINT WITH WINE!</p><br>
         <p>Ann Paul</p>
         <button onclick="activityclick()">View Activity</button>
@@ -214,6 +215,17 @@
           {
             window.location.href = '/activity'
           }
+
+          var changediv = function() 
+          {
+            var div = document.getElementById('activityDiv');
+            // Set Style / Append Style
+            div.style.color = 'black';
+          }
+
+
+
+
     </script>
 </div>
 </body>
