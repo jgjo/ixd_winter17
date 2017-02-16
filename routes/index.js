@@ -55,4 +55,9 @@ router.get('/myprofile', function(req, res, next) {
   res.render('myprofile', { title: 'IXD' });
 });
 
+/* GET login page. */
+router.get('/login', function(req, res, next) {
+  res.render('login', { title: 'IXD' });
+});
+
 module.exports = router;
