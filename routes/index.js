@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+var activities = require('../public/data/activities.json');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'IXD' });
+  res.render('index', { title: 'IXD', activitiesJSON: activities});
 });
 
 /* GET logexperience page. */

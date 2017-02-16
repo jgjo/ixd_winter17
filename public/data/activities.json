@@ -1,0 +1,80 @@
+{
+  "activities": [
+    {
+      "name": "Paint with wine",
+      "description": "paint with a glass of wine along the lake",
+      "hostName": "Ann",
+      "hostID": 123,
+      "maxCost": 50,
+      "maxTimeInMin": 23,
+      "location": {
+        "lat": 32.717058,
+        "lng": -117.167121
+      },
+      "pictures": [],
+      "filters": {
+        "childsafe": 1,
+        "outdoor": 0,
+        "alcohol": 1,
+        "food": 0
+      }
+    },
+    {
+      "name": "blueberry picking",
+      "description": "pblueberry picking on the hills",
+      "hostName": "Ann",
+      "hostID": 123,
+      "maxCost": 50,
+      "maxTimeInMin": 23,
+      "location": {
+        "lat": 32.715738,
+        "lng": -117.161084
+      },
+      "pictures": [],
+      "filters": {
+        "childsafe": 1,
+        "outdoor": 0,
+        "alcohol": 1,
+        "food": 0
+      }
+    },
+    {
+      "name": "Skateboarding",
+      "description": "skateboard on local SD streets",
+      "hostName": "Ann",
+      "hostID": 123,
+      "maxCost": 50,
+      "maxTimeInMin": 23,
+      "location": {
+        "lat": 32.728449,
+        "lng": -117.16622
+      },
+      "pictures": [],
+      "filters": {
+        "childsafe": 1,
+        "outdoor": 0,
+        "alcohol": 1,
+        "food": 0
+      }
+    },
+    {
+      "name": "Paddleboarding",
+      "description": "",
+      "hostName": "Ann",
+      "hostID": 123,
+      "maxCost": 50,
+      "maxTimeInMin": 23,
+      "location": {
+        "lat": 32.708988,
+        "lng": -117.16858
+      },
+      "pictures": [],
+      "filters": {
+        "childsafe": 1,
+        "outdoor": 0,
+        "alcohol": 1,
+        "food": 0
+      }
+    }
+  ]
+}

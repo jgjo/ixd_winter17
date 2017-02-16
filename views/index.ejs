@@ -3,16 +3,15 @@
 
 <head>
     <% include ../views/partials/head %>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
-    <!-- Map -->
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <!-- Google Maps -->
+    <style>
+         #map {
+           width: 100%;
+           height: 550px;
+           background-color: grey;
+         }
+    </style>
 </head>
 
 <body>
@@ -22,58 +21,34 @@
         <% include ../views/partials/hamburger %>
     </header>
 
-	<div id="wrapper">
-	   <div id="google_map">
+    <div id="wrapper">
 
-			<!-- Map -->
-		    <!-- <section id="contact" class="map"> -->
-		        <!--iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe-->
-		        
-		        <!-- <div><iframe width="100%" height="500px" src="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=500&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div> -->
-	<!-- 	        <small>
-		            <a href="http://www.citymaps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=9500%20Gilman%20Dr%2C%20La%20Jolla%2C%20CA%2092093+(UCSD)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"></a>
-		        </small> -->
-		    <!-- </section> -->
-            <!-- <button onclick="changediv()">Choose activity</button> -->
-            <div id="mapid">
+       <!-- Google map -->
+       <div id="google_map">
+            <div id="map"></div>
+       </div>
 
+        <!-- Add activity and filter buttons overlayed on map -->
+        <div id="over_map" width="100%" height="500px">
+          <div class="row">
+            <div class="col-lg-12 text-center" style="margin: 5px 5px;">
+              <a class="btn btn-lg btn-light" style="color: darkcyan;" onclick='addclick()'><i class="fa fa-plus" aria-hidden="true"></i></a>
             </div>
-
-	   </div>
-
-    <div id="over_map" width="100%" height="500px">
-
-      <!--button type="submit">Text</button-->
-      <div class="row">
-        <div class="col-lg-12 text-center" style="margin: 5px 5px;">
-          <a class="btn btn-lg btn-light" style="color: darkcyan;" onclick='addclick()'><i class="fa fa-plus" aria-hidden="true"></i></a>
+            <div class="col-lg-12 text-center" style="margin: 5px 5px;">
+              <a class="btn btn-lg btn-light" style="color: darkcyan;" onclick='filterclick()'><i class="fa fa-filter" aria-hidden="true"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-12 text-center" style="margin: 5px 5px;">
-          <a class="btn btn-lg btn-light" style="color: darkcyan;" onclick='filterclick()'><i class="fa fa-filter" aria-hidden="true"></i></a>
-        </div>
-      </div>
+
+
+        <!--     <div id="activityDiv" style="text-align: center, color: grey">
+            <p>PAINT WITH WINE!</p><br>
+            <p>Ann Paul</p>
+            <button onclick="activityclick()">View Activity</button>
+        </div> -->
 
     </div>
-
-
-    <div id="activityDiv" style="text-align: center, color: grey">
-        <p>PAINT WITH WINE!</p><br>
-        <p>Ann Paul</p>
-        <button onclick="activityclick()">View Activity</button>
-    </div>
-
-	</div>
-
-    <script>
-        var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-        L.tileLayer('https://api.mapbox.com/styles/v1/janetjo/ciz6d15dv00162rpaqgokwkxl/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamFuZXRqbyIsImEiOiJjaXo2Y2o0cncwNXFwMzJwZ2Q4MDZheDZwIn0.BLXurNlnIwY8XwXA1-vIYQ', {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-                maxZoom: 18,
-                id: 'janetjo.ciz6d15dv00162rpaqgokwkxl',
-                accessToken: 'pk.eyJ1IjoiamFuZXRqbyIsImEiOiJjaXo2Y2o0cncwNXFwMzJwZ2Q4MDZheDZwIn0.BLXurNlnIwY8XwXA1-vIYQ'
-            }).addTo(mymap);
-    </script>
-
+</div>
 
     <!-- jQuery -->
     <script src="javascripts/jquery.js"></script>
@@ -81,121 +56,58 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="javascripts/bootstrap.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
+    <!-- Custom css -->
+    <script src="javascripts/index.js"></script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdV_CqEBtoB4xae7DEXjtsHSCTZOZI9m0&callback=initMap">
+    </script>
+
     <script>
-    // Closes the sidebar menu
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
+
+        var map;
+        var activities =<%-JSON.stringify(activitiesJSON)%>
+
+        function initMap() {
+          var center = {lat: 32.715738, lng: -117.161084};
+          map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: center
+          });
+
+          addMarkers();
+        }
+
+        function addMarkers()
+        {
+
+          var bounds = new google.maps.LatLngBounds();
+          var infowindow = new google.maps.InfoWindow();
+
+          for(var i=0; i<activities.activities.length; i++) {
+              var latLng = new google.maps.LatLng(activities.activities[i].location.lat,activities.activities[i].location.lng);
+              var marker = new google.maps.Marker({
+                              position: latLng,
+                              map: map
+                           });
+
+              bounds.extend(marker.position);
+
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                  infowindow.setContent('Description');
+                  infowindow.open(map, marker);
                 }
-            }
-        });
-    });
-    //#to-top button appears after scrolling
-    var fixed = false;
-    $(document).scroll(function() {
-        if ($(this).scrollTop() > 250) {
-            if (!fixed) {
-                fixed = true;
-                // $('#to-top').css({position:'fixed', display:'block'});
-                $('#to-top').show("slow", function() {
-                    $('#to-top').css({
-                        position: 'fixed',
-                        display: 'block'
-                    });
-                });
-            }
-        } else {
-            if (fixed) {
-                fixed = false;
-                $('#to-top').hide("slow", function() {
-                    $('#to-top').css({
-                        display: 'none'
-                    });
-                });
-            }
+              })(marker, i));
+          }
+
+          // marker.addListener('click', function() {
+          //     window.alert("ACTIVITY!");
+          // });
         }
-    });
-    // Disable Google Maps scrolling
-    // See http://stackoverflow.com/a/25904582/1607849
-    // Disable scroll zooming and bind back the click event
-    var onMapMouseleaveHandler = function(event) {
-        var that = $(this);
-        that.on('click', onMapClickHandler);
-        that.off('mouseleave', onMapMouseleaveHandler);
-        that.find('iframe').css("pointer-events", "none");
-    }
-    var onMapClickHandler = function(event) {
-            var that = $(this);
-            // Disable the click handler until the user leaves the map area
-            that.off('click', onMapClickHandler);
-            // Enable scrolling zoom
-            that.find('iframe').css("pointer-events", "auto");
-            // Handle the mouse leave event
-            that.on('mouseleave', onMapMouseleaveHandler);
-        }
-        // Enable map zooming with mouse scroll when the user clicks the map
-    $('.map').on('click', onMapClickHandler);
+
     </script>
 
-    <script>
-          var addclick = function() 
-          {
-            window.location.href = '/addactivity'
-          }
-
-          var filterclick = function() 
-          {
-            window.location.href = '/filterpopup'
-          }
-
-          var profileclick = function() 
-          {
-            window.location.href = '/myprofile'
-          }
-
-          var aboutclick = function() 
-          {
-            window.location.href = '/about'
-          }
-
-          var memoryclick = function() 
-          {
-            window.location.href = '/viewmemories'
-          }
-          var activityclick = function() 
-          {
-            window.location.href = '/activity'
-          }
-
-          var changediv = function() 
-          {
-            var div = document.getElementById('activityDiv');
-            // Set Style / Append Style
-            div.style.color = 'black';      }
-
-
-
-
-    </script>
-</div>
 </body>
 
 </html>
