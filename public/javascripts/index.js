@@ -1,8 +1,8 @@
-var map;
+
 
 var addclick = function() 
 {
-  window.location.href = '/addactivity'
+  res.render('activity.ejs');
 }
 
 var filterclick = function() 
@@ -24,9 +24,9 @@ var memoryclick = function()
 {
   window.location.href = '/viewmemories'
 }
-var activityclick = function() 
+var activityclick = function(id) 
 {
-  window.location.href = '/activity'
+  window.location.href = '/activity?id='+id
 }
 
 var changediv = function() 

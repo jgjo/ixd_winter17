@@ -1,0 +1,42 @@
+{
+  "activities": [
+    {
+      "name": "blueberry picking",
+      "description": "pblueberry picking on the hills",
+      "hostName": "Ann",
+      "hostID": 123,
+      "maxCost": 50,
+      "maxTimeInMin": 23,
+      "location": {
+        "lat": 32.715738,
+        "lng": -114.161084
+      },
+      "pictures": [],
+      "filters": {
+        "childsafe": 1,
+        "outdoor": 0,
+        "alcohol": 1,
+        "food": 0
+      }
+    },
+    {
+      "name": "Skateboarding",
+      "description": "skateboard on local SD streets",
+      "hostName": "Ann",
+      "hostID": 123,
+      "maxCost": 50,
+      "maxTimeInMin": 23,
+      "location": {
+        "lat": 33.728449,
+        "lng": -117.16622
+      },
+      "pictures": [],
+      "filters": {
+        "childsafe": 1,
+        "outdoor": 0,
+        "alcohol": 1,
+        "food": 0
+      }
+    }
+  ]
+}
