@@ -43,6 +43,31 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="javascripts/timelinemain.js"></script> <!-- Resource jQuery -->
 
+    <script>
+          var goBack = function()
+          {
+            window.location.href = '/chat'
+          }
+    </script>
+    
+	<script>
+    	  var btn1 = function() 
+    	  {
+    		window.location.href = '/logexperiencepopup'
+  		  }
+
+  		  var btn2 = function() 
+    	  {
+            window.alert("Experience saved!");
+    		window.location.href = '/'
+  		  }
+
+        var btn3 = function() 
+        {
+          window.alert("Experience abandoned!");
+          window.location.href = '/'
+        }
+
 
     <script>
         var moments =<%-JSON.stringify(momentsJSON)%>
