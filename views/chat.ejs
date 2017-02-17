@@ -18,9 +18,7 @@
     </header>
 
     <div class="chat">
-      <div class="chat-title">
-        <h1>User Name</h1>
-        <h2>Supah</h2>
+      <div id="userdiv"class="chat-title">
         <figure class="avatar">
           <img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" />
         </figure>
@@ -155,6 +153,30 @@
           window.alert("Activity cancelled");
           window.location.href = '/'
           }
+
+          var activities =<%-JSON.stringify(activitiesJSON)%>
+          var activity;   
+          var urlParams = new URLSearchParams(window.location.search);
+          id = urlParams.get('id');
+          for(var i=0; i<activities.activities.length; i++) {
+              if(activities.activities[i].id == id)
+              {
+                  activity = activities.activities[i];
+              }
+          }
+
+          var populatePage = function(){
+              var parent = document.getElementById("userdiv");
+              var newdiv = document.createElement("h1");
+              newdiv.innerHTML = activity.hostName;
+              parent.append(newdiv);
+
+              var tags = document.createElement("div");
+              tags.className = "col-md-3 col-sm-6 activitytags";
+              tags.innerHTML = "";
+          }
+
+          populatePage();
     </script>
 
 </body>

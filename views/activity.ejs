@@ -8,76 +8,49 @@
 <body>
     <header>
         <% include ../views/partials/header %>
-        <% include ../views/partials/back %>
     </header>
     
-    <div>
-        <br>
-    </div>
     <!-- Services -->
     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
     <section id="services" class="services bg-primary1">
-        <div class="container-fluid">
+        <!--         
+        <div id="activitydetails" class="container">
             <div class="row text-center">
                 <div class="col-xs-6 col-md-3">
                     <img height="140" width="140" src="images/activityimg1.jpg">
-                    <!-- <hr class="small"> -->
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <span class="fa-stack fa-4x">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-user fa-stack-1x text-primary"></i>
                     </span>
-                    <strong>Ann Paul</strong>
+                    <br/>
+                    <strong>Ann Pauljsghfhgfdsg</strong>
                 </div>
             <div>
+
             <div class="row text-center">
                 <div class="col-xs-12 col-md-8">
-                    <h2>Paint with Wine</h2>
-                    <!-- <hr class="small"> -->
-                </div>
-            <div>
-            <div class="row">
-                        <div class="col-xs-12 col-md-8">
+                    <h3>Paint with Wine</h3>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-6">
+                            <div class="service-item">
                                 <h4>Paint with a glass of wine while overlooking the lake</h4>
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-clock-o" aria-hidden="true"></i> Approx 3 .hrs</h5></div>
+                                    <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-usd" aria-hidden="true"></i> Max $45</h5></div>
+                                    <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-glass" aria-hidden="true"></i> Alcohol Present</h5></div>
+                                    <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-child" aria-hidden="true"></i> Child Safe</h5></div>
+                                </div>
+                                <br />
+                                <a href="#" onclick='btn1()' class="btn btn-lg btn-light1"><i class="fa fa-comments" aria-hidden="true"></i> Contact Ann</a>
+                            </div>
                         </div>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                    <div class="col-xs-3 col-sm-3 text-center" style="background-color: rgba(50, 50, 50, 0.5); padding:0px; margin: 2px 2px;"><h6><i class="fa fa-clock-o" aria-hidden="true"></i> Approx 3 .hrs</h6></div>
-                    <div class="col-xs-3 col-sm-3" style="background-color: rgba(50, 50, 50, 0.5); padding:0px; margin: 2px 2px;"><h4><i class="fa fa-usd" aria-hidden="true"></i> Max $45</h4></div>
-                    <div class="col-xs-3 col-sm-3" style="background-color: rgba(50, 50, 50, 0.5); padding:0px; margin: 2px 2px;"><h4><i class="fa fa-glass" aria-hidden="true"></i> Alcohol Present</h4></div>
-                    <div class="col-xs-3 col-sm-3" style="background-color: rgba(50, 50, 50, 0.5); padding:0px; margin: 2px 2px;"><h4><i class="fa fa-child" aria-hidden="true"></i> Child Safe</h4></div>
-            </div>
-            <div class="row">
-                        <div class="col-xs-12 col-md-8">
-                                <br />
-                                <br />
-                                <br />
-                                <a href="#" onclick='btn1()' class="btn btn-lg btn-light"><i class="fa fa-comments" aria-hidden="true"></i> Contact Ann</a>
-                        </div>
-            </div>
-            
-        </div>
-        <!-- /.container -->
+        </div> -->
     </section>
-
-    <!-- Footer -->
-    <!--footer>
-    </footer-->
-
-    <script>
-          var goBack = function()
-          {
-            window.location.href = '/'
-          }
-    </script>
-
-    <script>
-          var btn1 = function() 
-          {
-            window.location.href = '/chat'
-          }
-    </script>
 
     <!-- jQuery -->
     <script src="javascripts/jquery.js"></script>
@@ -85,79 +58,62 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="javascripts/bootstrap.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
     <script>
-    // Closes the sidebar menu
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
+        var activities =<%-JSON.stringify(activitiesJSON)%>
+        var activity;   
+        var urlParams = new URLSearchParams(window.location.search);
+        id = urlParams.get('id');
+        for(var i=0; i<activities.activities.length; i++) {
+            if(activities.activities[i].id == id)
+            {
+                activity = activities.activities[i];
+            }
+        }
+
+        var btn1 = function(id) 
+        {
+        window.location.href = '/chat?id='+id;
+        }
+
+        var populatePage = function(){
+            var parent = document.getElementById("services");
+            var newdiv = document.createElement("div");
+            newdiv.className = "container";
+            newdiv.innerHTML = '<div class="row text-center"> <div class="col-xs-6 col-md-3"> <img height="140" width="140" src="'+activity.pictures[0].src+'"> </div> <div class="col-xs-6 col-md-3"> <span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-user fa-stack-1x text-primary"></i> </span> <br/> <strong>'+activity.hostName+'</strong> </div> <div> <div class="row text-center"> <div class="col-xs-12 col-md-8"> <h3>'+activity.name+'</h3> <div class="row"> <div class="col-md-12 col-sm-6"> <div id="divwithtags" class="service-item"> <h4>'+activity.description+'</h4> <div class="row"> <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-clock-o" aria-hidden="true"></i> Approx '+activity.maxTimeInMin+' min</h5></div> <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-usd" aria-hidden="true"></i> Max $'+activity.maxCost+'</h5></div> </div> </div> <br /> <a href="#" onclick=\'btn1('+activity.id+')\' class="btn btn-lg btn-light1"><i class="fa fa-comments" aria-hidden="true"></i> Contact '+activity.hostName+'</a> </div> </div> </div> </div>';
+            parent.append(newdiv);
+
+            var tags = document.createElement("div");
+            tags.className = "col-md-3 col-sm-6 activitytags";
+            tags.innerHTML = "";
+            for(var i=0; i<activity.filters.length; i++) {
+                if(activity.filters[i].value == 1)
+                {
+                    if(activity.filters[i].name=="alcohol")
+                    {
+                        tags.innerHTML += '<h5><i class="fa fa-glass" aria-hidden="true"></i>'+activity.filters[i].name+'</h5> ';
+                    }
+                    else if(activity.filters[i].name=="childsafe")
+                    {
+                        tags.innerHTML += '<h5><i class="fa fa-child" aria-hidden="true"></i>'+activity.filters[i].name+'</h5> ';
+                    }
+                    else
+                    {
+                        tags.innerHTML += '<h5><i class="fa" aria-hidden="true"></i>'+activity.filters[i].name+'</h5> ';
+                    }
                 }
             }
-        });
-    });
-    //#to-top button appears after scrolling
-    var fixed = false;
-    $(document).scroll(function() {
-        if ($(this).scrollTop() > 250) {
-            if (!fixed) {
-                fixed = true;
-                // $('#to-top').css({position:'fixed', display:'block'});
-                $('#to-top').show("slow", function() {
-                    $('#to-top').css({
-                        position: 'fixed',
-                        display: 'block'
-                    });
-                });
-            }
-        } else {
-            if (fixed) {
-                fixed = false;
-                $('#to-top').hide("slow", function() {
-                    $('#to-top').css({
-                        display: 'none'
-                    });
-                });
-            }
+            document.getElementById("divwithtags").append(tags);
         }
-    });
-    // Disable Google Maps scrolling
-    // See http://stackoverflow.com/a/25904582/1607849
-    // Disable scroll zooming and bind back the click event
-    var onMapMouseleaveHandler = function(event) {
-        var that = $(this);
-        that.on('click', onMapClickHandler);
-        that.off('mouseleave', onMapMouseleaveHandler);
-        that.find('iframe').css("pointer-events", "none");
-    }
-    var onMapClickHandler = function(event) {
-            var that = $(this);
-            // Disable the click handler until the user leaves the map area
-            that.off('click', onMapClickHandler);
-            // Enable scrolling zoom
-            that.find('iframe').css("pointer-events", "auto");
-            // Handle the mouse leave event
-            that.on('mouseleave', onMapMouseleaveHandler);
-        }
-        // Enable map zooming with mouse scroll when the user clicks the map
-    $('.map').on('click', onMapClickHandler);
+
+
+        populatePage();
     </script>
+
+    <!-- jQuery -->
+    <script src="javascripts/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="javascripts/bootstrap.min.js"></script>
 
 </body>
 

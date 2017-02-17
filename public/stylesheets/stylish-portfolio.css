@@ -53,6 +53,13 @@ body {
     background-color: rgb(255,255,255);
 }
 
+.btn-light1 {
+    border-radius: 0;
+    color: #333;
+    background-color: #446eb6;
+    border-radius: 50px;
+}
+
 .btn-light:hover,
 .btn-light:focus,
 .btn-light:active {

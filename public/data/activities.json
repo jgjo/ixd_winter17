@@ -3,82 +3,82 @@
     {
       "id": 101,
       "name": "Paint with wine",
-      "description": "paint with a glass of wine along the lake",
-      "hostName": "Ann",
-      "hostID": 123,
-      "maxCost": 50,
+      "description": "paint with a glass of wine by the ocean",
+      "hostName": "Ann Paul",
+      "hostID": 1,
+      "maxCost": 70,
       "maxTimeInMin": 23,
       "location": {
         "lat": 32.717058,
         "lng": -117.167121
       },
       "pictures": [{"src":"images/activityimg1.jpg"}],
-      "filters": {
-        "childsafe": 1,
-        "outdoor": 0,
-        "alcohol": 1,
-        "food": 0
-      }
+      "filters": [
+        {"name":"childsafe", "value": 1},
+        {"name":"outdoor", "value": 0},
+        {"name":"alcohol", "value": 1},
+        {"name":"food", "value": 0}
+        ]
     },
     {
       "id": 102,
       "name": "blueberry picking",
       "description": "blueberry picking on the hills",
-      "hostName": "Ann",
-      "hostID": 123,
-      "maxCost": 50,
-      "maxTimeInMin": 23,
+      "hostName": "Julie Simmons",
+      "hostID": 2,
+      "maxCost": 20,
+      "maxTimeInMin": 90,
       "location": {
         "lat": 32.715738,
         "lng": -117.161084
       },
-      "pictures": [{"src":"images/activityimg1.jpg"}],
-      "filters": {
-        "childsafe": 1,
-        "outdoor": 0,
-        "alcohol": 1,
-        "food": 0
-      }
+      "pictures": [{"src":"images/activityimg2.jpg"}],
+      "filters": [
+        {"name":"childsafe", "value": 1},
+        {"name":"outdoor", "value": 1},
+        {"name":"alcohol", "value": 0},
+        {"name":"food", "value": 1}
+        ]
     },
     {
       "id": 103,
       "name": "Skateboarding",
       "description": "skateboard on local SD streets",
-      "hostName": "Ann",
-      "hostID": 123,
-      "maxCost": 50,
-      "maxTimeInMin": 23,
+      "hostName": "Dan Rogers",
+      "hostID": 3,
+      "maxCost": 20,
+      "maxTimeInMin": 45,
       "location": {
         "lat": 32.728449,
         "lng": -117.16622
       },
-      "pictures": [{"src":"images/activityimg1.jpg"}],
-      "filters": {
-        "childsafe": 1,
-        "outdoor": 0,
-        "alcohol": 1,
-        "food": 0
-      }
+      "pictures": [{"src":"images/activityimg3.jpg"}],
+      "filters": [
+        {"name":"childsafe", "value": 0},
+        {"name":"outdoor", "value": 1},
+        {"name":"alcohol", "value": 0},
+        {"name":"food", "value": 0}
+        ]
     },
     {
       "id": 104,
-      "name": "Paddleboarding",
-      "description": "",
-      "hostName": "Ann",
-      "hostID": 123,
-      "maxCost": 50,
-      "maxTimeInMin": 23,
+      "name": "Salsa on the beach",
+      "description": "dance like there's no tomorrow!",
+      "hostName": "Ginny Lander",
+      "hostID": 4,
+      "maxCost": 10,
+      "maxTimeInMin": 60,
       "location": {
         "lat": 32.708988,
         "lng": -117.16858
       },
-      "pictures": [{"src":"images/activityimg1.jpg"}],
-      "filters": {
-        "childsafe": 1,
-        "outdoor": 0,
-        "alcohol": 1,
-        "food": 0
-      }
+      "pictures": [{"src":"images/activityimg4.jpg"}],
+      "filters": [
+        {"name":"childsafe", "value": 1},
+        {"name":"outdoor", "value": 1},
+        {"name":"alcohol", "value": 0},
+        {"name":"food", "value": 0}
+        ]
     }
   ]
 }

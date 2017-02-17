@@ -22,7 +22,7 @@ router.get('/logexperiencepopup', function(req, res, next) {
 
 /* GET chat page. */
 router.get('/chat', function(req, res, next) {
-  res.render('chat', { title: 'IXD' });
+  res.render('chat', { title: 'IXD', activitiesJSON: activities});
   // res.render('testchat', { title: 'IXD' });
 });
 
