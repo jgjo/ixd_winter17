@@ -33,8 +33,8 @@
     </div>
     <div class="bg"></div>
 
-    <div class="exitButton" style="text-align: center">
-          <a href="/logexperience">
+    <div id="exitbtndiv" class="exitButton" style="text-align: center">
+          <a id="goingbtn" href="/logexperience">
             <button>We're going!</button>
           </a>
           <a onclick="btn2()">
@@ -150,8 +150,8 @@
 
           var btn2 = function() 
           {
-          window.alert("Activity cancelled");
-          window.location.href = '/'
+            window.alert("Activity cancelled");
+            window.location.href = '/'
           }
 
           var activities =<%-JSON.stringify(activitiesJSON)%>
@@ -165,18 +165,20 @@
               }
           }
 
-          var populatePage = function(){
+          var populatePage_hostName = function(){
               var parent = document.getElementById("userdiv");
               var newdiv = document.createElement("h1");
               newdiv.innerHTML = activity.hostName;
-              parent.append(newdiv);
-
-              var tags = document.createElement("div");
-              tags.className = "col-md-3 col-sm-6 activitytags";
-              tags.innerHTML = "";
+              parent.append(newdiv);              
           }
 
-          populatePage();
+          var updateRedirect = function()
+          {
+            document.getElementById("goingbtn").href="/logexperience?id="+activity.id;
+          }
+
+          populatePage_hostName();
+          updateRedirect();
     </script>
 
 </body>

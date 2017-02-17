@@ -121,7 +121,6 @@
     <script>
         var map;
         var activities =<%-JSON.stringify(activitiesJSON)%>
-        console.log(activities);
         var ownactivities =<%-JSON.stringify(ownactivitiesJSON)%>
 
         function initMap() {
@@ -209,8 +208,6 @@
 
                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
                     return function() {
-                      console.log("adding markers");
-                      console.log(activities);
                     infowindow.setContent('<div id="content">'+
                         '<div id="siteNotice">'+
                         '</div>'+

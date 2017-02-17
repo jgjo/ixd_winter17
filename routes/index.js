@@ -12,12 +12,7 @@ router.get('/', function(req, res, next) {
 
 /* GET logexperience page. */
 router.get('/logexperience', function(req, res, next) {
-  res.render('logexperience', { title: 'IXD', momentsJSON: moments });
-});
-
-/* GET logexperiencepopup page. */
-router.get('/logexperiencepopup', function(req, res, next) {
-  res.render('logexperiencepopup', { title: 'IXD' });
+  res.render('logexperience', { title: 'IXD', momentsJSON: moments, activitiesJSON: activities });
 });
 
 /* GET chat page. */

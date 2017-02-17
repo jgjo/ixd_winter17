@@ -16,10 +16,16 @@
         <% include ../views/partials/back %>
     </header>
 
-    <div id="addmomentdiv" style="text-align: center">
-          <a href="#" id="addmomentbtn">
-            <button class="modalbtn">Add</button>
-          </a>
+    <div class="container">
+        <div id="activitydiv" style="text-align: center">
+        </div>
+
+        <div id="addmomentdiv" style="text-align: center">
+              <br/>
+              <a href="#" id="addmomentbtn">
+                <button class="modalbtn">Add</button>
+              </a>
+        </div>
     </div>
 
     <!-- The Modal -->
@@ -28,7 +34,8 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <a href="#" onclick="showModalImage()">Add a picture!</a>
-        <img id="addmomentimg" class="hide" height="180" width="180" src="images/activityimg1.jpg"></img>
+        <img id="addmomentimg" class="hide" height="180" width="180" src="images/dummy_host.jpg"></img>
+        <br/>
         <p>Added Caption</p>
         <button id="savemomentbtn">Save</button>
       </div>
@@ -95,23 +102,52 @@
         var moments =<%-JSON.stringify(momentsJSON)%>
         var momentsCount = 0;
 
+
+        var activities =<%-JSON.stringify(activitiesJSON)%>
+        var activity;   
+        var urlParams = new URLSearchParams(window.location.search);
+        id = urlParams.get('id');
+        for(var i=0; i<activities.activities.length; i++) {
+          if(activities.activities[i].id == id)
+          {
+              activity = activities.activities[i];
+          }
+        }
+
+        var parent = document.getElementById("activitydiv");
+        var newdiv = document.createElement("h1");
+        newdiv.innerHTML = activity.name+ " with " + activity.hostName;
+        parent.append(newdiv); 
+
         var addMoment = function(i){
+            var username = "";
+            if(i==0)
+            {
+                username = "You";
+            }
+            else
+            {
+                username = activity.hostName;
+            }
+
             var moment = moments.moments[i];
             console.log(moment);
             var parent = document.getElementById("cd-timeline");
             var newdiv = document.createElement("div");
             newdiv.className = "cd-timeline-block";
-            newdiv.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="180" width="180" src="'+moment.pictureSrc+'" alt="Picture"> <p>'+moment.caption+'</p> <a href="#0" class="cd-read-more">Ann</a> <span class="cd-date">Jan 24</span> </div>';
+            newdiv.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="100" width="100" src="'+moment.pictureSrc+'" alt="Picture"> <p>'+moment.caption+'</p> <a href="#0" class="cd-read-more">'+username+'</a> <span class="cd-date">Jan 24</span> </div>';
             parent.insertBefore(newdiv, parent.firstChild);
         }
 
         var populateMoment = function()
         {
             var addResponse = Math.random();
-            addMoment(1);
+            var rand = Math.floor(Math.random() * 3)
+            addMoment(0);
             if(addResponse>0.5){
-                addMoment(0);
+                addMoment(rand+1);
             }
+
         }
 
     </script>
