@@ -12,20 +12,55 @@
     
     <div style="text-align: center">
         <p>ADD ACTIVITY</p>
-        <form action="demo_form.asp">
-            Activity name: <input type="text" name="fname"><br>
-            Location: 55 STREET  <input type="button" value="change" onclick = 'btn1()'><br>
-            Add photo: <input type="button" value="change" onclick = 'window.alert("takes you to camera to click a picture")'><br>
-            How long will this take? <input type="text" name="fname"><br>
-            Approximate cost: <input type="text" name="fname"><br><br>
+        <form id="addActivityForm">
+            <div class="form-group">
+                <label>Activity name</label>
+                <input class="form-control" type="text" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" name="description" type="text" required></textarea>
+            </div>
+            <div class="form-group">
+                <label><b>Location: </b>55 STREET</label>
+                <button onclick = 'btn1()'>Change</button>
+            </div>
+            <div class="form-group">
+                <label>Add Photo</label>
+                <button onclick = 'window.alert("takes you to camera to click a picture")'>Change</button>
+            </div>
+            <div class="form-group">
+                <label>How long will this take?</label>
+                <input class="form-control" type="number" name="maxTimeInMin" required/>
+            </div>
+            <div class="form-group">
+                <label>Approximate cost:</label>
+                <input class="form-control" type="number" name="maxCost" required/>
+            </div>
+            <div class="form-group">
+                <label>Choose Tags</label>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="childsafe" checked>
+                        Child Safe
+                    </label>
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="outdoor">
+                        Outdoor
+                    </label>
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="alcohol">
+                        Alcohol
+                    </label>
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="food">
+                        Food
+                    </label>
+                </div>
+            </div>
 
-            Choose tags<br>
-            <input type="checkbox" name="fil" value="cs" checked="checked">Child safe<br>
-            <input type="checkbox" name="fil" value="a">Alcohol<br>
-            <input type="checkbox" name="fil" value="f">Food<br>
-            
+            <button type="submit" class="btn btn-primary">Save Activity</button>
         </form>
-        <button onclick='btn2()'>Save Activity</button>
     </div>
 
     <script>
@@ -41,11 +76,23 @@
             window.alert("Location changes (happens with a map plugin)");
           }
 
-          var btn2 = function() 
-          {
-            window.alert("Activity Saved");
-            window.location.href = '/'
-          }
+          $('#addActivityForm').submit(function (event) {
+            event.preventDefault();
+            var formData = $(this).serializeObject();
+            var data = {
+              name: formData.name,
+              description: formData.description,
+              maxCost: parseInt(formData.maxCost),
+              maxTimeInMin: parseInt(formData.maxTimeInMin),
+              childsafe: !!formData.childSafe,
+              outdoor: !!formData.outdoor,
+              alcohol: !!formData.alcohol,
+              food: !!formData.food
+            };
+            $.post('/api/activity', data, function success() {
+              window.location.href = '/';
+            });
+          });
     </script>
   </body>
 </html>

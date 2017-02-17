@@ -4,9 +4,17 @@ var router = express.Router();
 var activities = require('../public/data/activities.json');
 var ownactivities = require('../public/data/ownactivities.json');
 var moments = require('../public/data/moments.json');
+var id = 105;
+var hostID = 69;
+var location = {
+  "lat": 32.712705,
+  "lng": -117.162629
+};
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log('Activities length: ' + activities.activities.length);
   res.render('index', { title: 'IXD', activitiesJSON: activities, ownactivitiesJSON: ownactivities});
 });
 
@@ -64,6 +72,36 @@ router.get('/login', function(req, res, next) {
 /* GET login page. */
 router.get('/test', function(req, res, next) {
   res.render('test');
+});
+
+
+router.post('/api/activity', function (req, res) {
+  if (!(req.body.name && req.body.description && req.body.maxCost && req.body.maxTimeInMin
+    && req.body.childsafe && req.body.outdoor && req.body.alcohol && req.body.food)) {
+    return res.status(400).json({error: 'Missing fields'});
+  }
+
+  var newActivity = {
+    id: id++,
+    name: req.body.name,
+    description: req.body.description,
+    hostName: 'Patanjali',
+    hostID: hostID++,
+    maxCost: req.body.maxCost,
+    maxTimeInMin: req.body.maxTimeInMin,
+    location: location,
+    pictures: [{"src": "http://timesofindia.indiatimes.com/photo/8708670.cms"}],
+    filters: [
+      {"name":"childsafe", "value": req.body.childSafe},
+      {"name":"outdoor", "value": req.body.outdoor},
+      {"name":"alcohol", "value": req.body.alcohol},
+      {"name":"food", "value": req.body.food}
+    ]
+  };
+  location.lat = location.lat + 0.01;
+  location.lng = location.lng + 0.01;
+  activities.activities.push(newActivity);
+  res.sendStatus(200);
 });
 
 module.exports = router;
