@@ -2,7 +2,7 @@
 
 var addclick = function() 
 {
-  res.render('activity.ejs');
+  window.location.href = '/addactivity'
 }
 
 var filterclick = function() 
