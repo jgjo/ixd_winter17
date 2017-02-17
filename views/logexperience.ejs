@@ -133,6 +133,7 @@
             var username = activity.hostName;
 
             var moment = moments.moments[i];
+            console.log(moment.pictureSrc);
             var parent = document.getElementById("cd-timeline");
             var newdiv = document.createElement("div");
             newdiv.className = "cd-timeline-block";
@@ -142,11 +143,11 @@
 
         var populateMoment = function(caption)
         {
-            var parent = document.getElementById("cd-timeline");
-            var newdiv = document.createElement("div");
-            newdiv.className = "cd-timeline-block";
-            newdiv.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="100" width="100" src="https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg" alt="Picture"> <p>'+caption+'</p> <a href="#0" class="cd-read-more">You</a> <span class="cd-date">Jan 24</span> </div>';
-            parent.insertBefore(newdiv, parent.firstChild);
+            var p = document.getElementById("cd-timeline");
+            var n = document.createElement("div");
+            n.className = "cd-timeline-block";
+            n.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="100" width="100" src="https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg" alt="Picture"> <p>'+caption+'</p> <a href="#0" class="cd-read-more">You</a> <span class="cd-date">Jan 24</span> </div>';
+            p.insertBefore(n, p.firstChild);
 
             var rand = Math.floor(Math.random() * 3);
             if(Math.random()>0.5){
@@ -187,8 +188,6 @@
             modal.style.display = "none";
             hideModalImage();
             populateMoment(document.getElementById("txt_caption").value);
-            console.log(document.getElementById("txt_caption").value);
-
         }
 
 
