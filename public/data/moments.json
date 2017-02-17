@@ -4,25 +4,25 @@
       "id": 201,
       "caption": "This is so much fun!",
       "user": 2,
-      "pictureSrc": "/images/dummy_host.jpg"
+      "pictureSrc": "images/dummy_host.jpg"
     },
     {
       "id": 202,
       "caption": "Refreshing! Glad I did this.",
       "user": 2,
-      "pictureSrc": "/images/dummy_host1.jpg"
+      "pictureSrc": "images/dummy_host1.jpg"
     },
     {
       "id": 203,
       "caption": "So beautiful!",
       "user": 2,
-      "pictureSrc": "/images/dummy_host2.jpg"
+      "pictureSrc": "images/dummy_host2.jpg"
     },
     {
       "id": 204,
       "caption": "What a beautiful day!",
       "user": 3,
-      "pictureSrc": "/images/activityimg1.jpg"
+      "pictureSrc": "images/activityimg1.jpg"
     }
   ]
 }
