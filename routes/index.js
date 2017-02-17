@@ -82,15 +82,16 @@ router.post('/api/activity', function (req, res) {
   }
 
   var newActivity = {
+    own: 1,
     id: id++,
     name: req.body.name,
     description: req.body.description,
-    hostName: 'Patanjali',
+    hostName: 'Mia Sunny',
     hostID: hostID++,
     maxCost: req.body.maxCost,
     maxTimeInMin: req.body.maxTimeInMin,
     location: location,
-    pictures: [{"src": "http://timesofindia.indiatimes.com/photo/8708670.cms"}],
+    pictures: [{"src": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487334028/dummy_host4_v2wfpn.jpg"}],
     filters: [
       {"name":"childsafe", "value": req.body.childSafe},
       {"name":"outdoor", "value": req.body.outdoor},

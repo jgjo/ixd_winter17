@@ -136,9 +136,11 @@
     </script>
 
     <script>
+          var urlParams = new URLSearchParams(window.location.search);
+          id = urlParams.get('id');
           var goBack = function()
           {
-            window.location.href = '/activity'
+            window.location.href = '/activity?id='+id
           }
     </script>
 

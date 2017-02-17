@@ -76,9 +76,11 @@
     <script src="javascripts/timelinemain.js"></script> <!-- Resource jQuery -->
 
     <script>
+            var urlParams = new URLSearchParams(window.location.search);
+            id = urlParams.get('id');
             var goBack = function()
             {
-                window.location.href = '/chat'
+                window.location.href = '/chat?id='+id;
             }
             var btn2 = function() 
             {
@@ -110,7 +112,7 @@
 
     <script>
         var moments =<%-JSON.stringify(momentsJSON)%>
-        var momentsCount = 0;
+        console.log(moments);
 
 
         var activities =<%-JSON.stringify(activitiesJSON)%>
@@ -129,10 +131,12 @@
         newdiv.innerHTML = activity.name+ " with " + activity.hostName;
         parent.append(newdiv); 
 
-        var addMoment = function(i){
+        var addMoment = function(){
+
+            var rand = Math.floor(Math.random() * 3);
             var username = activity.hostName;
 
-            var moment = moments.moments[i];
+            var moment = moments.moments[rand+1];
             console.log(moment.pictureSrc);
             var parent = document.getElementById("cd-timeline");
             var newdiv = document.createElement("div");
@@ -149,9 +153,8 @@
             n.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="100" width="100" src="https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg" alt="Picture"> <p>'+caption+'</p> <a href="#0" class="cd-read-more">You</a> <span class="cd-date">Jan 24</span> </div>';
             p.insertBefore(n, p.firstChild);
 
-            var rand = Math.floor(Math.random() * 3);
             if(Math.random()>0.5){
-                addMoment(rand+1);
+                addMoment();
             }
 
 

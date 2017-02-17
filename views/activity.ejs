@@ -8,6 +8,7 @@
 <body>
     <header>
         <% include ../views/partials/header %>
+        <% include ../views/partials/back %>
     </header>
     
     <!-- Services -->
@@ -109,11 +110,12 @@
         populatePage();
     </script>
 
-    <!-- jQuery -->
-    <script src="javascripts/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="javascripts/bootstrap.min.js"></script>
+    <script>
+          var goBack = function()
+          {
+            window.location.href = '/'
+          }
+    </script>
 
 </body>
 

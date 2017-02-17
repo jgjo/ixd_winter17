@@ -169,21 +169,25 @@
         function addMarkers(color)
         {
             var infowindow = new google.maps.InfoWindow();;
-
-            // CREATE PIN
-            var pinColor = color;
-            var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-            new google.maps.Size(21, 34),
-            new google.maps.Point(0,0),
-            new google.maps.Point(10, 34));
-            var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
-            new google.maps.Size(40, 37),
-            new google.maps.Point(0, 0),
-            new google.maps.Point(12, 35));
             
 
             // LOOP THROUGH ACTIVITIES TO CREATE MARKER
             for(var i=0; i<activities.activities.length; i++) {
+
+                if(activities.activities[i].own==1)
+                {
+                    color="E67E22";
+                }
+                // CREATE PIN
+                var pinColor = color;
+                var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+                new google.maps.Size(21, 34),
+                new google.maps.Point(0,0),
+                new google.maps.Point(10, 34));
+                var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
+                new google.maps.Size(40, 37),
+                new google.maps.Point(0, 0),
+                new google.maps.Point(12, 35));
 
                 // infowindow = new google.maps.InfoWindow({
                 //   content: contentString
@@ -204,18 +208,36 @@
 
                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
                     return function() {
-                    infowindow.setContent('<div id="content">'+
-                        '<div id="siteNotice">'+
-                        '</div>'+
-                        '<h1 id="firstHeading" class="firstHeading">'+activities.activities[i].name+'</h1>'+
-                        '<div id="bodyContent">'+
-                        '<p>'+activities.activities[i].description+'</p>'+
-                        '<p>Host: '+activities.activities[i].hostName+
-                        '</p>'+
-                        '<img height="140" width="140" src="'+activities.activities[i].pictures[0].src+'">'+
-                        '<p><br/><button onclick=activityclick('+activities.activities[i].id+')>View</button></p>'+
-                        '</div>'+
-                        '</div>');
+                    if(activities.activities[i].own==1)
+                    {
+                        infowindow.setContent('<div id="content">'+
+                            '<div id="siteNotice">'+
+                            '</div>'+
+                            '<h1 id="firstHeading" class="firstHeading">'+activities.activities[i].name+'</h1>'+
+                            '<div id="bodyContent">'+
+                            '<p>'+activities.activities[i].description+'</p>'+
+                            '<p>Host: '+activities.activities[i].hostName+
+                            '</p>'+
+                            '<img height="140" width="140" src="'+activities.activities[i].pictures[0].src+'">'+
+                            '<p> </div>'+
+                            '</div>');
+
+                    }
+                    else
+                    {
+                        infowindow.setContent('<div id="content">'+
+                            '<div id="siteNotice">'+
+                            '</div>'+
+                            '<h1 id="firstHeading" class="firstHeading">'+activities.activities[i].name+'</h1>'+
+                            '<div id="bodyContent">'+
+                            '<p>'+activities.activities[i].description+'</p>'+
+                            '<p>Host: '+activities.activities[i].hostName+
+                            '</p>'+
+                            '<img height="140" width="140" src="'+activities.activities[i].pictures[0].src+'">'+
+                            '<p><br/><button onclick=activityclick('+activities.activities[i].id+')>View</button></p>'+
+                            '</div>'+
+                            '</div>');
+                    }
                     infowindow.open(map, marker);
                     }
                 })(marker, i));
