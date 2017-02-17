@@ -4,25 +4,25 @@
       "id": 201,
       "caption": "This is so much fun!",
       "user": 2,
-      "pictureSrc": "images/dummy_host.jpg"
+      "pictureSrc": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg"
     },
     {
       "id": 202,
       "caption": "Refreshing! Glad I did this.",
       "user": 2,
-      "pictureSrc": "images/dummy_host1.jpg"
+      "pictureSrc": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322948/dummy_host1_q5ooik.jpg"
     },
     {
       "id": 203,
       "caption": "So beautiful!",
       "user": 2,
-      "pictureSrc": "images/dummy_host2.jpg"
+      "pictureSrc": "http://res.cloudinary.com/din6mjlbd/image/upload/v1487322947/dummy_host2_gaaoad.jpg.jpg"
     },
     {
       "id": 204,
       "caption": "What a beautiful day!",
       "user": 3,
-      "pictureSrc": "images/activityimg1.jpg"
+      "pictureSrc": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/activityimg1_r4m4a3.jpg.jpg"
     }
   ]
 }
