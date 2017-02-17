@@ -2,7 +2,6 @@
 <html >
 <head>
     <% include ../views/partials/head %>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
@@ -13,25 +12,17 @@
 </head>
 
 <body>
-
-    <!-- <header>
-        <% #include ../views/partials/header %>
-    </header> -->
-    <div class="exitButton" style="text-align: center">
-          <a href="/logexperience">
-            <button>We're going!</button>
-          </a>
-          <a href="/">
-            <button>It didn't work out</button>
-          </a>
-    </div>
+    <header>
+        <% include ../views/partials/header %>
+    </header>
 
     <div class="chat">
       <div class="chat-title">
-        <h1>Fabio Ottaviani</h1>
+        <h1>User Name</h1>
         <h2>Supah</h2>
         <figure class="avatar">
-          <img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure>
+          <img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" />
+        </figure>
       </div>
       <div class="messages">
         <div class="messages-content"></div>
@@ -43,110 +34,120 @@
     </div>
     <div class="bg"></div>
 
+    <div class="exitButton" style="text-align: center">
+          <a href="/logexperience">
+            <button>We're going!</button>
+          </a>
+          <a onclick="btn2()">
+            <button>It didn't work out</button>
+          </a>
+          <!-- <button onclick='btn2()'>It didn't work out</button> -->
+    </div>
 
-    <!--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js'></script>-->
 
-    <!--<script>
-        // var $messages = $('.messages-content'),
-        //     d, h, m,
-        //     i = 0;
+    <script>
+        var $messages = $('.messages-content'),
+            d, h, m,
+            i = 0;
 
-        // $(window).load(function() {
-        //   $messages.mCustomScrollbar();
-        //   setTimeout(function() {
-        //     fakeMessage();
-        //   }, 10);
-        // });
+        $(window).load(function() {
+          $messages.mCustomScrollbar();
+          setTimeout(function() {
+            fakeMessage();
+          }, 10);
+        });
 
-        // function updateScrollbar() {
-        //   $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
-        //     scrollInertia: 10,
-        //     timeout: 0
-        //   });
-        // }
+        function updateScrollbar() {
+          $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
+            scrollInertia: 10,
+            timeout: 0
+          });
+        }
 
-        // function setDate(){
-        //   d = new Date()
-        //   if (m != d.getMinutes()) {
-        //     m = d.getMinutes();
-        //     $('<div class="timestamp">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
-        //   }
-        // }
+        function setDate(){
+          d = new Date()
+          if (m != d.getMinutes()) {
+            m = d.getMinutes();
+            $('<div class="timestamp">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
+          }
+        }
 
-        // function insertMessage() {
-        //   msg = $('.message-input').val();
-        //   if ($.trim(msg) == '') {
-        //     return false;
-        //   }
-        //   $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
-        //   setDate();
-        //   $('.message-input').val(null);
-        //   updateScrollbar();
-        //   setTimeout(function() {
-        //     fakeMessage();
-        //   }, 100 + (Math.random() * 20) * 100);
-        // }
+        function insertMessage() {
+          msg = $('.message-input').val();
+          if ($.trim(msg) == '') {
+            return false;
+          }
+          $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
+          setDate();
+          $('.message-input').val(null);
+          updateScrollbar();
+          setTimeout(function() {
+            fakeMessage();
+          }, 100 + (Math.random() * 20) * 100);
+        }
 
-        // $('.message-submit').click(function() {
-        //   insertMessage();
-        // });
+        $('.message-submit').click(function() {
+          insertMessage();
+        });
 
-        // $(window).on('keydown', function(e) {
-        //   if (e.which == 13) {
-        //     insertMessage();
-        //     return false;
-        //   }
-        // })
+        $(window).on('keydown', function(e) {
+          if (e.which == 13) {
+            insertMessage();
+            return false;
+          }
+        })
 
-        // var Fake = [
-        //   'Hi there,!',
-        //   'Nice to meet you',
-        //   'How are you?',
-        //   'Not too bad, thanks',
-        //   'What do you do?',
-        //   'That\'s awesome',
-        //   'Codepen is a nice place to stay',
-        //   'I think you\'re a nice person',
-        //   'Why do you think that?',
-        //   'Can you explain?',
-        //   'Anyway I\'ve gotta go now',
-        //   'It was a pleasure chat with you',
-        //   'Time to make a new codepen',
-        //   'Bye',
-        //   ':)'
-        // ]
+        var Fake = [
+          'Hi there,!',
+          'Nice to meet you',
+          'How are you?',
+          'Not too bad, thanks',
+          'What do you do?',
+          'That\'s awesome',
+          'Codepen is a nice place to stay',
+          'I think you\'re a nice person',
+          'Why do you think that?',
+          'Can you explain?',
+          'Anyway I\'ve gotta go now',
+          'It was a pleasure chat with you',
+          'Time to make a new codepen',
+          'Bye',
+          ':)'
+        ]
 
-        // function fakeMessage() {
-        //   if ($('.message-input').val() != '') {
-        //     return false;
-        //   }
-        //   $('<div class="message loading new"><figure class="avatar"><img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-        //   updateScrollbar();
+        function fakeMessage() {
+          if ($('.message-input').val() != '') {
+            return false;
+          }
+          $('<div class="message loading new"><figure class="avatar"><img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+          updateScrollbar();
 
-        //   setTimeout(function() {
-        //     $('.message.loading').remove();
-        //     $('<div class="message new"><figure class="avatar"><img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure>' + Fake[i] + '</div>').appendTo($('.mCSB_container')).addClass('new');
-        //     setDate();
-        //     updateScrollbar();
-        //     i++;
-        //   }, 100 + (Math.random() * 20) * 100);
+          setTimeout(function() {
+            $('.message.loading').remove();
+            $('<div class="message new"><figure class="avatar"><img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure>' + Fake[i] + '</div>').appendTo($('.mCSB_container')).addClass('new');
+            setDate();
+            updateScrollbar();
+            i++;
+          }, 100 + (Math.random() * 20) * 100);
 
-        // }
+        }
     </script>
 
     <script>
-          // var btn1 = function() 
-          // {
-          //   window.location.href = '/logexperience'
-          // }
+          var btn1 = function() 
+          {
+            window.location.href = '/logexperience'
+          }
 
-          // var btn2 = function() 
-          // {
-          // window.alert("Activity cancelled");
-          // window.location.href = '/'
-          // }
-    </script>-->
+          var btn2 = function() 
+          {
+          window.alert("Activity cancelled");
+          window.location.href = '/'
+          }
+    </script>
 
 </body>
 </html>
