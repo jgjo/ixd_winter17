@@ -16,13 +16,13 @@
       "id": 203,
       "caption": "So beautiful!",
       "user": 2,
-      "pictureSrc": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322947/dummy_host2_gaaoad.jpg.jpg"
+      "pictureSrc": "http://res.cloudinary.com/din6mjlbd/image/upload/v1487322947/dummy_host2_gaaoad.jpg"
     },
     {
       "id": 204,
       "caption": "What a beautiful day!",
       "user": 3,
-      "pictureSrc": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/activityimg1_r4m4a3.jpg.jpg"
+      "pictureSrc": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/activityimg1_r4m4a3.jpg"
     }
   ]
 }
