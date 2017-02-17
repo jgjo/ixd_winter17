@@ -113,12 +113,12 @@
     <!-- Custom css -->
     <script src="javascripts/index.js"></script>
 
+    <!-- Maps -->
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdV_CqEBtoB4xae7DEXjtsHSCTZOZI9m0&callback=initMap">
     </script>
 
     <script>
-
         var map;
         var activities =<%-JSON.stringify(activitiesJSON)%>
         console.log(activities);
@@ -232,7 +232,6 @@
             //     window.alert("ACTIVITY!");
             // });
         }
-
     </script>
 
 </body>

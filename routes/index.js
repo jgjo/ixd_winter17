@@ -3,6 +3,7 @@ var router = express.Router();
 
 var activities = require('../public/data/activities.json');
 var ownactivities = require('../public/data/ownactivities.json');
+var moments = require('../public/data/moments.json');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -11,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 /* GET logexperience page. */
 router.get('/logexperience', function(req, res, next) {
-  res.render('logexperience', { title: 'IXD' });
+  res.render('logexperience', { title: 'IXD', momentsJSON: moments });
 });
 
 /* GET logexperiencepopup page. */

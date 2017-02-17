@@ -1,129 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="no-js">
 <head>
     <% include ../views/partials/head %>
-    <link href="stylesheets/timeline.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="stylesheets/timelinereset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="stylesheets/timelinestyle.css"> <!-- Resource style -->
+    <script src="javascripts/modernizr.js"></script>
 </head>
 <body>
     <header>
-      <% include ../views/partials/header %>
-      <% include ../views/partials/back %>
+        <% include ../views/partials/header %>
+        <% include ../views/partials/back %>
     </header>
 
-    <div style="text-align: center">
-        <p>LOG EXPERIENCE/ACTIVITY</p>
-        <button onclick='btn1()'>Add log entry</button>
-        <button onclick='btn2()'>Save Experience</button>
-        <button onclick='btn3()'>Cancel Experience</button>
+    <div id="addDiv">
+        <button onclick='populateMoment()'>Add</button>
     </div>
 
-    <ul class="timeline">
-    <li>
-        <div class="timeline-badge">
-          <a><i class="fa fa-circle" id=""></i></a>
-        </div>
-        <div class="timeline-panel">
-            <div class="timeline-heading">
-                <h4>Timeline Event</h4>
-            </div>
-            <div class="timeline-body">
-                <img src="images/activity2.jpg"/>
-                <p></p>
-            </div>
-            <div class="timeline-footer">
-                <p class="text-right">Feb-21-2014</p>
-            </div>
-        </div>
-    </li>
+    <section id="cd-timeline" class="cd-container">
+<!--                 
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-picture">
+                <img src="img/cd-icon-picture.svg" alt="Picture">
+            </div> 
 
-    <li class="timeline-inverted">
-        <div class="timeline-badge">
-            <a><i class="fa fa-circle invert" id=""></i></a>
-        </div>
-        <div class="timeline-panel">
-            <div class="timeline-heading">
-                <h4>Timeline Event</h4>
-            </div>
-            <div class="timeline-body">
-                <p>Stranguillione in deinde cepit roseo commendavit patris super color est se sed. Virginis plus plorantes abscederem assignato ipsum ait regem Ardalio nos filiae Hellenicus mihi cum. Theophilo litore in lucem in modo invenit quasi nomen magni ergo est se est Apollonius, habet clementiae venit ad nomine sed dominum depressit filia navem.</p>
-            </div>
-            <div class="timeline-footer">
-                <p class="text-right">Feb-23-2014</p>
-            </div>
-        </div>
-    </li>
+            <div class="cd-timeline-content">
+                <img height="180" width="180" src="images/activityimg1.jpg" alt="Picture">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio.</p>
+                <a href="#0" class="cd-read-more">Ann</a>
+                <span class="cd-date">Jan 14</span>
+            </div> 
+        </div>  -->
 
-    <li>
-        <div class="timeline-badge">
-            <a><i class="fa fa-circle" id=""></i></a>
-        </div>
-        <div class="timeline-panel">
-            <div class="timeline-heading">
-                <h4>Timeline Event</h4>
-            </div>
-            <div class="timeline-body">
-                <p>Advenientibus aliorum eam ad per te sed. Facere debetur aut veneris accedens.</p>
-            </div>
-            <div class="timeline-footer">
-                <p class="text-right">Feb-23-2014</p>
-            </div>
-        </div>
-    </li>
-
-    <li class="timeline-inverted">
-        <div class="timeline-badge">
-            <a><i class="fa fa-circle invert" id=""></i></a>
-        </div>
-        <div class="timeline-panel">
-            <div class="timeline-heading">
-                <h4>Timeline Event</h4>
-            </div>
-            <div class="timeline-body">
-                <p>Volvitur ingreditur id ait mea vero cum autem quod ait Cumque ego illum vero cum unde beata. Commendavi si non dum est in. Dionysiadem tuos ratio puella ut casus, tunc lacrimas effunditis magister cives Tharsis. Puellae addita verbaque' capellam sanctissima quid, apollinem existimas filiam rex cum autem quod tamen adnuente rediens eam est se in. Peracta licet ad nomine Maria non ait in modo compungi mulierem volutpat.</p>
-            </div>
-            <div class="timeline-footer">
-                <p class="text-right">Feb-27-2014</p>
-            </div>
-        </div>
-    </li>
-
-    <li>
-        <div class="timeline-badge">
-            <a><i class="fa fa-circle" id=""></i></a>
-        </div>
-        <div class="timeline-panel">
-            <div class="timeline-heading">
-                <h4>Timeline Event</h4>
-            </div>
-            <div class="timeline-body">
-                <p>Adfertur guttae sapientiae ducitur est Apollonius ut a a his domino Lycoridem in lucem. Theophile atque bona dei cenam veniebant est cum. Iusto opes mihi Tyrum in modo compungi mulierem ubi augue eiusdem ordo quos vero diam omni catervis famulorum. Bene dictis ut diem finito servis unde.</p>
-            </div>
-            <div class="timeline-footer">
-                <p class="text-right">Mar-01-2014</p>
-            </div>
-        </div>
-    </li>
-
-    <li  class="timeline-inverted">
-        <div class="timeline-badge">
-            <a><i class="fa fa-circle invert" id=""></i></a>
-        </div>
-        <div class="timeline-panel">
-            <div class="timeline-heading">
-                <h4>Timeline Event</h4>
-            </div>
-            <div class="timeline-body">
-                <p>Crede respiciens loco dedit beneficio ad suis alteri si puella eius in. Acceptis codicello lenonem in deinde plectrum anni ipsa quod eam est Apollonius.</p>
-            </div>
-            <div class="timeline-footer primary">
-                <p class="text-right">Mar-02-2014</p>
-            </div>
-        </div>
-    </li>
-    <li class="clearfix no-float"></li>
-    </ul>
-
+    </section> 
 
     <!-- jQuery -->
     <script src="javascripts/jquery.js"></script>
@@ -131,76 +40,33 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="javascripts/bootstrap.min.js"></script>
 
-	<script>
-    	  var btn1 = function() 
-    	  {
-    		window.location.href = '/logexperiencepopup'
-  		  }
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="javascripts/timelinemain.js"></script> <!-- Resource jQuery -->
 
-  		  var btn2 = function() 
-    	  {
-            window.alert("Experience saved!");
-    		window.location.href = '/'
-  		  }
 
-        var btn3 = function() 
+    <script>
+        var moments =<%-JSON.stringify(momentsJSON)%>
+        var momentsCount = 0;
+
+        var addMoment = function(i){
+            var moment = moments.moments[i];
+            console.log(moment);
+            var parent = document.getElementById("cd-timeline");
+            var newdiv = document.createElement("div");
+            newdiv.className = "cd-timeline-block";
+            newdiv.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="180" width="180" src="'+moment.pictureSrc+'" alt="Picture"> <p>'+moment.caption+'</p> <a href="#0" class="cd-read-more">Ann</a> <span class="cd-date">Jan 24</span> </div>';
+            parent.insertBefore(newdiv, parent.firstChild);
+        }
+
+        var populateMoment = function()
         {
-          window.alert("Experience abandoned!");
-          window.location.href = '/'
+            var addResponse = Math.random();
+            addMoment(1);
+            if(addResponse>0.5){
+                addMoment(0);
+            }
         }
 
-
-
-        var $component = 'Timeline';
-
-        function sort() {
-        var $itemIndex = 0;
-
-        console.log('reorder');
-
-        $('.' + $component).find('.' + $component + '-item').each(function(index) {
-
-          index++;
-          $itemIndex = (index < 10) ? '0' + index : index;
-          
-          $(this).find('.' + $component + '-item-index').text($itemIndex);
-
-          if (index % 2 === 0) {
-            $(this).addClass('is-right');
-          }
-          else {
-            $(this).removeClass('is-right');
-          }
-
-        });
-        }
-
-        $(document).ready(function(){
-                 sort();
-
-        var el = document.getElementById($component);
-          var sortable = Sortable.create(el, {
-            draggable: '.' + $component + "-item", 
-            handle: '.' + $component + "-item-top",
-            animation: 250,
-            scroll: true, // or HTMLElement
-            scrollSensitivity: 60, // px, how near the mouse must be to an edge to start scrolling.
-            scrollSpeed: 10, // px
-            ghostClass: "is-dropping",
-
-            onStart: function (event) {
-              $('.' + $component).toggleClass('is-dragging');
-              console.log('onStart')
-            },
-
-            onEnd: function (event) {
-              $('.' + $component).toggleClass('is-dragging');
-              sort();
-            },
-
-          });
-        });
     </script>
-
-  </body>
+</body>
 </html>

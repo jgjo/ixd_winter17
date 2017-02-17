@@ -1,0 +1,16 @@
+{
+  "moments": [
+    {
+      "id": 201,
+      "caption": "This is so much fun!",
+      "user": 2,
+      "pictureSrc": "images/activityimg2.jpg"
+    },
+    {
+      "id": 202,
+      "caption": "What a beautiful day!",
+      "user": 3,
+      "pictureSrc": "images/activityimg1.jpg"
+    }
+  ]
+}
