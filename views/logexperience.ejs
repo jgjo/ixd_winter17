@@ -17,6 +17,7 @@
     </header>
 
     <div class="container">
+
         <div id="activitydiv" style="text-align: center">
         </div>
 
@@ -24,6 +25,13 @@
               <br/>
               <a href="#" id="addmomentbtn">
                 <button class="modalbtn">Add</button>
+              </a>
+              <br/>
+              <a onclick='btn2()'>
+                <button class="modalbtn">Save Experience</button>
+              </a>
+              <a onclick='btn3()'>
+                <button class="modalbtn">Abandon Experience</button>
               </a>
         </div>
     </div>
@@ -34,7 +42,7 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <a href="#" onclick="showModalImage()">Add a picture!</a>
-        <img id="addmomentimg" class="hide" height="180" width="180" src="images/dummy_host.jpg"></img>
+        <img id="addmomentimg" class="hide" height="180" width="180" src="https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg"></img>
         <br/>
         <p>Added Caption</p>
         <button id="savemomentbtn">Save</button>
@@ -68,10 +76,21 @@
     <script src="javascripts/timelinemain.js"></script> <!-- Resource jQuery -->
 
     <script>
-          var goBack = function()
-          {
-            window.location.href = '/chat'
-          }
+            var goBack = function()
+            {
+                window.location.href = '/chat'
+            }
+            var btn2 = function() 
+            {
+                window.alert("Experience saved!");
+                window.location.href = '/';
+            }
+
+            var btn3 = function() 
+            {
+                  window.alert("Experience abandoned!");
+                  window.location.href = '/';
+            }
     </script>
     
 	<script>
@@ -83,18 +102,6 @@
           {
             document.getElementById("addmomentimg").className = "hide"; 
           }
-
-  		  var btn2 = function() 
-    	  {
-            window.alert("Experience saved!");
-    		window.location.href = '/'
-  		  }
-
-            var btn3 = function() 
-            {
-              window.alert("Experience abandoned!");
-              window.location.href = '/'
-            }
     </script>
 
 
