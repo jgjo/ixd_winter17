@@ -12,7 +12,7 @@
         "lat": 32.717058,
         "lng": -117.167121
       },
-      "pictures": [{"src":"images/activityimg1.jpg"}],
+      "pictures": [{"src":"/images/activityimg1.jpg"}],
       "filters": [
         {"name":"childsafe", "value": 1},
         {"name":"outdoor", "value": 0},
@@ -32,7 +32,7 @@
         "lat": 32.715738,
         "lng": -117.161084
       },
-      "pictures": [{"src":"images/activityimg2.jpg"}],
+      "pictures": [{"src":"/images/activityimg2.jpg"}],
       "filters": [
         {"name":"childsafe", "value": 1},
         {"name":"outdoor", "value": 1},
@@ -52,7 +52,7 @@
         "lat": 32.728449,
         "lng": -117.16622
       },
-      "pictures": [{"src":"images/activityimg3.jpg"}],
+      "pictures": [{"src":"/images/activityimg3.jpg"}],
       "filters": [
         {"name":"childsafe", "value": 0},
         {"name":"outdoor", "value": 1},
@@ -72,7 +72,7 @@
         "lat": 32.708988,
         "lng": -117.16858
       },
-      "pictures": [{"src":"images/activityimg4.jpg"}],
+      "pictures": [{"src":"/images/activityimg4.jpg"}],
       "filters": [
         {"name":"childsafe", "value": 1},
         {"name":"outdoor", "value": 1},
