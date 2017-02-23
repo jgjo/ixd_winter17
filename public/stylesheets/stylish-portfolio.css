@@ -151,6 +151,12 @@ hr.small {
     left: 0;
 }
 
+.custom-header{
+    z-index: 1;
+    position: fixed;
+    top:0;
+}
+
 #sidebar-wrapper.active {
     right: 250px;
     width: 250px;
