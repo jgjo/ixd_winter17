@@ -144,6 +144,13 @@ hr.small {
     right: 0;
 }
 
+#back-btn {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 #sidebar-wrapper.active {
     right: 250px;
     width: 250px;
