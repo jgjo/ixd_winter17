@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 
 /* GET logexperience page. */
 router.get('/logexperience', function(req, res, next) {
-  res.render('logexperience', { title: 'IXD', momentsJSON: moments, activitiesJSON: activities });
+  res.render('logexperience', { title: 'IXD', momentsJSON: moments, activitiesJSON: activities, activitylogJSON: activitylog });
 });
 
 /* GET chat page. */

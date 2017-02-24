@@ -6,8 +6,8 @@
 </head>
 <body>
     <header>
-        <% include ../views/partials/header.ejs %>
-        <% include ../views/partials/back.ejs %>
+        <% include ../views/partials/header%>
+        <% include ../views/partials/back%>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </header>
 
@@ -66,23 +66,30 @@
         activitylog = activitylog.activitylog;
         var activities =<%-JSON.stringify(activitiesJSON)%>
         activities=activities.activities;
-        console.log(activitylog.length);
+
         for(var i=0; i<activitylog.length; i++) {
           if(activitylog[i].past)
           {
             //past
             var parent = document.getElementById("past");
+            var href = "/viewmemory?id="+activitylog[i].activityid;
 
           }
           else
           {
             //ongoing
             var parent = document.getElementById("ongoing");
+            var href = "/logexperience?id="+activitylog[i].activityid;
           }
-          var newdiv = document.createElement("div");
-          newdiv.className = "col-md-6 col-sm-12";
-          newdiv.innerHTML = '<hr> <div class="service-item"> <span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-film fa-stack-1x text-primary"></i> </span> <h4> <strong>TITLENEW</strong> </h4> <h5>HOST</h5> <p>Description</p> <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a> </div>';
-          parent.append(newdiv);
+          for(var j=0; j<activities.length; i++) {
+            if(activities[j].id == activitylog[i].activityid)
+            {
+              var newdiv = document.createElement("div");
+              newdiv.className = "col-md-6 col-sm-12";
+              newdiv.innerHTML = '<hr> <div class="service-item"> <span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-film fa-stack-1x text-primary"></i> </span> <h4> <strong>' + activities[j].name + '</strong> </h4> <h5>HOST</h5> <p>' + activities[j].description + '</p> <a href="'+href+'" class="btn btn-light"> EXPLORE</a> </div>';
+              parent.append(newdiv);
+            }
+          }
         }
 
         var goBack = function()

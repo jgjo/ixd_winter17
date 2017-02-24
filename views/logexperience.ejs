@@ -117,20 +117,51 @@
 
 
     <script>
+
+        var populatePrevMoments = function(){
+
+            var prevmoments=[];
+            
+            for(var i=0; i<activitylog.activitylog.length; i++) {
+              if(activitylog.activitylog[i].activityid == id)
+              {
+                  prevmoments = activitylog.activitylog[i].log;
+              }
+            }
+
+            console.log(prevmoments);
+
+            for(var i=0; i<prevmoments.length; i++) {
+                var prevmoment = prevmoments[i];
+                var parent = document.getElementById("cd-timeline");
+                var newdiv = document.createElement("div");
+                newdiv.className = "cd-timeline-block";
+                newdiv.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="100" width="100" src="'+prevmoment.pictureSrc+'" alt="Picture"> <p>'+prevmoment.caption+'</p> <a href="#0" class="cd-read-more">'+prevmoment.username+'</a> <span class="cd-date">Jan 24</span> </div>';
+                parent.insertBefore(newdiv, parent.firstChild);
+            }   
+        }
+
         var moments =<%-JSON.stringify(momentsJSON)%>   
 
-        var activities =<%-JSON.stringify(activitiesJSON)%>
-        var activity;   
+        var activities =<%-JSON.stringify(activitiesJSON)%>           
+
+        var activitylog =<%-JSON.stringify(activitylogJSON)%>
+        console.log(activitylog);
 
         var urlParams = new URLSearchParams(window.location.search);
         id = urlParams.get('id');
 
+        //Get current activity
+        var activity;
         for(var i=0; i<activities.activities.length; i++) {
           if(activities.activities[i].id == id)
           {
               activity = activities.activities[i];
           }
         }
+
+        //populate prev moments        
+        populatePrevMoments();
         
         var data = {
             activityid: activity.id
@@ -230,5 +261,6 @@
             }
         }
     </script>
+
 </body>
 </html>
