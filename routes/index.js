@@ -4,6 +4,7 @@ var router = express.Router();
 var activities = require('../public/data/activities.json');
 var ownactivities = require('../public/data/ownactivities.json');
 var moments = require('../public/data/moments.json');
+var activitylog = require('../public/data/activitylog.json');
 var id = 105;
 var hostID = 69;
 var location = {
@@ -69,9 +70,9 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'IXD' });
 });
 
-/* GET login page. */
-router.get('/test', function(req, res, next) {
-  res.render('test');
+/* GET viewMemory page. */
+router.get('/viewmemory', function(req, res, next) {
+  res.render('viewmemory', { title: 'IXD', activitylogJSON: activitylog, activitiesJSON: activities });
 });
 
 
@@ -103,6 +104,42 @@ router.post('/api/activity', function (req, res) {
   location.lng = location.lng + 0.01;
   activities.activities.push(newActivity);
   res.sendStatus(200);
+});
+
+router.post('/api/moments', function (req, res) {
+  if (!(req.body.activityid && req.body.caption && req.body.username && req.body.pictureSrc)) {
+    return res.status(400).json({error: 'Missing fields'});
+  }
+
+  var newMoment = {
+    id: id++,
+    caption: req.body.caption,
+    username: req.body.username,
+    pictureSrc: req.body.pictureSrc
+  };
+
+  var objectExists = false;
+  for(var i=0; i<activitylog.activitylog.length; i++) {
+    if(activitylog.activitylog[i].activityid == req.body.activityid)
+    {
+      objectExists = true;
+      activitylog.activitylog[i].log.push(newMoment);
+      res.sendStatus(200);
+    }
+  }
+
+  if(!objectExists)
+  {
+    var log = [];
+    log.push(newMoment);
+    var newActivityLog = 
+    {
+      activityid: req.body.activityid,
+      log: log
+    }
+    activitylog.activitylog.push(newActivityLog);
+  }
+
 });
 
 module.exports = router;

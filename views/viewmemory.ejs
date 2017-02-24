@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../views/partials/head %>
+
+    <!-- <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" href="stylesheets/timelinereset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="stylesheets/timelinestyle.css"> <!-- Resource style -->
+    <!--<script src="javascripts/modernizr.js"></script> -->
+
+</head>
+<body>
+    <header>
+        <% include ../views/partials/header%>
+        <% include ../views/partials/back%>
+    </header>
+
+    <div class="container">
+        <div id="activitydiv" style="text-align: center">
+        </div>
+        <button href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank">
+          Share on Facebook
+        </button>
+    </div>
+
+
+    <section id="cd-timeline" class="cd-container">
+    </section> 
+
+    <!-- jQuery -->
+    <script src="javascripts/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="javascripts/bootstrap.min.js"></script>
+
+    <script>
+        var populateMoments = function(){
+
+            var username = activity.hostName;
+
+            for(var i=0; i<moments.length; i++) {
+                var moment = moments[i];
+                console.log(moment);
+                var parent = document.getElementById("cd-timeline");
+                var newdiv = document.createElement("div");
+                newdiv.className = "cd-timeline-block";
+                newdiv.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="100" width="100" src="'+moment.pictureSrc+'" alt="Picture"> <p>'+moment.caption+'</p> <a href="#0" class="cd-read-more">'+moment.username+'</a> <span class="cd-date">Jan 24</span> </div>';
+                parent.insertBefore(newdiv, parent.firstChild);
+            }   
+        }
+
+        var activitylog =<%-JSON.stringify(activitylogJSON)%>
+
+        var activities =<%-JSON.stringify(activitiesJSON)%>
+        var activity;   
+        var urlParams = new URLSearchParams(window.location.search);
+        id = urlParams.get('id');
+        for(var i=0; i<activities.activities.length; i++) {
+          if(activities.activities[i].id == id)
+          {
+              activity = activities.activities[i];
+          }
+        }
+        var moments;
+        for(var i=0; i<activitylog.activitylog.length; i++) {
+          if(activitylog.activitylog[i].activityid == id)
+          {
+              moments = activitylog.activitylog[i].log;
+          }
+        }
+
+        var parent = document.getElementById("activitydiv");
+        var newdiv = document.createElement("h1");
+        newdiv.innerHTML = activity.name+ " with " + activity.hostName;
+        parent.append(newdiv); 
+        populateMoments();
+
+        
+
+    </script>
+
+</body>
+</html>

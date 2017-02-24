@@ -111,9 +111,7 @@
 
 
     <script>
-        var moments =<%-JSON.stringify(momentsJSON)%>
-        console.log(moments);
-
+        var moments =<%-JSON.stringify(momentsJSON)%>   
 
         var activities =<%-JSON.stringify(activitiesJSON)%>
         var activity;   
@@ -125,13 +123,14 @@
               activity = activities.activities[i];
           }
         }
+        console.log(activity);
 
         var parent = document.getElementById("activitydiv");
         var newdiv = document.createElement("h1");
-        newdiv.innerHTML = activity.name+ " with " + activity.hostName;
+        newdiv.innerHTML = activity.name + " with " + activity.hostName;
         parent.append(newdiv); 
 
-        var addMoment = function(){
+        var addMoment = function(){ 
 
             var rand = Math.floor(Math.random() * 3);
             var username = activity.hostName;
@@ -143,6 +142,8 @@
             newdiv.className = "cd-timeline-block";
             newdiv.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="100" width="100" src="'+moment.pictureSrc+'" alt="Picture"> <p>'+moment.caption+'</p> <a href="#0" class="cd-read-more">'+username+'</a> <span class="cd-date">Jan 24</span> </div>';
             parent.insertBefore(newdiv, parent.firstChild);
+
+            persistMoment(moment.caption,username,moment.pictureSrc);
         }
 
         var populateMoment = function(caption)
@@ -153,11 +154,25 @@
             n.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="100" width="100" src="https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg" alt="Picture"> <p>'+caption+'</p> <a href="#0" class="cd-read-more">You</a> <span class="cd-date">Jan 24</span> </div>';
             p.insertBefore(n, p.firstChild);
 
+            persistMoment(caption,"You","https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg");
+
             if(Math.random()>0.4){
                 addMoment();
             }
 
+        }
 
+        var persistMoment = function(caption,username,pictureSrc)
+        {
+            var data = {
+              activityid: activity.id,
+              caption: caption,
+              username: username,
+              pictureSrc: pictureSrc
+            };
+            $.post('/api/moments', data, function success() {
+              var x = 10;
+            });
         }
 
     </script>
