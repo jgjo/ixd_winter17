@@ -16,7 +16,7 @@
                 <div class="col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
                     <h1>Add Activity</h1>
                     <form id="addActivityForm">
-                            <div class="form-group">
+                            <!--div class="form-group">
                                 <label>Activity name</label>
                                 <input class="form-control" type="text" name="name" required>
                             </div>
@@ -39,31 +39,96 @@
                             <div class="form-group">
                                 <label>Maximum cost (in USD):</label>
                                 <input class="form-control" type="number" name="maxCost" required/>
-                            </div>
-                            <div class="form-group">
-                                <label>Choose Tags</label>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="childsafe" checked>
-                                        Child Safe
-                                    </label>
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="outdoor">
-                                        Outdoor
-                                    </label>
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="alcohol">
-                                        Alcohol
-                                    </label>
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="food">
-                                        Food
-                                    </label>
-                                </div>
-                            </div>
+                            </div-->
 
-                            <button type="submit" class="btn btn-primary">Save Activity</button>
-                        </form>
+                      <div class="input-group" style="margin: 20px">
+                        <span class="input-group-addon"><i class="fa fa-globe" aria-hidden="true"></i></span>
+                        <input id="user" type="text" class="form-control" name="user" value="" placeholder="name">
+                      </div>
+                      <div class="input-group" style="margin: 20px">
+                        <span class="input-group-addon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+                        <input id="desc" type="text" class="form-control" name="description" placeholder="description">
+                      </div>
+
+                      <div class="input-group" style="margin: 20px">
+                        <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                        <input id="user" type="text" class="form-control" name="password" placeholder="location">
+                      </div>
+
+                      <div class="input-group" style="margin: 20px">
+                        <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                        <input id="user" type="text" class="form-control" name="maximum cost" value="" placeholder="cost">
+                      </div>
+
+                      <div class="input-group" style="margin: 20px">
+                        <span class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                        <select class="form-control" id="timeeSelect">
+                          <option>30 mins</option>
+                          <option>1 hr</option>
+                          <option>2 hrs</option>
+                          <option>3 hrs</option>
+                          <option>5 hrs</option>
+                          <option>8 hrs</option>
+                        </select>
+                        <!--input id="password" type="text" class="form-control" name="maximum time (mins)" placeholder="time (mins)"-->
+                      </div>
+
+                      <!--div class="form-group">
+                        <label for="exampleSelect1">Example select</label>
+                        <select class="form-control" id="exampleSelect1">
+                          <option>30 mins</option>
+                          <option>1 hr</option>
+                          <option>2 hrs</option>
+                          <option>3 hrs</option>
+                          <option>5 hrs</option>
+                          <option>8 hrs</option>
+                        </select>
+                      </div-->
+
+                      <div class="form-group">
+                        <label>Choose Tags</label>
+                        <div class="input-group" style="margin: 5px 20px;">
+                          <span class="input-group-addon"><i class="fa fa-child" aria-hidden="true"></i></span>
+                          <input id="user" type="checkbox" class="form-control" name="maximum cost" value="" placeholder="cost">
+                          <span class="input-group-addon"><i class="fa fa-tree" aria-hidden="true"></i></span>
+                          <input id="user" type="checkbox" class="form-control" name="maximum cost" value="" placeholder="cost">
+                          <span class="input-group-addon"><i class="fa fa-beer" aria-hidden="true"></i></span>
+                          <input id="user" type="checkbox" class="form-control" name="maximum cost" value="" placeholder="cost">
+                          <span class="input-group-addon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
+                          <input id="user" type="checkbox" class="form-control" name="maximum cost" value="" placeholder="cost">
+                        </div>
+                        <div class="row" style="margin: 0px 10px;">
+                          <div class="col-lg-3 col-xs-3 col-sm-3">Childproof</div>
+                          <div class="col-lg-3 col-xs-3 col-sm-3">Outdoors</div>
+                          <div class="col-lg-3 col-xs-3 col-sm-3">Alcohol</div>
+                          <div class="col-lg-3 col-xs-3 col-sm-3">Food</div>
+                        </div>
+                      </div>
+
+                      <!--div class="form-group">
+                          <label>Choose Tags</label>
+                          <div class="form-check">
+                              <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="childsafe" checked>
+                                  Child Safe
+                              </label>
+                              <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="outdoor">
+                                  Outdoor
+                              </label>
+                              <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="alcohol">
+                                  Alcohol
+                              </label>
+                              <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="food">
+                                  Food
+                              </label>
+                          </div>
+                      </div-->
+
+                      <button type="submit" class="btn btn-primary">Save Activity</button>
+                    </form>
                 </div>
             </div>
             <!--p>ADD ACTIVITY</p>
