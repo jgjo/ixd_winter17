@@ -6,74 +6,146 @@
 </head>
 <body>
     <header>
-        <% include ../views/partials/header%>
-        <% include ../views/partials/back%>
+        <% include ../views/partials/header.ejs %>
+        <% include ../views/partials/back.ejs %>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </header>
     <div style="text-align: center">
 	    <!--p>VIEW MEMORIES (PREVIOUS ACTIVITIES)</p-->
 
-      <!-- Services -->
-      <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-      <section id="services" class="services bg-primary">
-        <div class="container">
-          <div class="row text-center">
-            <div class="col-lg-10 col-lg-offset-1">
-              <h2>My Memories</h2>
-              <hr class="small">
-              <div class="row">
-                <div class="col-md-6 col-sm-12">
-                  <hr>
-                  <div class="service-item">
+      <section>
+        <ul class="nav nav-tabs">
+          <li class="btn-block active" style="width: 50%"><a data-toggle="tab" href="#sectionA"><h3>Past</h3></a></li>
+          <li class="btn-block" style="width: 50%"><a data-toggle="tab" href="#sectionB"><h3>Ongoing</h3></a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="sectionA" class="tab-pane fade in active">
+            <section id="services" class="services bg-primary">
+              <div class="container">
+                <div class="row text-center">
+                  <div class="col-lg-10 col-lg-offset-1">
+                    <h2>PAST</h2>
+                    <hr class="small">
+                    <div class="row">
+                      <div class="col-md-6 col-sm-12">
+                        <hr>
+                        <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                   <i class="fa fa-circle fa-stack-2x"></i>
                                   <i class="fa fa-film fa-stack-1x text-primary"></i>
                                 </span>
-                    <h4>
-                      <strong>TITLE</strong>
-                    </h4>
-                    <h5>HOST</h5>
-                    <p>Description</p>
-                    <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
-                  </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                  <hr>
-                  <div class="service-item">
+                          <h4>
+                            <strong>TITLE</strong>
+                          </h4>
+                          <h5>HOST</h5>
+                          <p>Description</p>
+                          <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <hr>
+                        <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-film fa-stack-1x text-primary"></i>
                             </span>
-                    <h4>
-                      <strong>TITLE</strong>
-                    </h4>
-                    <h5>HOST</h5>
-                    <p>Description</p>
-                    <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
-                  </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                  <hr>
-                  <div class="service-item">
+                          <h4>
+                            <strong>TITLE</strong>
+                          </h4>
+                          <h5>HOST</h5>
+                          <p>Description</p>
+                          <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <hr>
+                        <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-film fa-stack-1x text-primary"></i>
                             </span>
-                    <h4>
-                      <strong>TITLE</strong>
-                    </h4>
-                    <h5>HOST</h5>
-                    <p>Description</p>
-                    <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
+                          <h4>
+                            <strong>TITLE</strong>
+                          </h4>
+                          <h5>HOST</h5>
+                          <p>Description</p>
+                          <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.row (nested) -->
                   </div>
+                  <!-- /.col-lg-10 -->
                 </div>
+                <!-- /.row -->
               </div>
-              <!-- /.row (nested) -->
-            </div>
-            <!-- /.col-lg-10 -->
+              <!-- /.container -->
+            </section>
           </div>
-          <!-- /.row -->
+          <div id="sectionB" class="tab-pane fade">
+            <section id="services" class="services bg-primary">
+              <div class="container">
+                <div class="row text-center">
+                  <div class="col-lg-10 col-lg-offset-1">
+                    <h2>ONGOING</h2>
+                    <hr class="small">
+                    <div class="row">
+                      <div class="col-md-6 col-sm-12">
+                        <hr>
+                        <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-film fa-stack-1x text-primary"></i>
+                                </span>
+                          <h4>
+                            <strong>TITLE</strong>
+                          </h4>
+                          <h5>HOST</h5>
+                          <p>Description</p>
+                          <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <hr>
+                        <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-film fa-stack-1x text-primary"></i>
+                            </span>
+                          <h4>
+                            <strong>TITLE</strong>
+                          </h4>
+                          <h5>HOST</h5>
+                          <p>Description</p>
+                          <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <hr>
+                        <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-film fa-stack-1x text-primary"></i>
+                            </span>
+                          <h4>
+                            <strong>TITLE</strong>
+                          </h4>
+                          <h5>HOST</h5>
+                          <p>Description</p>
+                          <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                  </div>
+                  <!-- /.col-lg-10 -->
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.container -->
+            </section>
+          </div>
         </div>
-        <!-- /.container -->
       </section>
 
 	    <button onclick='btn1()'>VIEW ACTIVITY 1</button>
