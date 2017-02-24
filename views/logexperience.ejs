@@ -85,7 +85,13 @@
             var btn2 = function() 
             {
                 window.alert("Experience saved!");
-                window.location.href = '/';
+                var data = {
+                activityid: activity.id
+                };
+                $.post('/api/endlogexperience', data, function success() {
+                    window.location.href = '/';
+                });
+                
             }
 
             var btn3 = function() 
@@ -115,15 +121,23 @@
 
         var activities =<%-JSON.stringify(activitiesJSON)%>
         var activity;   
+
         var urlParams = new URLSearchParams(window.location.search);
         id = urlParams.get('id');
+
         for(var i=0; i<activities.activities.length; i++) {
           if(activities.activities[i].id == id)
           {
               activity = activities.activities[i];
           }
         }
-        console.log(activity);
+        
+        var data = {
+            activityid: activity.id
+        };
+        $.post('/api/startlogexperience', data, function success() {
+            var x = 10;
+        });
 
         var parent = document.getElementById("activitydiv");
         var newdiv = document.createElement("h1");

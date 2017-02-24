@@ -10,6 +10,7 @@
         <% include ../views/partials/back.ejs %>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </header>
+
     <div style="text-align: center">
 	    <!--p>VIEW MEMORIES (PREVIOUS ACTIVITIES)</p-->
 
@@ -26,52 +27,7 @@
                   <div class="col-lg-10 col-lg-offset-1">
                     <h2>PAST</h2>
                     <hr class="small">
-                    <div class="row">
-                      <div class="col-md-6 col-sm-12">
-                        <hr>
-                        <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-film fa-stack-1x text-primary"></i>
-                                </span>
-                          <h4>
-                            <strong>TITLE</strong>
-                          </h4>
-                          <h5>HOST</h5>
-                          <p>Description</p>
-                          <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-sm-12">
-                        <hr>
-                        <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-film fa-stack-1x text-primary"></i>
-                            </span>
-                          <h4>
-                            <strong>TITLE</strong>
-                          </h4>
-                          <h5>HOST</h5>
-                          <p>Description</p>
-                          <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-sm-12">
-                        <hr>
-                        <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-film fa-stack-1x text-primary"></i>
-                            </span>
-                          <h4>
-                            <strong>TITLE</strong>
-                          </h4>
-                          <h5>HOST</h5>
-                          <p>Description</p>
-                          <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
-                        </div>
-                      </div>
+                    <div id="past" class="row">
                     </div>
                     <!-- /.row (nested) -->
                   </div>
@@ -89,52 +45,7 @@
                   <div class="col-lg-10 col-lg-offset-1">
                     <h2>ONGOING</h2>
                     <hr class="small">
-                    <div class="row">
-                      <div class="col-md-6 col-sm-12">
-                        <hr>
-                        <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-film fa-stack-1x text-primary"></i>
-                                </span>
-                          <h4>
-                            <strong>TITLE</strong>
-                          </h4>
-                          <h5>HOST</h5>
-                          <p>Description</p>
-                          <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-sm-12">
-                        <hr>
-                        <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-film fa-stack-1x text-primary"></i>
-                            </span>
-                          <h4>
-                            <strong>TITLE</strong>
-                          </h4>
-                          <h5>HOST</h5>
-                          <p>Description</p>
-                          <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-sm-12">
-                        <hr>
-                        <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-film fa-stack-1x text-primary"></i>
-                            </span>
-                          <h4>
-                            <strong>TITLE</strong>
-                          </h4>
-                          <h5>HOST</h5>
-                          <p>Description</p>
-                          <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a>
-                        </div>
-                      </div>
+                    <div id="ongoing" class="row">                      
                     </div>
                     <!-- /.row (nested) -->
                   </div>
@@ -147,19 +58,38 @@
           </div>
         </div>
       </section>
-
-	    <button onclick='btn1()'>VIEW ACTIVITY 1</button>
-	    <button onclick='btn1()'>VIEW ACTIVITY 2</button>
 	</div>
 
     <script>
-          var goBack = function()
-          {
-            window.location.href = '/'
-          }
-    </script>
 
-	<script>
+        var activitylog =<%-JSON.stringify(activitylogJSON)%> 
+        activitylog = activitylog.activitylog;
+        var activities =<%-JSON.stringify(activitiesJSON)%>
+        activities=activities.activities;
+        console.log(activitylog.length);
+        for(var i=0; i<activitylog.length; i++) {
+          if(activitylog[i].past)
+          {
+            //past
+            var parent = document.getElementById("past");
+
+          }
+          else
+          {
+            //ongoing
+            var parent = document.getElementById("ongoing");
+          }
+          var newdiv = document.createElement("div");
+          newdiv.className = "col-md-6 col-sm-12";
+          newdiv.innerHTML = '<hr> <div class="service-item"> <span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-film fa-stack-1x text-primary"></i> </span> <h4> <strong>TITLENEW</strong> </h4> <h5>HOST</h5> <p>Description</p> <a href="#" class="btn btn-light"><!--i class="fa fa-magic" aria-hidden="true"></i-->  EXPLORE</a> </div>';
+          parent.append(newdiv);
+        }
+
+        var goBack = function()
+        {
+          window.location.href = '/'
+        }
+
     	  var btn1 = function() 
     	  {
     		window.location.href = '/viewactivity'

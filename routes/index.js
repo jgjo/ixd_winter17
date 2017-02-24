@@ -32,7 +32,7 @@ router.get('/chat', function(req, res, next) {
 
 /* GET viememories page. */
 router.get('/viewmemories', function(req, res, next) {
-  res.render('viewmemories', { title: 'IXD' });
+  res.render('viewmemories', { title: 'IXD', activitylogJSON: activitylog, activitiesJSON: activities });
 });
 
 /* GET viewactivity page. */
@@ -135,9 +135,71 @@ router.post('/api/moments', function (req, res) {
     var newActivityLog = 
     {
       activityid: req.body.activityid,
+      past: false,
       log: log
     }
     activitylog.activitylog.push(newActivityLog);
+    res.sendStatus(200);
+  }
+
+});
+
+router.post('/api/endlogexperience', function (req, res) {
+  if (!(req.body.activityid)) {
+    return res.status(400).json({error: 'Missing fields'});
+  }
+
+  var objectExists = false;
+  for(var i=0; i<activitylog.activitylog.length; i++) {
+    if(activitylog.activitylog[i].activityid == req.body.activityid)
+    {
+      objectExists = true;
+      activitylog.activitylog[i].past = true;
+      res.sendStatus(200);
+    }
+  }
+
+  if(!objectExists)
+  {
+    var log = [];
+    var newActivityLog = 
+    {
+      activityid: req.body.activityid,
+      past: true,
+      log: log
+    }
+    activitylog.activitylog.push(newActivityLog);
+    res.sendStatus(200);
+  }
+
+});
+
+router.post('/api/startlogexperience', function (req, res) {
+  if (!(req.body.activityid)) {
+    return res.status(400).json({error: 'Missing fields'});
+  }
+
+  var objectExists = false;
+  for(var i=0; i<activitylog.activitylog.length; i++) {
+    if(activitylog.activitylog[i].activityid == req.body.activityid)
+    {
+      objectExists = true;
+      activitylog.activitylog[i].past = false;
+      res.sendStatus(200);
+    }
+  }
+
+  if(!objectExists)
+  {
+    var log = [];
+    var newActivityLog = 
+    {
+      activityid: req.body.activityid,
+      past: false,
+      log: log
+    }
+    activitylog.activitylog.push(newActivityLog);
+    res.sendStatus(200);
   }
 
 });

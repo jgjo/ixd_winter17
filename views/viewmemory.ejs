@@ -3,10 +3,8 @@
 <head>
     <% include ../views/partials/head %>
 
-    <!-- <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="stylesheets/timelinereset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="stylesheets/timelinestyle.css"> <!-- Resource style -->
-    <!--<script src="javascripts/modernizr.js"></script> -->
 
 </head>
 <body>
@@ -37,7 +35,7 @@
         var populateMoments = function(){
 
             var username = activity.hostName;
-
+            console.log(moments.length);
             for(var i=0; i<moments.length; i++) {
                 var moment = moments[i];
                 console.log(moment);
@@ -50,6 +48,7 @@
         }
 
         var activitylog =<%-JSON.stringify(activitylogJSON)%>
+        console.log(activitylog);
 
         var activities =<%-JSON.stringify(activitiesJSON)%>
         var activity;   
@@ -73,9 +72,7 @@
         var newdiv = document.createElement("h1");
         newdiv.innerHTML = activity.name+ " with " + activity.hostName;
         parent.append(newdiv); 
-        populateMoments();
-
-        
+        populateMoments();        
 
     </script>
 
