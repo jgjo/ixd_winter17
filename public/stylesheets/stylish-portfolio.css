@@ -17,7 +17,7 @@ body {
 }
 
 #wrapper { position: relative; }
-#over_map { position: absolute; top: 10px; right: 10px; z-index: 99; }
+#over_map { position: absolute; top: 10px; right: 0px; z-index: 99; }
 
 .text-vertical-center {
     display: table-cell;
@@ -48,9 +48,9 @@ body {
 }
 
 .btn-light {
-    border-radius: 0;
+    border-radius: 60px;
     color: #333;
-    background-color: rgb(255,255,255);
+    background-color: #446EB6;
 }
 
 .btn-light1 {

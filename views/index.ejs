@@ -29,12 +29,12 @@
 
         <!-- Add activity and filter buttons overlayed on map -->
         <div id="over_map" width="100%" height="500px">
-          <div class="row">
+          <div class="row" style="margin: 50px 0px">
             <div class="col-lg-12 text-center" style="margin: 5px 5px;">
-              <a class="btn btn-lg btn-light" style="color: darkcyan;" onclick='addclick()'><i class="fa fa-plus" aria-hidden="true"></i></a>
+              <a class="btn btn-lg btn-light" style="color: white;" onclick='addclick()'><i class="fa fa-plus" aria-hidden="true"></i></a>
             </div>
             <div class="col-lg-12 text-center" style="margin: 5px 5px;">
-              <a class="btn btn-lg btn-light" style="color: darkcyan;" onclick='filterclick()'><i class="fa fa-sliders" aria-hidden="true"></i></a>
+              <a class="btn btn-lg btn-light" style="color: white;" onclick='filterclick()'><i class="fa fa-sliders" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
@@ -121,10 +121,30 @@
 
         function initMap() {
           var center = {lat: 32.715738, lng: -117.161084};
+          var style = [
+              {
+                featureType: "all",
+                elementType: "all",
+                stylers: [
+                  { saturation: -100 } // <-- THIS
+                ]
+              }
+          ];
+
           map = new google.maps.Map(document.getElementById('map'), {
             zoom: 13,
-            center: center
+            center: center,
+            mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'greyscale']
+               }
           });
+
+          var mapType = new google.maps.StyledMapType(style, { name:"Grayscale" });    
+          map.mapTypes.set('greyscale', mapType);
+          map.setMapTypeId('greyscale');
+          
+
+
 
           addMarkers("446EB6");
           //addOwnActivityMarkers("A9A9A9");
