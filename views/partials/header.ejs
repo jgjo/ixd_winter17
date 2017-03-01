@@ -1,5 +1,5 @@
-    <!-- Banner -->
-    <aside class="call-to-action bg-primary">
+<!-- Banner -->
+ <!--   <aside class="call-to-action bg-primary">
         <div style="height:35px" class="container">
             <div class="container">
                 <div class="row">
@@ -9,4 +9,45 @@
                 </div>
             </div>
         </div>
-    </aside>
+    </aside> -->
+
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+  <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+    <div class="mdl-layout__header-row" style="background-color:#446EB6">
+      <!-- Add spacer, to align navigation to the right in desktop -->
+      <div class="android-header-spacer mdl-layout-spacer"></div>
+      <span class="android-mobile-title mdl-layout-title">
+            <a href="/"><img class="android-logo-image" src="images/logo.png"></a>
+      </span>
+    </div>
+  </div>
+
+  <div class="android-drawer mdl-layout__drawer">
+    <span class="mdl-layout-title" style="background-color:#446EB6">
+      <img class="android-logo-image" src="images/logo.png">
+    </span>
+    <nav class="mdl-navigation">
+      <a href="#" class="mdl-navigation__link" onclick='profileclick()'>Profile</a>
+      <a href="#" class="mdl-navigation__link" onclick='memoryclick()'>Memories</a>
+      <a href="#" class="mdl-navigation__link" onclick='aboutclick()'>About</a>
+
+      <div class="android-drawer-separator"></div>
+      <span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='logoutClick()'>Logout</span>
+    </nav>
+  </div>
+
+  <div class="android-content mdl-layout__content">
+  </div>
+
+</div>
+
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script>
+  var logoutClick = function() 
+  {
+        window.location.href = '/login';
+  }
+</script>
