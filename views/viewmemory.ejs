@@ -3,26 +3,60 @@
 <head>
     <% include ../views/partials/head %>
 
+    <link rel="stylesheet" href="stylesheets/modal.css"> 
+
     <link rel="stylesheet" href="stylesheets/timelinereset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="stylesheets/timelinestyle.css"> <!-- Resource style -->
 
 </head>
-<body>
+<body style="background-color:#f5f5f5;">
     <header>
-        <% include ../views/partials/header%>
+        <%include ../views/partials/header%>
     </header>
 
-    <div class="container">
-        <div id="activitydiv" style="text-align: center">
-        </div>
-        <button href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank">
-          Share on Facebook
-        </button>
+    <div class="mdl-layout__header-row" style="background-color:#f5f5f5; padding:0px 6px 0px 2px;">
+      <!-- Add spacer, to align navigation to the right in desktop -->
+      <div class="android-header-spacer mdl-layout-spacer"></div>
+      <button id="sharebtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+          <i class="material-icons" style="color:#446EB6">share</i>
+      </button>
     </div>
 
+    
+
+    <div class="container">
+        <div id="activitydiv" style="text-align: center; text-transform: uppercase; padding: 10px; font-size: 20px; color: #555">
+            <br/>
+        </div>
+    </div>
 
     <section id="cd-timeline" class="cd-container">
+
     </section> 
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        
+        <div class="mdl-dialog__content">
+          <form>
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" style="width: 50%" for="switch-1">
+              <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+              <span class="mdl-switch__label">Facebook</span>
+            </label>
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" style="width: 50%" for="switch-2">
+              <input type="checkbox" id="switch-2" class="mdl-switch__input">
+              <span class="mdl-switch__label">Instagram</span>
+            </label>
+          </form>
+        </div>
+        <button id="sharemodalbtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="background-color:#446EB6; border-radius: 45px; width: 30%;">
+          Share
+        </button>
+      </div>
+    </div>
 
     <!-- jQuery -->
     <script src="javascripts/jquery.js"></script>
@@ -75,10 +109,51 @@
 
         var parent = document.getElementById("activitydiv");
         var newdiv = document.createElement("h1");
-        newdiv.innerHTML = activity.name+ " with " + activity.hostName;
+        newdiv.innerHTML = activity.name;
+        parent.append(newdiv);
+        newdiv = document.createElement("div");
+        newdiv.innerHTML = '<br> <figure> <img src="images/otherUser.png" style="height:30px; width:30px;" /> </figure> <h1 style="font-size:13px"> with '+activity.hostName+'</h1> <!--<button class="modalbtn mdl-button mdl-js-button mdl-button--fab mdl-button--colored" href="/chat?id='+activity.id+'&past=true" style="background-color:#446EB6; margin:10px auto;"> <i class="material-icons">chat</i></button>-->'
         parent.append(newdiv); 
         populateMoments();        
 
+    </script>
+
+        <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("sharebtn");
+
+
+        var sharebtn = document.getElementById("sharemodalbtn");
+
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal 
+        btn.onclick = function() {
+        //var openModal = function() {        
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        sharebtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 
 </body>
