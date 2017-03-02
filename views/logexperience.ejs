@@ -9,14 +9,54 @@
     <link rel="stylesheet" href="stylesheets/timelinereset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="stylesheets/timelinestyle.css"> <!-- Resource style -->
     <script src="javascripts/modernizr.js"></script>
+
+    <style>
+        .topButton{
+            color:#446eb6;
+            background: 0 0;
+            border: none;
+            border-radius: 2px;
+            position: relative;
+            height: 36px;
+            margin: 0;
+            min-width: 64px;
+            padding: 0 16px;
+            display: inline-block;
+            font-family: "Roboto","Helvetica","Arial",sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0;
+            overflow: hidden;
+            outline: none;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            line-height: 36px;
+            vertical-align: middle;
+        }
+    </style>
 </head>
-<body>
+<body style="background-color:#f5f5f5;">
     <header>
-        <% include ../views/partials/header %>
+        <%include ../views/partials/header%>
     </header>
 
-    <div class="container">
+    <div class="mdl-layout__header-row" style="background-color:#f5f5f5; padding:0px 6px 0px 2px;">
 
+      <button onclick='btn2()' class="topButton">
+          Save Experience
+      </button>
+      <!-- Add spacer, to align navigation to the right in desktop -->
+      <div class="android-header-spacer mdl-layout-spacer"></div>
+      <button onclick='btn3()' class="topButton">
+          Abandon Experience
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='logoutClick()'>Logout</span></li>
+      </ul>
+    </div>
+
+    <div class="container">
         <div id="activitydiv" style="text-align: center">
         </div>
 
@@ -24,13 +64,6 @@
               <br/>
               <a href="#" id="addmomentbtn">
                 <button class="modalbtn">Add</button>
-              </a>
-              <br/>
-              <a onclick='btn2()'>
-                <button class="modalbtn">Save Experience</button>
-              </a>
-              <a onclick='btn3()'>
-                <button class="modalbtn">Abandon Experience</button>
               </a>
         </div>
     </div>
