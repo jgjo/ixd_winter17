@@ -48,13 +48,13 @@
               <span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='logoutClick()'>Logout</span>
             </nav>
           </div>
-
           <div class="android-content mdl-layout__content">
+
           </div>
 
         </div>
     </header>
-
+<br>
     <!-- <div class="android-content mdl-layout__content"> -->
     <div id="wrapper">
 
@@ -75,12 +75,58 @@
                 </div>
 
                 <div class="col-lg-12 text-center" style="margin: 10px 5px;">
-                  <button onclick='filterclick()' class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="background-color:#446EB6">
+                  <button id="show-dialog" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="background-color:#446EB6">
                     <i class="fa fa-sliders" aria-hidden="true"></i>
                   </button>
+                  <!--button id="show-dialog" type="button" class="mdl-button">Show Dialog</button-->
                 </div>
         </div>
     </div>
+
+
+      <dialog class="mdl-dialog">
+        <h4 class="mdl-dialog__title">Filters</h4>
+        <div class="mdl-dialog__content">
+          <p>Please choose the appropriate filters</p>
+          <form action="demo_form.asp">
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+              <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+              <span class="mdl-switch__label">Childproof</span>
+            </label>
+            <br><br>
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+              <input type="checkbox" id="switch-2" class="mdl-switch__input">
+              <span class="mdl-switch__label">Alcohol</span>
+            </label>
+            <br><br>
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-3">
+              <input type="checkbox" id="switch-3" class="mdl-switch__input">
+              <span class="mdl-switch__label">Food</span>
+            </label>
+            <br><br>
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-4">
+              <input type="checkbox" id="switch-4" class="mdl-switch__input">
+              <span class="mdl-switch__label">Outdoors</span>
+            </label>
+          </form>
+        </div>
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button close">Done</button>
+        </div>
+      </dialog>
+      <script>
+        var dialog = document.querySelector('dialog');
+        var showDialogButton = document.querySelector('#show-dialog');
+        if (! dialog.showModal) {
+          dialogPolyfill.registerDialog(dialog);
+        }
+        showDialogButton.addEventListener('click', function() {
+          dialog.showModal();
+        });
+        dialog.querySelector('.close').addEventListener('click', function() {
+          dialog.close();
+        });
+      </script>
 
       <!-- Wide card with share menu button -->
       <style>

@@ -14,35 +14,10 @@
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
                     <h1>Add Activity</h1>
-                    <!--form id="addActivityForm">
-                            <div class="form-group">
-                                <label>Activity name</label>
-                                <input class="form-control" type="text" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea class="form-control" name="description" type="text" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label><b>Location: </b>55 STREET</label>
-                                <button onclick = 'btn1()'>Change</button>
-                            </div>
-                            <div class="form-group">
-                                <label>Add Photo</label>
-                                <button onclick = 'window.alert("takes you to camera to click a picture")'>Change</button>
-                            </div>
-                            <div class="form-group">
-                                <label>How long will this take in minutes?</label>
-                                <input class="form-control" type="number" name="maxTimeInMin" required/>
-                            </div>
-                            <div class="form-group">
-                                <label>Maximum cost (in USD):</label>
-                                <input class="form-control" type="number" name="maxCost" required/>
-                            </div-->
-
+                    <form id="addActivityForm">
                       <div class="input-group" style="margin: 20px">
                         <span class="input-group-addon"><i class="fa fa-globe" aria-hidden="true"></i></span>
-                        <input id="user" type="text" class="form-control" name="user" value="" placeholder="name">
+                        <input id="user" type="text" class="form-control" name="name" value="" placeholder="name">
                       </div>
                       <div class="input-group" style="margin: 20px">
                         <span class="input-group-addon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
@@ -51,12 +26,12 @@
 
                       <div class="input-group" style="margin: 20px">
                         <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                        <input id="user" type="text" class="form-control" name="password" placeholder="location">
+                        <input id="user" type="text" class="form-control" name="location" placeholder="location">
                       </div>
 
                       <div class="input-group" style="margin: 20px">
                         <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                        <input id="user" type="text" class="form-control" name="maximum cost" value="" placeholder="cost">
+                        <input id="user" type="text" class="form-control" name="maxCost" value="" placeholder="cost">
                       </div>
 
                       <div class="input-group" style="margin: 20px">
@@ -69,32 +44,19 @@
                           <option>5 hrs</option>
                           <option>8 hrs</option>
                         </select>
-                        <!--input id="password" type="text" class="form-control" name="maximum time (mins)" placeholder="time (mins)"-->
                       </div>
-
-                      <!--div class="form-group">
-                        <label for="exampleSelect1">Example select</label>
-                        <select class="form-control" id="exampleSelect1">
-                          <option>30 mins</option>
-                          <option>1 hr</option>
-                          <option>2 hrs</option>
-                          <option>3 hrs</option>
-                          <option>5 hrs</option>
-                          <option>8 hrs</option>
-                        </select>
-                      </div-->
 
                       <div class="form-group">
                         <label>Choose Tags</label>
                         <div class="input-group" style="margin: 5px 20px;">
                           <span class="input-group-addon"><i class="fa fa-child" aria-hidden="true"></i></span>
-                          <input id="user" type="checkbox" class="form-control" name="maximum cost" value="" placeholder="cost">
+                          <input id="user" type="checkbox" class="form-control" name="childsafe" value="" placeholder="cost">
                           <span class="input-group-addon"><i class="fa fa-tree" aria-hidden="true"></i></span>
-                          <input id="user" type="checkbox" class="form-control" name="maximum cost" value="" placeholder="cost">
+                          <input id="user" type="checkbox" class="form-control" name="outdoor" value="" placeholder="cost">
                           <span class="input-group-addon"><i class="fa fa-beer" aria-hidden="true"></i></span>
-                          <input id="user" type="checkbox" class="form-control" name="maximum cost" value="" placeholder="cost">
+                          <input id="user" type="checkbox" class="form-control" name="alcohol" value="" placeholder="cost">
                           <span class="input-group-addon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
-                          <input id="user" type="checkbox" class="form-control" name="maximum cost" value="" placeholder="cost">
+                          <input id="user" type="checkbox" class="form-control" name="food" value="" placeholder="cost">
                         </div>
                         <div class="row" style="margin: 0px 10px;">
                           <div class="col-lg-3 col-xs-3 col-sm-3">Childproof</div>
@@ -104,82 +66,13 @@
                         </div>
                       </div>
 
-                      <!--div class="form-group">
-                          <label>Choose Tags</label>
-                          <div class="form-check">
-                              <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" name="childsafe" checked>
-                                  Child Safe
-                              </label>
-                              <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" name="outdoor">
-                                  Outdoor
-                              </label>
-                              <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" name="alcohol">
-                                  Alcohol
-                              </label>
-                              <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" name="food">
-                                  Food
-                              </label>
-                          </div>
-                      </div--t>
-
-                      <button type="submit" class="btn btn-primary">Save Activity</button>
+                  <!-- Accent-colored raised button with ripple -->
+                  <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" style="background-color:#446EB6">
+                    SUMBIT
+                  </button>
                     </form>
                 </div>
             </div>
-            <!--p>ADD ACTIVITY</p>
-            <form id="addActivityForm">
-                <div class="form-group">
-                    <label>Activity name</label>
-                    <input class="form-control" type="text" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <textarea class="form-control" name="description" type="text" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label><b>Location: </b>55 STREET</label>
-                    <button onclick = 'btn1()'>Change</button>
-                </div>
-                <div class="form-group">
-                    <label>Add Photo</label>
-                    <button onclick = 'window.alert("takes you to camera to click a picture")'>Change</button>
-                </div>
-                <div class="form-group">
-                    <label>How long will this take in minutes?</label>
-                    <input class="form-control" type="number" name="maxTimeInMin" required/>
-                </div>
-                <div class="form-group">
-                    <label>Maximum cost (in USD):</label>
-                    <input class="form-control" type="number" name="maxCost" required/>
-                </div>
-                <div class="form-group">
-                    <label>Choose Tags</label>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="childsafe" checked>
-                            Child Safe
-                        </label>
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="outdoor">
-                            Outdoor
-                        </label>
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="alcohol">
-                            Alcohol
-                        </label>
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="food">
-                            Food
-                        </label>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Save Activity</button>
-            </form-->
         </div>
     </div>
 
