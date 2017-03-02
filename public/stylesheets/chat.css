@@ -308,18 +308,18 @@ Message Box
   right: 10px;
   color: #fff;
   border: none;
-  background: #248A52;
+  background: none;
   font-size: 10px;
   text-transform: uppercase;
   line-height: 1;
-  padding: 6px 10px;
+  padding: 1px 10px;
   border-radius: 10px;
   outline: none !important;
   -webkit-transition: background .2s ease;
   transition: background .2s ease;
 }
 .message-box .message-submit:hover {
-  background: #1D7745;
+  /*background: #1D7745;*/
 }
 
 /*--------------------
