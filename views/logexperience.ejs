@@ -90,11 +90,14 @@
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
-        <button id="addpicbtn" class="show" onclick="showModalImage()">Add a picture!</button>
-        <img id="addmomentimg" class="hide" height="180" width="180" src="https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg"></img>
+        <a id="addpicbtn" class="show" onclick="showModalImage()"><img src="images/takeAPicture.png"></img></a>
+        <img id="addmomentimg" class="hide" height="180" width="100%" src="https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg"></img>
         <br/><br/>
-        Caption: <input id="txt_caption" type="text"/>
-        <button id="savemomentbtn">Save</button>
+        <input id="txt_caption" placeholder="caption" type="text" style="width:100%;"/>
+        <br/><br/>
+        <button id="savemomentbtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="background-color:#446EB6; border-radius: 45px; width: 30%;">
+          Save
+        </button>
       </div>
     </div>
 
