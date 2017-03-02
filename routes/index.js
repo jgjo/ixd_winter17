@@ -87,7 +87,7 @@ router.post('/api/activity', function (req, res) {
     id: id++,
     name: req.body.name,
     description: req.body.description,
-    hostName: 'Mia Sunny',
+    hostName: 'lol',
     hostID: hostID++,
     maxCost: req.body.maxCost,
     maxTimeInMin: req.body.maxTimeInMin,
