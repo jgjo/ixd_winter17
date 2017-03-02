@@ -173,7 +173,7 @@
           ];
 
           map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 13,
+            zoom: 14,
             center: center,
             mapTypeControlOptions: {
                     mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'greyscale']
@@ -260,14 +260,11 @@
                             '</div>'+
                             '</div>');
                     }
+
                     infowindow.open(map, marker);
                     }
                 })(marker, i));
             }
-
-            // marker.addListener('click', function() {
-            //     window.alert("ACTIVITY!");
-            // });
         }
     </script>
 
