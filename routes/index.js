@@ -20,7 +20,7 @@ router.get('/begin', function(req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'IXD', activitiesJSON: activities, ownactivitiesJSON: ownactivities});
+  res.render('index', { title: 'IXD', activitiesJSON: activities, ownactivitiesJSON: ownactivities, activitylogJSON: activitylog});
 });
 
 /* GET logexperience page. */

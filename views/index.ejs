@@ -153,10 +153,6 @@
           var alcohol_bool = (document.getElementById("switch-2").checked);
           var food_bool = (document.getElementById("switch-3").checked);
           var outdoor_bool = (document.getElementById("switch-4").checked);
-          console.log(childproof_bool);
-          console.log(alcohol_bool);
-          console.log(food_bool);
-          console.log(outdoor_bool);
           dialog.close();
         });
       </script>
@@ -240,6 +236,8 @@
         var map;
         var activities = <%-JSON.stringify(activitiesJSON)%>
         var ownactivities = <%-JSON.stringify(ownactivitiesJSON)%>
+        var activitylog =<%-JSON.stringify(activitylogJSON)%>
+
 
         function initMap() {
           var center = {lat: 32.715738, lng: -117.161084};
@@ -277,11 +275,29 @@
             var food_bool = (document.getElementById("switch-3").checked)&1;
             var outdoor_bool = (document.getElementById("switch-4").checked)&1;
 
+            var current = false;
+
             // LOOP THROUGH ACTIVITIES TO CREATE MARKER
             for(var i=0; i<activities.activities.length; i++) {
                 var filter = activities.activities[i].filters;
-                console.log(filter[0].value);
                 if(filter[0].value==childproof_bool&&filter[1].value==outdoor_bool&&filter[2].value==alcohol_bool&&filter[3].value==food_bool){
+
+                  for(var j=0; j<activitylog.activitylog.length; j++) {
+                    if(activitylog.activitylog[j].activityid == activities.activities[i].id)
+                    {
+                        current = false;
+                        if(activitylog.activitylog[j].past)
+                        {
+                          continue;
+                        }
+                        else
+                        {
+                          color="6ab344";
+                          current = true;
+                        }
+                    }
+                  }
+
                   if(activities.activities[i].own==1)
                   {
                     color="E67E22";
@@ -342,7 +358,7 @@
                           '<p>Host: '+activities.activities[i].hostName+
                           '</p>'+
                           '<img height="140" width="140" src="'+activities.activities[i].pictures[0].src+'">'+
-                          '<p><br/><button onclick=activityclick('+activities.activities[i].id+')>View</button></p>'+
+                          '<p><br/><button onclick=activityclick('+activities.activities[i].id+','+current+')>View</button></p>'+
                           '</div>'+
                           '</div>');
                       }

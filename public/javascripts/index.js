@@ -24,9 +24,16 @@ var memoryclick = function()
 {
   window.location.href = '/viewmemories'
 }
-var activityclick = function(id) 
+var activityclick = function(id,current=false) 
 {
-  window.location.href = '/activity?id='+id
+	if(current)
+	{
+		window.location.href = '/logexperience?id='+id
+	}
+	else
+	{
+	  window.location.href = '/activity?id='+id
+	}
 }
 
 var changediv = function() 
