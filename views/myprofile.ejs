@@ -3,38 +3,36 @@
 
 <head>
     <% include ../views/partials/head %>
+    
+    <link rel="stylesheet" type="text/css" href="stylesheets/myprofile.css">
+
 </head>
 
 <body>
     <header>
         <% include ../views/partials/header %>
     </header>
-    <!-- Profile Area -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <!--h2>Our Work</h2>
-                    <hr class="small"-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive img-rounded" src="img/profile-default.png" style="border-radius:100%;">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row (nested) -->
-                    <h2>John Doe</h2>
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
 
+    <!-- Profile Area -->
+    <aside class="profile-card">
+      <header>
+        <!-- here’s the avatar -->
+        <a target="_blank" href="#">
+          <img src="https://img.clipartfest.com/082120ff6c0948bc1aa6550d1dd49af9_free-icons-pngprofile-icon-professional-profile-icon-clipart-png_512-512.png" class="hoverZoomLink">
+        </a>
+        <!-- the username -->
+        <h1>John Doe</h1>
+        <!-- and role or location -->
+        <h2>San Diego, California, United States</h2>
+      </header>
+      <!-- bit of a bio; who are you? -->
+      <div class="profile-bio">
+        <p>
+          I've been a resident of San Diego for the past 10 years. I love exploring the area and consider myself an expert now on the local cuisine and activities.
+        </p>
+      </div>
+    </aside>
+     
     <!-- jQuery -->
     <script src="javascripts/jquery.js"></script>
 
