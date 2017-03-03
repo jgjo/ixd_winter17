@@ -75,7 +75,7 @@
                 <button id="addmomentbtn" onclick='addclick()' class="modalbtn mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="background-color:#446EB6; margin:10px auto;">
                   <i class="material-icons">add</i>
                 </button>
-                <p style="font-size:10px">Log your experience and make memories as you go!</p>
+
         </div>
 
 <!--         <div id="addmomentdiv" style="text-align: center">
@@ -181,9 +181,9 @@
             }   
         }
 
-        var moments =<%-JSON.stringify(momentsJSON)%>   
+        var moments <%-JSON.stringify(momentsJSON)%>
 
-        var activities =<%-JSON.stringify(activitiesJSON)%>           
+        var activities <%-JSON.stringify(activitiesJSON)%>
 
         var activitylog =<%-JSON.stringify(activitylogJSON)%>
         console.log(activitylog);
