@@ -120,7 +120,7 @@
             </label>
             <br><br>
             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
-              <input type="checkbox" id="switch-2" class="mdl-switch__input" checked>
+              <input type="checkbox" id="switch-2" class="mdl-switch__input">
               <span class="mdl-switch__label">Alcohol</span>
             </label>
             <br><br>
@@ -130,7 +130,7 @@
             </label>
             <br><br>
             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-4">
-              <input type="checkbox" id="switch-4" class="mdl-switch__input">
+              <input type="checkbox" id="switch-4" class="mdl-switch__input" checked>
               <span class="mdl-switch__label">Outdoors</span>
             </label>
           </form>
@@ -281,7 +281,7 @@
             for(var i=0; i<activities.activities.length; i++) {
                 var filter = activities.activities[i].filters;
                 console.log(filter[0].value);
-                if(filter[0].value==childproof_bool&&filter[1].value==alcohol_bool&&filter[2].value==food_bool&&filter[3].value==outdoor_bool){
+                if(filter[0].value==childproof_bool&&filter[1].value==outdoor_bool&&filter[2].value==alcohol_bool&&filter[3].value==food_bool){
                   if(activities.activities[i].own==1)
                   {
                     color="E67E22";

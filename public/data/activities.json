@@ -57,7 +57,7 @@
       },
       "pictures": [{"src":"https://res.cloudinary.com/din6mjlbd/image/upload/v1487322947/activityimg3_qclazl.jpg"}],
       "filters": [
-        {"name":"childsafe", "value": 0},
+        {"name":"childsafe", "value": 1},
         {"name":"outdoor", "value": 1},
         {"name":"alcohol", "value": 0},
         {"name":"food", "value": 0}
