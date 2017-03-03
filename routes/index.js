@@ -13,9 +13,13 @@ var location = {
 };
 
 
+/* GET first page. */
+router.get('/begin', function(req, res, next) {
+  res.render('firstPage');
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log('Activities length: ' + activities.activities.length);
   res.render('index', { title: 'IXD', activitiesJSON: activities, ownactivitiesJSON: ownactivities});
 });
 
