@@ -149,6 +149,14 @@
           dialog.showModal();
         });
         dialog.querySelector('.close').addEventListener('click', function() {
+          var childproof_bool = (document.getElementById("switch-1").checked);
+          var alcohol_bool = (document.getElementById("switch-2").checked);
+          var food_bool = (document.getElementById("switch-3").checked);
+          var outdoor_bool = (document.getElementById("switch-4").checked);
+          console.log(childproof_bool);
+          console.log(alcohol_bool);
+          console.log(food_bool);
+          console.log(outdoor_bool);
           dialog.close();
         });
       </script>
@@ -159,7 +167,7 @@
     <!--<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>-->
 
     <script>
-      var logoutClick = function() 
+      var logoutClick = function()
       {
             window.location.href = '/login';
       }
