@@ -137,7 +137,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
             var btn2 = function() 
             {
                 window.alert("Experience saved!");
-                ga("send", "event", clickSave, savedMemory);
+                ga("send", "event", "clickSave", "savedMemory");
                 var data = {
                 activityid: activity.id
                 };
@@ -295,7 +295,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
         btn.onclick = function() {
         //var openModal = function() {        
             modal.style.display = "block";
-            ga("send", "event", clickAdd, addMoment);
+            ga("send", "event", "clickAdd", "addMoment");
         }
 
         // When the user clicks on <span> (x), close the modal
