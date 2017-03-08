@@ -1,7 +1,7 @@
 {
   "activities": [
     {
-      "own":0,
+      "own": 0,
       "id": 101,
       "name": "Paint with wine",
       "description": "paint with a glass of wine by the ocean",
@@ -13,76 +13,325 @@
         "lat": 32.717058,
         "lng": -117.167121
       },
-      "pictures": [{"src":"https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/activityimg1_r4m4a3.jpg"}],
+      "pictures": [
+        {
+          "src": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/activityimg1_r4m4a3.jpg"
+        }
+      ],
       "filters": [
-        {"name":"childsafe", "value": 1},
-        {"name":"outdoor", "value": 0},
-        {"name":"alcohol", "value": 1},
-        {"name":"food", "value": 0}
-        ]
+        {
+          "name": "childsafe",
+          "value": 1
+        },
+        {
+          "name": "outdoor",
+          "value": 0
+        },
+        {
+          "name": "alcohol",
+          "value": 1
+        },
+        {
+          "name": "food",
+          "value": 0
+        }
+      ]
     },
     {
-      "own":0,
+      "own": 0,
       "id": 102,
+      "name": "Bachata",
+      "description": "Bachata all night!",
+      "hostName": "Ryan J",
+      "hostID": 2,
+      "maxCost": 20,
+      "maxTimeInMin": 120,
+      "location": {
+        "lat": 33.717058,
+        "lng": -117.167121
+      },
+      "pictures": [
+        {
+          "src": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/activityimg1_r4m4a3.jpg"
+        }
+      ],
+      "filters": [
+        {
+          "name": "childsafe",
+          "value": 0
+        },
+        {
+          "name": "outdoor",
+          "value": 0
+        },
+        {
+          "name": "alcohol",
+          "value": 0
+        },
+        {
+          "name": "food",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "own": 0,
+      "id": 103,
+      "name": "Kayaking at la jolla",
+      "description": "kayaking by the caves on the pacific ocean",
+      "hostName": "Rady Muller",
+      "hostID": 3,
+      "maxCost": 40,
+      "maxTimeInMin": 90,
+      "location": {
+        "lat": 32.850453,
+        "lng": -117.272934
+      },
+      "pictures": [
+        {
+          "src": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/activityimg1_r4m4a3.jpg"
+        }
+      ],
+      "filters": [
+        {
+          "name": "childsafe",
+          "value": 1
+        },
+        {
+          "name": "outdoor",
+          "value": 1
+        },
+        {
+          "name": "alcohol",
+          "value": 0
+        },
+        {
+          "name": "food",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "own": 0,
+      "id": 104,
+      "name": "Scuba diving",
+      "description": "Needs no description!",
+      "hostName": "Giselle Maren",
+      "hostID": 4,
+      "maxCost": 30,
+      "maxTimeInMin": 90,
+      "location": {
+        "lat": 32.832273,
+        "lng": -117.281769
+      },
+      "pictures": [
+        {
+          "src": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/activityimg1_r4m4a3.jpg"
+        }
+      ],
+      "filters": [
+        {
+          "name": "childsafe",
+          "value": 1
+        },
+        {
+          "name": "outdoor",
+          "value": 1
+        },
+        {
+          "name": "alcohol",
+          "value": 0
+        },
+        {
+          "name": "food",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "own": 0,
+      "id": 105,
+      "name": "Make horchata",
+      "description": "learn to make horchata the real way!",
+      "hostName": "Olivia Z",
+      "hostID": 5,
+      "maxCost": 0,
+      "maxTimeInMin": 120,
+      "location": {
+        "lat": 32.835771,
+        "lng": -117.272671
+      },
+      "pictures": [
+        {
+          "src": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/activityimg1_r4m4a3.jpg"
+        }
+      ],
+      "filters": [
+        {
+          "name": "childsafe",
+          "value": 1
+        },
+        {
+          "name": "outdoor",
+          "value": 0
+        },
+        {
+          "name": "alcohol",
+          "value": 0
+        },
+        {
+          "name": "food",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "own": 0,
+      "id": 106,
+      "name": "Kite flying",
+      "description": "fly a kite by the ocean",
+      "hostName": "Anang K",
+      "hostID": 6,
+      "maxCost": 10,
+      "maxTimeInMin": 70,
+      "location": {
+        "lat": 32.840206,
+        "lng": -117.282370
+      },
+      "pictures": [
+        {
+          "src": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/activityimg1_r4m4a3.jpg"
+        }
+      ],
+      "filters": [
+        {
+          "name": "childsafe",
+          "value": 1
+        },
+        {
+          "name": "outdoor",
+          "value": 1
+        },
+        {
+          "name": "alcohol",
+          "value": 0
+        },
+        {
+          "name": "food",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "own": 0,
+      "id": 107,
       "name": "blueberry picking",
       "description": "blueberry picking on the hills",
       "hostName": "Julie Simmons",
-      "hostID": 2,
+      "hostID": 7,
       "maxCost": 20,
       "maxTimeInMin": 90,
       "location": {
         "lat": 32.715738,
         "lng": -117.161084
       },
-      "pictures": [{"src":"https://res.cloudinary.com/din6mjlbd/image/upload/v1487322947/activityimg2_jj2oxw.jpg"}],
+      "pictures": [
+        {
+          "src": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322947/activityimg2_jj2oxw.jpg"
+        }
+      ],
       "filters": [
-        {"name":"childsafe", "value": 1},
-        {"name":"outdoor", "value": 1},
-        {"name":"alcohol", "value": 0},
-        {"name":"food", "value": 1}
-        ]
+        {
+          "name": "childsafe",
+          "value": 1
+        },
+        {
+          "name": "outdoor",
+          "value": 1
+        },
+        {
+          "name": "alcohol",
+          "value": 0
+        },
+        {
+          "name": "food",
+          "value": 1
+        }
+      ]
     },
     {
-      "own":0,
-      "id": 103,
+      "own": 0,
+      "id": 108,
       "name": "Skateboarding",
       "description": "skateboard on local SD streets",
       "hostName": "Dan Rogers",
-      "hostID": 3,
+      "hostID": 8,
       "maxCost": 20,
       "maxTimeInMin": 45,
       "location": {
         "lat": 32.728449,
         "lng": -117.16622
       },
-      "pictures": [{"src":"https://res.cloudinary.com/din6mjlbd/image/upload/v1487322947/activityimg3_qclazl.jpg"}],
+      "pictures": [
+        {
+          "src": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487322947/activityimg3_qclazl.jpg"
+        }
+      ],
       "filters": [
-        {"name":"childsafe", "value": 1},
-        {"name":"outdoor", "value": 1},
-        {"name":"alcohol", "value": 0},
-        {"name":"food", "value": 0}
-        ]
+        {
+          "name": "childsafe",
+          "value": 1
+        },
+        {
+          "name": "outdoor",
+          "value": 1
+        },
+        {
+          "name": "alcohol",
+          "value": 0
+        },
+        {
+          "name": "food",
+          "value": 0
+        }
+      ]
     },
     {
-      "own":0,
-      "id": 104,
+      "own": 0,
+      "id": 109,
       "name": "Salsa on the beach",
       "description": "dance like there's no tomorrow!",
       "hostName": "Ginny Lander",
-      "hostID": 4,
+      "hostID": 9,
       "maxCost": 10,
       "maxTimeInMin": 60,
       "location": {
         "lat": 32.708988,
         "lng": -117.16858
       },
-      "pictures": [{"src":"http://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/activityimg4_sb080v.jpg"}],
+      "pictures": [
+        {
+          "src": "http://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/activityimg4_sb080v.jpg"
+        }
+      ],
       "filters": [
-        {"name":"childsafe", "value": 1},
-        {"name":"outdoor", "value": 1},
-        {"name":"alcohol", "value": 0},
-        {"name":"food", "value": 0}
-        ]
+        {
+          "name": "childsafe",
+          "value": 1
+        },
+        {
+          "name": "outdoor",
+          "value": 1
+        },
+        {
+          "name": "alcohol",
+          "value": 0
+        },
+        {
+          "name": "food",
+          "value": 0
+        }
+      ]
     }
   ]
 }
