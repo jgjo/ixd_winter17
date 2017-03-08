@@ -47,8 +47,8 @@
       "maxCost": 20,
       "maxTimeInMin": 120,
       "location": {
-        "lat": 33.717058,
-        "lng": -117.167121
+        "lat": 32.726795,
+        "lng": -117.151302
       },
       "pictures": [
         {
@@ -84,8 +84,8 @@
       "maxCost": 40,
       "maxTimeInMin": 90,
       "location": {
-        "lat": 32.850453,
-        "lng": -117.272934
+        "lat": 32.750453,
+        "lng": -117.151302
       },
       "pictures": [
         {
@@ -121,8 +121,8 @@
       "maxCost": 30,
       "maxTimeInMin": 90,
       "location": {
-        "lat": 32.832273,
-        "lng": -117.281769
+        "lat": 32.732273,
+        "lng": -117.151302
       },
       "pictures": [
         {
@@ -158,8 +158,8 @@
       "maxCost": 0,
       "maxTimeInMin": 120,
       "location": {
-        "lat": 32.835771,
-        "lng": -117.272671
+        "lat": 32.735771,
+        "lng": -117.151302
       },
       "pictures": [
         {
@@ -195,8 +195,8 @@
       "maxCost": 10,
       "maxTimeInMin": 70,
       "location": {
-        "lat": 32.840206,
-        "lng": -117.282370
+        "lat": 32.740206,
+        "lng": -117.151302
       },
       "pictures": [
         {
