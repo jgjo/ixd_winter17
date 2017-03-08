@@ -22,6 +22,7 @@
 
 <body>
 <div>
+    <!-- Header for the home page -->
     <header>
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
@@ -49,45 +50,14 @@
       <br>
       <br>
       <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-<!--         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-
-          <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
-            <div class="mdl-layout__header-row" style="background-color:#446EB6"> -->
-              <!-- Add spacer, to align navigation to the right in desktop -->
-<!--               <div class="android-header-spacer mdl-layout-spacer"></div>
-              <span class="android-mobile-title mdl-layout-title">
-                    <a href="/"><img class="android-logo-image" src="images/logo.png"></a>
-              </span>
-            </div>
-          </div>
-
-          <div class="android-drawer mdl-layout__drawer">
-            <span class="mdl-layout-title" style="background-color:#446EB6">
-              <img class="android-logo-image" src="images/logo.png">
-            </span>
-            <nav class="mdl-navigation">
-              <a href="#" class="mdl-navigation__link" onclick='profileclick()'>Profile</a>
-              <a href="#" class="mdl-navigation__link" onclick='memoryclick()'>Memories</a>
-              <a href="#" class="mdl-navigation__link" onclick='aboutclick()'>About</a>
-
-              <div class="android-drawer-separator"></div>
-              <span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='logoutClick()'>Logout</span>
-            </nav>
-          </div>
-          <div class="android-content mdl-layout__content">
-
-          </div>
-
-        </div> -->
     </header>
-    <!-- <div class="android-content mdl-layout__content"> -->
+    
+    <!-- PAGE CONTENT -->
     <div id="wrapper">
-
        <!-- Google map -->
        <div id="google_map">
             <div id="map"></div>
        </div>
-
         <!-- Add activity and filter buttons overlayed on map -->
         <div id="over_map" width="100%" height="650px">
 
@@ -108,59 +78,59 @@
         </div>
     </div>
 
+    <!-- FILTER DIALOG -->
+    <dialog class="mdl-dialog">
+      <h4 class="mdl-dialog__title">Filters</h4>
+      <div class="mdl-dialog__content">
+        <!-- <p>Please choose the appropriate filters</p> -->
+        <form action="demo_form.asp">
+          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+            <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+            <span class="mdl-switch__label">Child Safe</span>
+          </label>
+          <br><br>
+          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+            <input type="checkbox" id="switch-2" class="mdl-switch__input">
+            <span class="mdl-switch__label">Alcohol</span>
+          </label>
+          <br><br>
+          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-3">
+            <input type="checkbox" id="switch-3" class="mdl-switch__input">
+            <span class="mdl-switch__label">Food</span>
+          </label>
+          <br><br>
+          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-4">
+            <input type="checkbox" id="switch-4" class="mdl-switch__input" checked>
+            <span class="mdl-switch__label">Outdoors</span>
+          </label>
+        </form>
+      </div>
+      <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button close">Done</button>
+      </div>
+    </dialog>
 
-      <dialog class="mdl-dialog">
-        <h4 class="mdl-dialog__title">Filters</h4>
-        <div class="mdl-dialog__content">
-          <p>Please choose the appropriate filters</p>
-          <form action="demo_form.asp">
-            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-              <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
-              <span class="mdl-switch__label">Childproof</span>
-            </label>
-            <br><br>
-            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
-              <input type="checkbox" id="switch-2" class="mdl-switch__input">
-              <span class="mdl-switch__label">Alcohol</span>
-            </label>
-            <br><br>
-            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-3">
-              <input type="checkbox" id="switch-3" class="mdl-switch__input">
-              <span class="mdl-switch__label">Food</span>
-            </label>
-            <br><br>
-            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-4">
-              <input type="checkbox" id="switch-4" class="mdl-switch__input" checked>
-              <span class="mdl-switch__label">Outdoors</span>
-            </label>
-          </form>
-        </div>
-        <div class="mdl-dialog__actions">
-          <button type="button" class="mdl-button close">Done</button>
-        </div>
-      </dialog>
-      <script>
-        var dialog = document.querySelector('dialog');
-        var showDialogButton = document.querySelector('#show-dialog');
-        if (! dialog.showModal) {
-          dialogPolyfill.registerDialog(dialog);
-        }
-        showDialogButton.addEventListener('click', function() {
-          dialog.showModal();
-        });
-        dialog.querySelector('.close').addEventListener('click', function() {
-          var childproof_bool = (document.getElementById("switch-1").checked);
-          var alcohol_bool = (document.getElementById("switch-2").checked);
-          var food_bool = (document.getElementById("switch-3").checked);
-          var outdoor_bool = (document.getElementById("switch-4").checked);
-          dialog.close();
-        });
-      </script>
+    <!-- SCRIPT FOR FILTER DIALOG -->
+    <script>
+      var dialog = document.querySelector('dialog');
+      var showDialogButton = document.querySelector('#show-dialog');
+      if (! dialog.showModal) {
+        dialogPolyfill.registerDialog(dialog);
+      }
+      showDialogButton.addEventListener('click', function() {
+        dialog.showModal();
+      });
+      dialog.querySelector('.close').addEventListener('click', function() {
+        var childproof_bool = (document.getElementById("switch-1").checked);
+        var alcohol_bool = (document.getElementById("switch-2").checked);
+        var food_bool = (document.getElementById("switch-3").checked);
+        var outdoor_bool = (document.getElementById("switch-4").checked);
+        dialog.close();
+      });
+    </script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="javascripts/bootstrap.min.js"></script>
-
-    <!--<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>-->
 
     <script>
       var logoutClick = function()
@@ -228,6 +198,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdV_CqEBtoB4xae7DEXjtsHSCTZOZI9m0&callback=initMap">
     </script>
 
+    <!-- Create pins on map based on activities and their state -->
     <script>
         var dialog = document.querySelector('dialog');
         dialog.querySelector('.close').addEventListener('click', function() {
@@ -302,6 +273,7 @@
                   {
                     color="E67E22";
                   }
+
                   // CREATE PIN
                   var pinColor = color;
                   var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
@@ -313,10 +285,6 @@
                     new google.maps.Point(0, 0),
                     new google.maps.Point(12, 35));
 
-                  // infowindow = new google.maps.InfoWindow({
-                  //   content: contentString
-                  // });
-
                   var latLng = new google.maps.LatLng(activities.activities[i].location.lat,activities.activities[i].location.lng);
 
                   var marker = new google.maps.Marker({
@@ -325,10 +293,6 @@
                     icon: pinImage,
                     shadow: pinShadow
                   });
-
-                  // marker.addListener('click', function() {
-                  //     infowindow.open(map, marker);
-                  // });
 
                   google.maps.event.addListener(marker, 'click', (function(marker, i) {
                     return function() {
