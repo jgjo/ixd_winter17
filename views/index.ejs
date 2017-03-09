@@ -8,9 +8,9 @@
     <style>
          #map {
            width: 100%;
-           height: 600px;
+           height: 670px;
            background-color: grey;
-           top: 15px;
+           top: 0px;
          }
 
          #wrapper { position: relative; }
@@ -80,7 +80,7 @@
 
     <!-- FILTER DIALOG -->
     <dialog class="mdl-dialog">
-      <h4 class="mdl-dialog__title">Filters</h4>
+      <h3 style="color:#446EB6;" class="mdl-dialog__title">Filters</h3>
       <div class="mdl-dialog__content">
         <!-- <p>Please choose the appropriate filters</p> -->
         <form action="demo_form.asp">
@@ -106,7 +106,7 @@
         </form>
       </div>
       <div class="mdl-dialog__actions">
-        <button type="button" class="mdl-button close">Done</button>
+        <button style="color:#446EB6; opacity:.8;" type="button" class="mdl-button close">Done</button>
       </div>
     </dialog>
 
@@ -313,18 +313,43 @@
                       }
                       else
                       {
-                        infowindow.setContent('<div id="content">'+
-                          '<div id="siteNotice">'+
-                          '</div>'+
-                          '<h1 id="firstHeading" class="firstHeading">'+activities.activities[i].name+'</h1>'+
-                          '<div id="bodyContent">'+
-                          '<p>'+activities.activities[i].description+'</p>'+
-                          '<p>Host: '+activities.activities[i].hostName+
-                          '</p>'+
-                          '<img height="140" width="140" src="'+activities.activities[i].pictures[0].src+'">'+
-                          '<p><br/><button onclick=activityclick('+activities.activities[i].id+','+current+')>View</button></p>'+
-                          '</div>'+
-                          '</div>');
+                        infowindow.setContent(
+                          '<div>'+
+                            '<h3 id="firstHeading" onclick=activityclick('+activities.activities[i].id+','+current+') class="firstHeading">'+activities.activities[i].name+'</h3>'+
+
+                            '<div id="bodyContent" style="content-align:center">'+
+                              '<table style="content-align:center">'+
+                                '<tr style="content-align:center">'+
+                                  '<td style="content-align:center">'+   
+                                    '<table>'+
+                                      '<tr>'+
+                                        '<td>'+                          
+                                        '<img height="40" width="40" padding="8px" src="images/otherUser.png">'+
+                                        '</td>'+
+
+                                        '<td style="vertical-align: center">'+   
+                                        '<h5>'+activities.activities[i].hostName+'</h5>'+                       
+                                        '</td>'+
+                                      '</tr>'+
+                                    '</table>'+                      
+                                  '</td>'+
+                                '</tr>'+
+
+                                '<tr>'+
+                                  '<td>'+                          
+                                  '<img onclick=activityclick('+activities.activities[i].id+','+current+') height="120" width="120" src="'+activities.activities[i].pictures[0].src+'">'+
+                                  '</td>'+                                  
+                                '</tr>'+
+
+                                '<tr>'+
+                                  '<td>'+                          
+                                  '<p><br/><a href="#" onclick=activityclick('+activities.activities[i].id+','+current+')>View</a></p>'+
+                                  '</td>'+
+                                '</tr>'+
+                              '</table>'+
+                            '</div>'+
+                          '</div>'
+                          );
                       }
 
                       infowindow.open(map, marker);
