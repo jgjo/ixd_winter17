@@ -49,6 +49,11 @@ router.get('/viewactivity', function(req, res, next) {
   res.render('viewactivity', { title: 'IXD' });
 });
 
+/* GET viewongoingactivities page. */
+router.get('/viewongoingactivities', function(req, res, next) {
+  res.render('viewongoingactivities', { title: 'IXD', activitylogJSON: activitylog, activitiesJSON: activities });
+});
+
 /* GET about page. */
 router.get('/about', function(req, res, next) {
   res.render('about', { title: 'IXD' });
