@@ -5,6 +5,8 @@ var activities = require('../public/data/activities.json');
 var ownactivities = require('../public/data/ownactivities.json');
 var moments = require('../public/data/moments.json');
 var activitylog = require('../public/data/activitylog.json');
+var users = require('../public/data/users.json');
+
 var id = 105;
 var hostID = 69;
 var location = {

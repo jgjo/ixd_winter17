@@ -98,7 +98,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
     <!-- The Modal -->
     <div id="myModal" class="modal">
       <!-- Modal content -->
-      <div class="modal-content">
+      <div id="modalContent" class="modal-content">
         <span class="close">&times;</span>
         <a id="addpicbtn" class="show" onclick="showModalImage()"><img src="https://res.cloudinary.com/din6mjlbd/image/upload/v1488516490/takeAPicture_fiogit.png"></img></a>
         <img id="addmomentimg" class="hide" height="180" width="100%" src="https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg"></img>
@@ -133,21 +133,26 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
             }
             var btn2 = function() 
             {
-                window.alert("Experience saved!");
-                ga("send", "event", "clickSave", "savedMemory");
-                var data = {
-                activityid: activity.id
-                };
-                $.post('/api/endlogexperience', data, function success() {
-                    window.location.href = '/';
-                });
+                document.getElementById("modalContent").innerHTML='<div><br/><p>Experience saved!</p><br/></div>';
+                modal.style.display = "block";
+                setTimeout(function() {
+                    ga("send", "event", "clickSave", "savedMemory");
+                    var data = {
+                    activityid: activity.id
+                    };
+                    $.post('/api/endlogexperience', data, function success() {
+                        window.location.href = '/';
+                    });
+                }, 100);
                 
             }
 
             var btn3 = function() 
             {
-                  window.alert("Experience abandoned!");
-                  window.location.href = '/';
+                document.getElementById("modalContent").innerHTML='<div><br/><p>Experience abandoned!</p><br/></div>';
+                modal.style.display = "block";
+                  //window.alert("Experience abandoned!");
+                setTimeout(function() {window.location.href = '/';}, 100);
             }
     </script>
     
@@ -158,6 +163,21 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
     		document.getElementById("addmomentimg").className = "show";
             document.getElementById("addpicbtn").className = "hide"; 
   		  }
+
+          var showModalImage_save = function() 
+          {
+            addpicbtn
+            document.getElementById("addmomentimg").className = "show";
+            document.getElementById("addpicbtn").className = "hide"; 
+          }
+
+          var showModalImage_abandon = function() 
+          {
+            addpicbtn
+            document.getElementById("addmomentimg").className = "show";
+            document.getElementById("addpicbtn").className = "hide"; 
+          }
+
           var hideModalImage = function() 
           {
             document.getElementById("addmomentimg").className = "hide"; 

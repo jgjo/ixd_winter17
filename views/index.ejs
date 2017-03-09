@@ -68,9 +68,9 @@
             <div id="map"></div>
             <div id="legend" style="text-align:center">
               <span>
-                <img src="images/blueMarker.png"></img>&nbsp Available Activities &nbsp
-                <img src="images/greenMarker.png"></img>&nbsp Ongoing Activities &nbsp
-                <img src="images/orangeMarker.png"></img>&nbsp Own Activities &nbsp
+                <img style="opacity: 0.8;" src="images/blueMarker.png"></img>&nbsp Available Activities &nbsp
+                <img style="opacity: 0.8;" src="images/greenMarker.png"></img>&nbsp Ongoing Activities &nbsp
+                <img style="opacity: 0.8;" src="images/orangeMarker.png"></img>&nbsp Own Activities &nbsp
               </span>
             </div>
        </div>
@@ -126,8 +126,10 @@
       </div>
     </dialog>
 
+
     <!-- SCRIPT FOR FILTER DIALOG -->
     <script>
+
       var dialog = document.querySelector('dialog');
       var showDialogButton = document.querySelector('#show-dialog');
       if (! dialog.showModal) {
