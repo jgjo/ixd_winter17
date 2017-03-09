@@ -8,14 +8,22 @@
     <style>
          #map {
            width: 100%;
-           height: 670px;
+           height: 630px;
            background-color: grey;
            top: 0px;
-         }
+          }
 
          #wrapper { position: relative; }
 
          #over_map { position: absolute; top: 59px; right: 15px; z-index: 99; }
+
+         #legend {
+            height:12px;
+            background: #fff;
+            padding: 0px;
+            margin: 0px;
+          }
+
     </style>
 
 </head>
@@ -33,7 +41,8 @@
                 <i class="material-icons">menu</i>
             </button>
             <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-left" for="hdrbtn">
-              <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='profileclick()'>My Profile</span></li>        
+              <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='profileclick()'>My Profile</span></li>
+              <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='ongoingclick()'>Ongoing Activities</span></li>        
               <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='memoryclick()'>Memories</span></li>
               <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='aboutclick()'>About</span></li>
               <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='logoutClick()'>Logout</span></li>
@@ -57,6 +66,13 @@
        <!-- Google map -->
        <div id="google_map">
             <div id="map"></div>
+            <div id="legend" style="text-align:center">
+              <span>
+                <img src="images/blueMarker.png"></img>&nbsp Available Activities &nbsp
+                <img src="images/greenMarker.png"></img>&nbsp Ongoing Activities &nbsp
+                <img src="images/orangeMarker.png"></img>&nbsp Own Activities &nbsp
+              </span>
+            </div>
        </div>
         <!-- Add activity and filter buttons overlayed on map -->
         <div id="over_map" width="100%" height="650px">
@@ -73,10 +89,10 @@
                   <button id="show-dialog" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="background-color:#446EB6">
                     <i class="fa fa-sliders" aria-hidden="true"></i>
                   </button>
-                  <!--button id="show-dialog" type="button" class="mdl-button">Show Dialog</button-->
                 </div>
         </div>
     </div>
+    
 
     <!-- FILTER DIALOG -->
     <dialog class="mdl-dialog">
@@ -225,6 +241,7 @@
           map = new google.maps.Map(document.getElementById('map'), {
             zoom: 14,
             center: center,
+            streetViewControl: false,
             mapTypeControlOptions: {
                     mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'greyscale']
                }
@@ -236,6 +253,14 @@
 
           addMarkers("446EB6");
         }
+
+
+        // var legend = document.getElementById('legend');
+        // var div = document.createElement('div');
+        // div.innerHTML = '<h1>hi</hi>';
+        // legend.appendChild(div);
+
+        //map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 
 
         function addMarkers(color)
