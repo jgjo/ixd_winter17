@@ -10,47 +10,8 @@
         <% include ../views/partials/header %>
     </header>
     
-    <!-- Services -->
-    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-    <section id="services" class="services bg-primary1">
-        <!--
-        <div id="activitydetails" class="container">
-            <div class="row text-center">
-                <div class="col-xs-6 col-md-3">
-                    <img height="140" width="140" src="images/activityimg1.jpg">
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <span class="fa-stack fa-4x">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-user fa-stack-1x text-primary"></i>
-                    </span>
-                    <br/>
-                    <strong>Ann Pauljsghfhgfdsg</strong>
-                </div>
-            <div>
-
-            <div class="row text-center">
-                <div class="col-xs-12 col-md-8">
-                    <h3>Paint with Wine</h3>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-6">
-                            <div class="service-item">
-                                <h4>Paint with a glass of wine while overlooking the lake</h4>
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-clock-o" aria-hidden="true"></i> Approx 3 .hrs</h5></div>
-                                    <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-usd" aria-hidden="true"></i> Max $45</h5></div>
-                                    <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-glass" aria-hidden="true"></i> Alcohol Present</h5></div>
-                                    <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-child" aria-hidden="true"></i> Child Safe</h5></div>
-                                </div>
-                                <br />
-                                <a href="#" onclick='btn1()' class="btn btn-lg btn-light1"><i class="fa fa-comments" aria-hidden="true"></i> Contact Ann</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    </section>
+    <div id="services" class="services bg-primary1" style="padding:10px">
+    </div>
 
     <!-- jQuery -->
     <script src="javascripts/jquery.js"></script>
@@ -79,7 +40,63 @@
             var parent = document.getElementById("services");
             var newdiv = document.createElement("div");
             newdiv.className = "container";
-            newdiv.innerHTML = '<div class="row text-center"> <div class="col-xs-6 col-md-3"> <img height="140" width="140" src="'+activity.pictures[0].src+'"> </div> <div class="col-xs-6 col-md-3"> <span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-user fa-stack-1x text-primary"></i> </span> <br/> <strong>'+activity.hostName+'</strong> </div> <div> <div class="row text-center"> <div class="col-xs-12 col-md-8"> <h3>'+activity.name+'</h3> <div class="row"> <div class="col-md-12 col-sm-6"> <div id="divwithtags" class="service-item"> <h4>'+activity.description+'</h4> <div class="row"> <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-clock-o" aria-hidden="true"></i> Approx '+activity.maxTimeInMin+' min</h5></div> <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-usd" aria-hidden="true"></i> Max $'+activity.maxCost+'</h5></div> </div> </div> <br /> <a href="#" onclick=\'btn1('+activity.id+')\' class="btn btn-lg btn-light1"><i class="fa fa-comments" aria-hidden="true"></i> Contact '+activity.hostName+'</a> </div> </div> </div> </div>';
+            newdiv.innerHTML = 
+            '<div class="row text-center">'+
+
+                ' <div class="col-xs-12 col-md-8">'+
+                    ' <h2>'+activity.name+'</h2>'+
+                    ' <br/>'+ 
+                ' </div>'+
+
+                ' <div class="col-xs-6 col-md-4">'+
+                    ' <img height="180" width="180" src="'+activity.pictures[0].src+'">'+
+                    ' <br/>'+ 
+                ' </div>'+
+
+                ' <div class="col-xs-6 col-md-4" style = "padding-top:28px">'+
+                    '<span>'+
+                        '<img height="80" width="80" padding="6px" style = "margin-right:8px; margin-right:8px" src="images/otherUser.png"> '+
+                         '<h4>'+ activity.hostName+ '</h4>'+
+                    ' </span>'+                  
+                ' </div>'+
+
+                ' <div>'+
+
+                    ' <div class="row text-center">'+
+
+                        ' <div class="col-xs-12 col-md-8">'+
+                            
+
+                            ' <div class="row">'+
+                                ' <div class="col-md-12 col-sm-6">'+
+                                ' <div id="divwithtags" class="service-item">'+
+
+                                ' <h4>'+activity.description+'</h4>'+
+                                ' <div class="row">'+
+
+                                    ' <div class="col-md-3 col-sm-6 activitytags">'+
+                                        ' <h5><i class="fa fa-clock-o" aria-hidden="true"></i> Approx '+activity.maxTimeInMin+' min</h5>'+
+                                    ' </div>'+
+                                    ' <div class="col-md-3 col-sm-6 activitytags">'+
+                                        ' <h5><i class="fa fa-usd" aria-hidden="true"></i> Max $'+activity.maxCost+'</h5>'+
+                                    ' </div>'+
+
+                                ' </div>'+
+
+                            ' </div>'+                            
+
+                        ' </div>'+
+
+                    ' </div>'+
+
+                ' </div>'+
+
+                ' <div class="col-xs-12 col-md-8" style = "padding-top:28px">'+
+                    ' <br />'+
+                    ' <a href="#" onclick=\'btn1('+activity.id+')\' class="btn btn-lg btn-light1"><i class="fa fa-comments" aria-hidden="true"></i> Contact '+activity.hostName+'</a>'+                
+                ' </div>'+
+
+            ' </div>';
             parent.append(newdiv);
 
             var tags = document.createElement("div");
