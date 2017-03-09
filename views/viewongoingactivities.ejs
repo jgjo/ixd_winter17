@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../views/partials/head %>
+    <style>
+      .card {
+      box-shadow: 2px 4px 8px 2px rgba(0,0,0,0.3);
+      transition: 0.3s;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <% include ../views/partials/header%>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </header>
+
+    <div style="text-align: center">
+      <h2 style="color:#446EB6;">Ongoing Activities</h2>
+      <hr>
+            <div id="ongoing">
+            </div>
+    </div>
+
+    <script>
+
+        var activitylog =<%-JSON.stringify(activitylogJSON)%> 
+        activitylog = activitylog.activitylog;
+        var activities =<%-JSON.stringify(activitiesJSON)%>
+        activities=activities.activities;
+
+        for(var i=0; i<activitylog.length; i++) {
+          if(!activitylog[i].past)
+          {
+            //ongoing
+            var parent = document.getElementById("ongoing");
+            var href = "/logexperience?id="+activitylog[i].activityid;
+            var btnText = "Continue logging";
+          
+            console.log(activitylog[i]);
+            for(var j=0; j<activities.length; j++) {
+              if(activities[j].id == activitylog[i].activityid)
+              {
+                var newdiv = document.createElement("div");
+                newdiv.className = "col-md-6 col-sm-12";
+                newdiv.innerHTML = '<div class="card"> <table> <tr> <td> <img height="130" width="130" style="border-radius:100px" src="'+activities[j].pictures[0].src+'" alt="Picture"> </td> <td> <div class="service-item"> <h3>' + activities[j].name + '</h3> <h5>'+ '<span> <p> with </p> <img height="40" width="40" padding="12px" style = "margin-right:8px" src="images/otherUser.png"> '+ activities[j].hostName + '</span> </h5> </div> </td> <td style="width:5%"> <a href="'+ href +'"> <i class="material-icons" style="color:#446EB6; font-size:44px;">navigate_next</i> </a> </td> <tr> </table> </div> <hr>';
+                parent.insertBefore(newdiv, parent.firstChild);
+              }
+            }
+          }
+        }
+
+        var goBack = function()
+        {
+          window.location.href = '/'
+        }
+
+        var btn1 = function() 
+        {
+        window.location.href = '/viewactivity'
+        }
+    </script>
+  </body>

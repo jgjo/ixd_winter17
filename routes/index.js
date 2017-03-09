@@ -5,6 +5,8 @@ var activities = require('../public/data/activities.json');
 var ownactivities = require('../public/data/ownactivities.json');
 var moments = require('../public/data/moments.json');
 var activitylog = require('../public/data/activitylog.json');
+var users = require('../public/data/users.json');
+
 var id = 105;
 var hostID = 69;
 var location = {
@@ -47,6 +49,11 @@ router.get('/viewmemories', function(req, res, next) {
 /* GET viewactivity page. */
 router.get('/viewactivity', function(req, res, next) {
   res.render('viewactivity', { title: 'IXD' });
+});
+
+/* GET viewongoingactivities page. */
+router.get('/viewongoingactivities', function(req, res, next) {
+  res.render('viewongoingactivities', { title: 'IXD', activitylogJSON: activitylog, activitiesJSON: activities });
 });
 
 /* GET about page. */

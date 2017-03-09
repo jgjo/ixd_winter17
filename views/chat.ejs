@@ -39,11 +39,11 @@
         <button type="submit" class="message-submit"><i class="material-icons" style="color:grey">send</i></button>
       </div>
     </div>
-    <div class="bg"></div>
+    <div class="bg" style="background-color: #f5f5f5;"></div>
 
     <div id="exitbtndiv" class="exitButton" style="text-align: center; background-color:#3f63a1">
             <a id="goingbtn" href="/logexperience">
-              <button class="mdl-button mdl-js-button" style="width:45%; color:#f5f5f5">
+              <button class="mdl-button mdl-js-button" style="width:49%; color:#f5f5f5">
                 We're going!
               </button>
             </a>
@@ -51,7 +51,7 @@
             
 
             <a onclick="btn2()">
-            <button class="mdl-button mdl-js-button" style="width:45%; color:#f5f5f5">
+            <button class="mdl-button mdl-js-button" style="width:49%; color:#f5f5f5; height: 100%; border-left: white; border-left-style: solid;">
               It didn't work out
             </button>
           </a>     
@@ -179,6 +179,7 @@
               var parent = document.getElementById("userdiv");
               var newdiv = document.createElement("h1");
               newdiv.innerHTML = activity.hostName;
+              newdiv.style = "padding-top: 8px;";
               parent.append(newdiv);              
           }
 

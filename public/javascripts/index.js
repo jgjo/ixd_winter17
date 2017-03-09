@@ -24,6 +24,12 @@ var memoryclick = function()
 {
   window.location.href = '/viewmemories'
 }
+
+var ongoingclick = function() 
+{
+  window.location.href = '/viewongoingactivities'
+}
+
 var activityclick = function(id,current=false) 
 {
 	if(current)
