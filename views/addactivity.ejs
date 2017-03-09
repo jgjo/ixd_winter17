@@ -13,20 +13,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
-                    <h1>Add Activity</h1>
+                    <h3>Add Activity</h3>
                     <form id="addActivityForm">
-
-                      <div class="form-group" style="margin: 20px">
-                        <label></label>
+                      <div class="form-group" style="margin: 10px">
+                        <img id='img-upload' class="img-thumbnail"/>
                         <div class="input-group">
                           <span class="input-group-btn">
-                            <span class="btn btn-default btn-file">
-                              Picture <input type="file" id="imgInp">
+                            <span  id="addmomentbtn" class="btn btn-default">
+                              Picture
                             </span>
                           </span>
                           <input type="text" class="form-control" readonly required>
                         </div>
-                        <img id='img-upload'/>
+
                       </div>
 
                       <!--div id="addmomentdiv" class="col-lg-12 text-center" style="margin: 5px 5px;">
@@ -36,27 +35,27 @@
                         </button>
                       </div-->
 
-                      <div class="input-group" style="margin: 20px">
+                      <div class="input-group" style="margin: 15px">
                         <span class="input-group-addon"><i class="fa fa-globe" aria-hidden="true"></i></span>
                         <input id="user" type="text" class="form-control" name="name" value="" placeholder="activity name" required>
                       </div>
 
-                      <div class="input-group" style="margin: 20px">
+                      <div class="input-group" style="margin: 15px">
                         <span class="input-group-addon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
                         <input id="desc" type="text" class="form-control" name="description" placeholder="description" required>
                       </div>
 
-                      <div class="input-group" style="margin: 20px">
+                      <div class="input-group" style="margin: 15px">
                         <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                         <input id="user" type="text" class="form-control" name="location" placeholder="location" required>
                       </div>
 
-                      <div class="input-group" style="margin: 20px">
+                      <div class="input-group" style="margin: 15px">
                         <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                        <input id="user" type="text" class="form-control" name="maxCost" value="" placeholder="maximum cost" required>
+                        <input id="user" type="number" class="form-control" name="maxCost" value="" placeholder="maximum cost" required>
                       </div>
 
-                      <div class="input-group" style="margin: 20px">
+                      <div class="input-group" style="margin: 15px">
                         <span class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
                         <select class="form-control" id="timeeSelect">
                           <option>30 mins</option>
@@ -200,7 +199,10 @@
         modal.style.display = "none";
 
         hideModalImage();
+        document.getElementById("img-upload").src = document.getElementById("addmomentimg").src;
         //populateMoment(document.getElementById("txt_caption").value);
+
+
       }
 
 
