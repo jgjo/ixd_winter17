@@ -10,47 +10,10 @@
         <% include ../views/partials/header %>
     </header>
     
-    <!-- Services -->
-    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-    <section id="services" class="services bg-primary1">
-        <!--         
-        <div id="activitydetails" class="container">
-            <div class="row text-center">
-                <div class="col-xs-6 col-md-3">
-                    <img height="140" width="140" src="images/activityimg1.jpg">
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <span class="fa-stack fa-4x">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-user fa-stack-1x text-primary"></i>
-                    </span>
-                    <br/>
-                    <strong>Ann Pauljsghfhgfdsg</strong>
-                </div>
-            <div>
-
-            <div class="row text-center">
-                <div class="col-xs-12 col-md-8">
-                    <h3>Paint with Wine</h3>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-6">
-                            <div class="service-item">
-                                <h4>Paint with a glass of wine while overlooking the lake</h4>
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-clock-o" aria-hidden="true"></i> Approx 3 .hrs</h5></div>
-                                    <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-usd" aria-hidden="true"></i> Max $45</h5></div>
-                                    <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-glass" aria-hidden="true"></i> Alcohol Present</h5></div>
-                                    <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-child" aria-hidden="true"></i> Child Safe</h5></div>
-                                </div>
-                                <br />
-                                <a href="#" onclick='btn1()' class="btn btn-lg btn-light1"><i class="fa fa-comments" aria-hidden="true"></i> Contact Ann</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    </section>
+    <div id="services" class="services bg-primary1" style="padding:0px; height: 85%;">
+    </div>
+    <div id="exitbtndiv" class="exitButton" style="text-align: center; background-color:#3f63a1">   
+    </div>
 
     <!-- jQuery -->
     <script src="javascripts/jquery.js"></script>
@@ -75,38 +38,124 @@
         window.location.href = '/chat?id='+id;
         }
 
-        var populatePage = function(){
+        var populatePage = function(location){
+
             var parent = document.getElementById("services");
             var newdiv = document.createElement("div");
             newdiv.className = "container";
-            newdiv.innerHTML = '<div class="row text-center"> <div class="col-xs-6 col-md-3"> <img height="140" width="140" src="'+activity.pictures[0].src+'"> </div> <div class="col-xs-6 col-md-3"> <span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-user fa-stack-1x text-primary"></i> </span> <br/> <strong>'+activity.hostName+'</strong> </div> <div> <div class="row text-center"> <div class="col-xs-12 col-md-8"> <h3>'+activity.name+'</h3> <div class="row"> <div class="col-md-12 col-sm-6"> <div id="divwithtags" class="service-item"> <h4>'+activity.description+'</h4> <div class="row"> <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-clock-o" aria-hidden="true"></i> Approx '+activity.maxTimeInMin+' min</h5></div> <div class="col-md-3 col-sm-6 activitytags"><h5><i class="fa fa-usd" aria-hidden="true"></i> Max $'+activity.maxCost+'</h5></div> </div> </div> <br /> <a href="#" onclick=\'btn1('+activity.id+')\' class="btn btn-lg btn-light1"><i class="fa fa-comments" aria-hidden="true"></i> Contact '+activity.hostName+'</a> </div> </div> </div> </div>';
+            newdiv.innerHTML = 
+            '<div class="row text-center">'+
+
+                ' <div class="col-xs-12 col-md-8">'+
+                    ' <h2><strong>'+activity.name+'</strong></h2>'+
+                    '<span><i class="material-icons" style="color:#446EB6;font-size:30px;">location_on</i>'+location+'</span>'+
+                ' </div>'+
+
+                ' <div class="col-xs-12 col-md-8" style = "padding-top:15px">'+
+                    '<span>'+
+                        '<img height="50" width="50" padding="6px" style = "margin-right:8px; margin-right:8px" src="images/otherUser.png"> '+
+                         '<strong>'+ activity.hostName+ '</strong>'+
+                    ' </span>'+                  
+                ' </div>'+
+
+                ' <div class="col-xs-12 col-md-8" style = "padding-top:25px">'+
+                    ' <img height="260" width="100%" src="'+activity.pictures[0].src+'">'+
+                    '<h5>'+activity.description+'</h5>'+ 
+                ' </div>'+
+
+                ' <div class="col-xs-12 col-md-8 text-center" style = "padding-top:22px; padding-bottom:20px">'+                        
+                        '<table id="tagtable" width="100%">'+
+                        '</table>'+
+                ' </div>'+
+                          
+
+            ' </div>';
             parent.append(newdiv);
 
-            var tags = document.createElement("div");
-            tags.className = "col-md-3 col-sm-6 activitytags";
-            tags.innerHTML = "";
+            var taghtml = '<tr id="divwithtags">';
+            var divstyle="";
+            var istyle="";
             for(var i=0; i<activity.filters.length; i++) {
                 if(activity.filters[i].value == 1)
                 {
-                    if(activity.filters[i].name=="alcohol")
-                    {
-                        tags.innerHTML += '<h5><i class="fa fa-glass" aria-hidden="true"></i>'+activity.filters[i].name+'</h5> ';
-                    }
-                    else if(activity.filters[i].name=="childsafe")
-                    {
-                        tags.innerHTML += '<h5><i class="fa fa-child" aria-hidden="true"></i>'+activity.filters[i].name+'</h5> ';
-                    }
-                    else
-                    {
-                        tags.innerHTML += '<h5><i class="fa" aria-hidden="true"></i>'+activity.filters[i].name+'</h5> ';
-                    }
+                    divstyle="padding-top: 3px; padding-bottom: 3px; margin: 2px;";
+                    istyle="color:#446EB6; font-size:40px";
+                // }
+                // else
+                // {
+                //     divstyle="background-color:rgba(68, 110, 182, 0.31); padding-top: 6px; padding-bottom: 6px; margin: 2px;";
+                //     istyle="color:#446EB6; opacity:0.3; font-size:40px";
+                // }
+
+                if(activity.filters[i].name=="childsafe")
+                {
+                   taghtml+= '<td id="childDiv" style="max-width: 40px;" width:"20%"">'+
+                                    '<div style="'+divstyle+'"> <i id="childi" class="fa fa-child" aria-hidden="true" style="'+istyle+'"></i></div> Childsafe'+
+                                '</td>';
+                }
+                else if(activity.filters[i].name=="alcohol")
+                {
+                    taghtml+= '<td id="alcoholDiv" style="max-width: 40px;" width:"20%"">'+
+                                    '<div style="'+divstyle+'"> <i id="alcoholi" class="fa fa-glass" aria-hidden="true" style="'+istyle+'"></i></div> Alcohol'+
+                                '</td>';
+                    
+                }
+                else if(activity.filters[i].name=="food")
+                {
+                    taghtml+='<td id="foodDiv" style="max-width: 40px;" width:"20%"">'+
+                                    '<div style="'+divstyle+'"> <i id="foodi" class="fa fa-cutlery" aria-hidden="true" style="'+istyle+'"></i></div> Food'+
+                                '</td>';
+
+                }
+                else if(activity.filters[i].name=="outdoor")
+                {
+                    taghtml+='<td id="outdoorsDiv" style="max-width: 40px;" width:"20%"">'+
+                                    '<div style="'+divstyle+'"> <i id="outdoorsi" class="fa fa-tree" aria-hidden="true" style="'+istyle+'"></i></div> Outdoors'+
+                                '</td>';
+                    
                 }
             }
-            document.getElementById("divwithtags").append(tags);
+                
+            }
+            taghtml+= '<td style="max-width: 40px;" width:"20%"">'+
+                                    '<div style="padding-top: 3px; padding-bottom: 3px; margin: 2px;"><i id="alcoholi" class="fa fa-clock-o" aria-hidden="true" style="color:#446EB6; font-size:40px"></i></div>'+activity.maxTimeInMin+'&nbsp min'+
+                        '</td>'+
+                        '<td style="max-width: 40px;" width:"20%"">'+
+                            '<div style="padding-top: 3px; padding-bottom: 3px; margin: 2px;"><i id="alcoholi" class="fa fa-dollar" aria-hidden="true" style="color:#446EB6; font-size:35px"></i></div>Max &nbsp'+activity.maxCost+
+                        '</td>';
+
+            taghtml+= '</tr>';
+
+            document.getElementById("tagtable").innerHTML+= taghtml;
+
+            document.getElementById("exitbtndiv").innerHTML+= '<a onclick=\'btn1('+activity.id+')\'> <button class="mdl-button mdl-js-button" style="width:100%; color:#f5f5f5; min-height: 50px; height:8%; border-left: white; border-left-style: solid; font-size:16px"><i class="fa fa-comments" style="color:white; font-size:30px" aria-hidden="true"></i>&nbsp &nbsp Chat with &nbsp '+activity.hostName+'</button></a>  ';
         }
 
 
-        populatePage();
+        //populatePage();
+
+
+        function displayLocation(latitude,longitude){
+        var request = new XMLHttpRequest();
+
+        var method = 'GET';
+        var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
+        var async = true;
+
+        request.open(method, url, async);
+        request.onreadystatechange = function(){
+          if(request.readyState == 4 && request.status == 200){
+            var data = JSON.parse(request.responseText);
+            var address = data.results[0];
+            var location = address.formatted_address;
+            populatePage(location);
+          }
+        };
+        request.send();
+        };
+
+        displayLocation(activity.location.lat,activity.location.lng);
+
     </script>
 
     <script>

@@ -8,14 +8,22 @@
     <style>
          #map {
            width: 100%;
-           height: 600px;
+           height: 630px;
            background-color: grey;
-           top: 15px;
-         }
+           top: 0px;
+          }
 
          #wrapper { position: relative; }
 
          #over_map { position: absolute; top: 59px; right: 15px; z-index: 99; }
+
+         #legend {
+            height:12px;
+            background: #fff;
+            padding: 0px;
+            margin: 0px;
+          }
+
     </style>
 
 </head>
@@ -33,7 +41,8 @@
                 <i class="material-icons">menu</i>
             </button>
             <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-left" for="hdrbtn">
-              <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='profileclick()'>My Profile</span></li>        
+              <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='profileclick()'>My Profile</span></li>
+              <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='ongoingclick()'>Ongoing Activities</span></li>        
               <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='memoryclick()'>Memories</span></li>
               <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='aboutclick()'>About</span></li>
               <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#446EB6" href="#" onclick='logoutClick()'>Logout</span></li>
@@ -57,6 +66,13 @@
        <!-- Google map -->
        <div id="google_map">
             <div id="map"></div>
+            <div id="legend" style="text-align:center">
+              <span>
+                <img style="opacity: 0.8;" src="images/blueMarker.png"></img>&nbsp Available Activities &nbsp
+                <img style="opacity: 0.8;" src="images/greenMarker.png"></img>&nbsp Ongoing Activities &nbsp
+                <img style="opacity: 0.8;" src="images/orangeMarker.png"></img>&nbsp Own Activities &nbsp
+              </span>
+            </div>
        </div>
         <!-- Add activity and filter buttons overlayed on map -->
         <div id="over_map" width="100%" height="650px">
@@ -73,14 +89,14 @@
                   <button id="show-dialog" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="background-color:#446EB6">
                     <i class="fa fa-sliders" aria-hidden="true"></i>
                   </button>
-                  <!--button id="show-dialog" type="button" class="mdl-button">Show Dialog</button-->
                 </div>
         </div>
     </div>
+    
 
     <!-- FILTER DIALOG -->
     <dialog class="mdl-dialog">
-      <h4 class="mdl-dialog__title">Filters</h4>
+      <h3 style="color:#446EB6;" class="mdl-dialog__title">Filters</h3>
       <div class="mdl-dialog__content">
         <!-- <p>Please choose the appropriate filters</p> -->
         <form action="demo_form.asp">
@@ -106,12 +122,14 @@
         </form>
       </div>
       <div class="mdl-dialog__actions">
-        <button type="button" class="mdl-button close">Done</button>
+        <button style="color:#446EB6; opacity:.8;" type="button" class="mdl-button close">Done</button>
       </div>
     </dialog>
 
+
     <!-- SCRIPT FOR FILTER DIALOG -->
     <script>
+
       var dialog = document.querySelector('dialog');
       var showDialogButton = document.querySelector('#show-dialog');
       if (! dialog.showModal) {
@@ -225,6 +243,7 @@
           map = new google.maps.Map(document.getElementById('map'), {
             zoom: 14,
             center: center,
+            streetViewControl: false,
             mapTypeControlOptions: {
                     mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'greyscale']
                }
@@ -236,6 +255,14 @@
 
           addMarkers("446EB6");
         }
+
+
+        // var legend = document.getElementById('legend');
+        // var div = document.createElement('div');
+        // div.innerHTML = '<h1>hi</hi>';
+        // legend.appendChild(div);
+
+        //map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 
 
         function addMarkers(color)
@@ -313,18 +340,43 @@
                       }
                       else
                       {
-                        infowindow.setContent('<div id="content">'+
-                          '<div id="siteNotice">'+
-                          '</div>'+
-                          '<h1 id="firstHeading" class="firstHeading">'+activities.activities[i].name+'</h1>'+
-                          '<div id="bodyContent">'+
-                          '<p>'+activities.activities[i].description+'</p>'+
-                          '<p>Host: '+activities.activities[i].hostName+
-                          '</p>'+
-                          '<img height="140" width="140" src="'+activities.activities[i].pictures[0].src+'">'+
-                          '<p><br/><button onclick=activityclick('+activities.activities[i].id+','+current+')>View</button></p>'+
-                          '</div>'+
-                          '</div>');
+                        infowindow.setContent(
+                          '<div>'+
+                            '<h3 id="firstHeading" onclick=activityclick('+activities.activities[i].id+','+current+') class="firstHeading">'+activities.activities[i].name+'</h3>'+
+
+                            '<div id="bodyContent" style="content-align:center">'+
+                              '<table style="content-align:center">'+
+                                '<tr style="content-align:center">'+
+                                  '<td style="content-align:center">'+   
+                                    '<table>'+
+                                      '<tr>'+
+                                        '<td>'+                          
+                                        '<img height="40" width="40" padding="8px" src="images/otherUser.png">'+
+                                        '</td>'+
+
+                                        '<td style="vertical-align: center">'+   
+                                        '<h5>'+activities.activities[i].hostName+'</h5>'+                       
+                                        '</td>'+
+                                      '</tr>'+
+                                    '</table>'+                      
+                                  '</td>'+
+                                '</tr>'+
+
+                                '<tr>'+
+                                  '<td>'+                          
+                                  '<img onclick=activityclick('+activities.activities[i].id+','+current+') height="120" width="120" src="'+activities.activities[i].pictures[0].src+'">'+
+                                  '</td>'+                                  
+                                '</tr>'+
+
+                                '<tr>'+
+                                  '<td>'+                          
+                                  '<p><br/><a href="#" onclick=activityclick('+activities.activities[i].id+','+current+')>View</a></p>'+
+                                  '</td>'+
+                                '</tr>'+
+                              '</table>'+
+                            '</div>'+
+                          '</div>'
+                          );
                       }
 
                       infowindow.open(map, marker);
