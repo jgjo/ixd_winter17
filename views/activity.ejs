@@ -10,7 +10,9 @@
         <% include ../views/partials/header %>
     </header>
     
-    <div id="services" class="services bg-primary1" style="padding:10px">
+    <div id="services" class="services bg-primary1" style="padding:0px; height: 85%;">
+    </div>
+    <div id="exitbtndiv" class="exitButton" style="text-align: center; background-color:#3f63a1">   
     </div>
 
     <!-- jQuery -->
@@ -31,12 +33,13 @@
             }
         }
 
-        var btn1 = function(id) 
+        var btn1 = function(id,hostid) 
         {
-        window.location.href = '/chat?id='+id;
+        window.location.href = '/chat?id='+id+'&hostid='+hostid;
         }
 
-        var populatePage = function(){
+        var populatePage = function(location){
+
             var parent = document.getElementById("services");
             var newdiv = document.createElement("div");
             newdiv.className = "container";
@@ -44,77 +47,115 @@
             '<div class="row text-center">'+
 
                 ' <div class="col-xs-12 col-md-8">'+
-                    ' <h2>'+activity.name+'</h2>'+
-                    ' <br/>'+ 
+                    ' <h2><strong>'+activity.name+'</strong></h2>'+
+                    '<span><i class="material-icons" style="color:#446EB6;font-size:30px;">location_on</i>'+location+'</span>'+
                 ' </div>'+
 
-                ' <div class="col-xs-6 col-md-4">'+
-                    ' <img height="180" width="180" src="'+activity.pictures[0].src+'">'+
-                    ' <br/>'+ 
-                ' </div>'+
-
-                ' <div class="col-xs-6 col-md-4" style = "padding-top:28px">'+
+                ' <div class="col-xs-12 col-md-8" style = "padding-top:15px">'+
                     '<span>'+
-                        '<img height="80" width="80" padding="6px" style = "margin-right:8px; margin-right:8px" src="images/otherUser.png"> '+
-                         '<h4>'+ activity.hostName+ '</h4>'+
+                        '<img height="50" width="50" padding="6px" style = "margin-right:8px; margin-right:8px" src="images/otherUser.png"> '+
+                         '<strong>'+ activity.hostName+ '</strong>'+
                     ' </span>'+                  
                 ' </div>'+
 
-                ' <div class="col-xs-12 col-md-8">'+
-
-                        '<br/> <h4>'+activity.description+'</h4>'+ '</br>'+
-                        '<table width="100%">'+
-                            '<tr id="divwithtags">'+
-                                '<td style="max-width: 40px;" width:"20%"">'+
-                                    '<div style="border-style:solid; border-color:#446EB6; background-color:#446EB6; padding-top: 6px; padding-bottom: 6px; margin: 2px;"> <i class="fa fa-child" aria-hidden="true" style="color:white; font-size:40px"></i></div> Childsafe'+
-                                '</td>'+ 
-                                '<td style="max-width: 40px;" width:"20%"">'+
-                                    '<div style="background-color:grey; padding-top: 6px; padding-bottom: 6px; margin: 2px;"> <i class="fa fa-glass" aria-hidden="true" style="font-size:40px"></i></div> Alcohol'+
-                                '</td>'+ 
-                                '<td style="max-width: 40px;" width:"20%"">'+
-                                    '<div style="background-color:grey; padding-top: 6px; padding-bottom: 6px; margin: 2px;"> <i class="fa fa-glass" aria-hidden="true" style="font-size:40px"></i></div> Food'+
-                                '</td>'+ 
-                                '<td style="max-width: 40px;" width:"20%"">'+
-                                    '<div style="background-color:grey; padding-top: 6px; padding-bottom: 6px; margin: 2px;"> <i class="fa fa-glass" aria-hidden="true" style="font-size:40px"></i></div> Outdoors'+
-                                '</td>'+                                   
-                            '</tr>'+
-                        '</table>'+
-
-                ' </div>'+                            
-
-                ' <div class="col-xs-12 col-md-8" style = "padding-top:28px">'+
-                        ' <br />'+
-                        ' <a href="#" onclick=\'btn1('+activity.id+')\' class="btn btn-lg btn-light1"><i class="fa fa-comments" aria-hidden="true"></i> Contact '+activity.hostName+'</a>'+                
+                ' <div class="col-xs-12 col-md-8" style = "padding-top:25px">'+
+                    ' <img height="260" width="100%" src="'+activity.pictures[0].src+'">'+
+                    '<h5>'+activity.description+'</h5>'+ 
                 ' </div>'+
+
+                ' <div class="col-xs-12 col-md-8 text-center" style = "padding-top:22px; padding-bottom:20px">'+                        
+                        '<table id="tagtable" width="100%">'+
+                        '</table>'+
+                ' </div>'+
+                          
 
             ' </div>';
             parent.append(newdiv);
 
-            // var tags = document.createElement("td");
-            // //tags.className = "col-md-3 col-sm-6 activitytags";
-            // tags.innerHTML = "";
-            // for(var i=0; i<activity.filters.length; i++) {
-            //     if(activity.filters[i].value == 1)
-            //     {
-            //         if(activity.filters[i].name=="alcohol")
-            //         {
-            //             tags.innerHTML += '<div style="background-color:grey"> <i class="fa fa-glass" aria-hidden="true" style="font-size:40px"></i>&nbsp'+activity.filters[i].name+'</div>';
-            //         }
-            //         else if(activity.filters[i].name=="childsafe")
-            //         {
-            //             tags.innerHTML += '<div style="background-color:grey"> <i class="fa fa-child" aria-hidden="true" style="font-size:40px"></i>&nbsp'+activity.filters[i].name+'</div>';
-            //         }
-            //         else
-            //         {
-            //             tags.innerHTML += '<i class="fa" aria-hidden="true"></i>';//+activity.filters[i].name+'</h5> ';
-            //         }
-            //     }
-            // }
-            // document.getElementById("divwithtags").append(tags);
+            var taghtml = '<tr id="divwithtags">';
+            var divstyle="";
+            var istyle="";
+            for(var i=0; i<activity.filters.length; i++) {
+                if(activity.filters[i].value == 1)
+                {
+                    divstyle="padding-top: 3px; padding-bottom: 3px; margin: 2px;";
+                    istyle="color:#446EB6; font-size:40px";
+                // }
+                // else
+                // {
+                //     divstyle="background-color:rgba(68, 110, 182, 0.31); padding-top: 6px; padding-bottom: 6px; margin: 2px;";
+                //     istyle="color:#446EB6; opacity:0.3; font-size:40px";
+                // }
+
+                if(activity.filters[i].name=="childsafe")
+                {
+                   taghtml+= '<td id="childDiv" style="max-width: 40px;" width:"20%"">'+
+                                    '<div style="'+divstyle+'"> <i id="childi" class="fa fa-child" aria-hidden="true" style="'+istyle+'"></i></div> Childsafe'+
+                                '</td>';
+                }
+                else if(activity.filters[i].name=="alcohol")
+                {
+                    taghtml+= '<td id="alcoholDiv" style="max-width: 40px;" width:"20%"">'+
+                                    '<div style="'+divstyle+'"> <i id="alcoholi" class="fa fa-glass" aria-hidden="true" style="'+istyle+'"></i></div> Alcohol'+
+                                '</td>';
+                    
+                }
+                else if(activity.filters[i].name=="food")
+                {
+                    taghtml+='<td id="foodDiv" style="max-width: 40px;" width:"20%"">'+
+                                    '<div style="'+divstyle+'"> <i id="foodi" class="fa fa-cutlery" aria-hidden="true" style="'+istyle+'"></i></div> Food'+
+                                '</td>';
+
+                }
+                else if(activity.filters[i].name=="outdoor")
+                {
+                    taghtml+='<td id="outdoorsDiv" style="max-width: 40px;" width:"20%"">'+
+                                    '<div style="'+divstyle+'"> <i id="outdoorsi" class="fa fa-tree" aria-hidden="true" style="'+istyle+'"></i></div> Outdoors'+
+                                '</td>';
+                    
+                }
+            }
+                
+            }
+            taghtml+= '<td style="max-width: 40px;" width:"20%"">'+
+                                    '<div style="padding-top: 3px; padding-bottom: 3px; margin: 2px;"><i id="alcoholi" class="fa fa-clock-o" aria-hidden="true" style="color:#446EB6; font-size:40px"></i></div>'+activity.maxTimeInMin+'&nbsp min'+
+                        '</td>'+
+                        '<td style="max-width: 40px;" width:"20%"">'+
+                            '<div style="padding-top: 3px; padding-bottom: 3px; margin: 2px;"><i id="alcoholi" class="fa fa-dollar" aria-hidden="true" style="color:#446EB6; font-size:35px"></i></div>Max &nbsp'+activity.maxCost+
+                        '</td>';
+
+            taghtml+= '</tr>';
+
+            document.getElementById("tagtable").innerHTML+= taghtml;
+
+            document.getElementById("exitbtndiv").innerHTML+= '<a onclick=\'btn1('+activity.id+','+activity.hostID+')\'> <button class="mdl-button mdl-js-button" style="width:100%; color:#f5f5f5; min-height: 50px; height:8%; border-left: white; border-left-style: solid; font-size:16px"><i class="fa fa-comments" style="color:white; font-size:30px" aria-hidden="true"></i>&nbsp &nbsp Chat with &nbsp '+activity.hostName+'</button></a>  ';
         }
 
 
-        populatePage();
+        //populatePage();
+
+
+        function displayLocation(latitude,longitude){
+        var request = new XMLHttpRequest();
+
+        var method = 'GET';
+        var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
+        var async = true;
+
+        request.open(method, url, async);
+        request.onreadystatechange = function(){
+          if(request.readyState == 4 && request.status == 200){
+            var data = JSON.parse(request.responseText);
+            var address = data.results[0];
+            var location = address.formatted_address;
+            populatePage(location);
+          }
+        };
+        request.send();
+        };
+
+        displayLocation(activity.location.lat,activity.location.lng);
+
     </script>
 
     <script>

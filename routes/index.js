@@ -37,7 +37,7 @@ router.get('/logexperience_B', function(req, res, next) {
 
 /* GET chat page. */
 router.get('/chat', function(req, res, next) {
-  res.render('chat', { title: 'IXD', activitiesJSON: activities});
+  res.render('chat', { title: 'IXD', activitiesJSON: activities, usersJSON: users});
   // res.render('testchat', { title: 'IXD' });
 });
 
@@ -91,6 +91,10 @@ router.get('/viewmemory', function(req, res, next) {
   res.render('viewmemory', { title: 'IXD', activitylogJSON: activitylog, activitiesJSON: activities });
 });
 
+/* GET editmyprofile page. */
+router.get('/editmyprofile', function(req, res, next) {
+  res.render('editmyprofile', { title: 'IXD' });
+});
 
 router.post('/api/activity', function (req, res) {
   if (!(req.body.name && req.body.description && req.body.maxCost && req.body.maxTimeInMin
