@@ -8,20 +8,23 @@
     <style>
          #map {
            width: 100%;
-           height: 630px;
+           min-height: 588px;
+           height:100%;
            background-color: grey;
            top: 0px;
           }
 
-         #wrapper { position: relative; }
+         #wrapper { position: relative; height:89%; }
 
          #over_map { position: absolute; top: 59px; right: 15px; z-index: 99; }
 
          #legend {
-            height:12px;
+            height:37px;
             background: #fff;
             padding: 0px;
-            margin: 0px;
+            margin: 1px;            
+           border-bottom: #c5c5c5;
+           border-bottom-style: solid;
           }
 
     </style>
@@ -29,10 +32,9 @@
 </head>
 
 <body>
-<div>
     <!-- Header for the home page -->
     <header>
-      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" style="height:100%">
 
         <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
         
@@ -61,18 +63,18 @@
       <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     </header>
     
-    <!-- PAGE CONTENT -->
-    <div id="wrapper">
-       <!-- Google map -->
-       <div id="google_map">
-            <div id="map"></div>
-            <div id="legend" style="text-align:center">
+    <div class="col-xs-12 col-md-8" id="legend" style="text-align:center">
               <span>
                 <img style="opacity: 0.8;" src="images/blueMarker.png"></img>&nbsp Available Activities &nbsp
                 <img style="opacity: 0.8;" src="images/greenMarker.png"></img>&nbsp Ongoing Activities &nbsp
                 <img style="opacity: 0.8;" src="images/orangeMarker.png"></img>&nbsp Own Activities &nbsp
               </span>
-            </div>
+    </div>
+    <!-- PAGE CONTENT -->
+    <div id="wrapper">
+       <!-- Google map -->
+       <div id="google_map" style="height:100%">
+            <div id="map"></div>
        </div>
         <!-- Add activity and filter buttons overlayed on map -->
         <div id="over_map" width="100%" height="650px">
@@ -90,9 +92,9 @@
                     <i class="fa fa-sliders" aria-hidden="true"></i>
                   </button>
                 </div>
+            </div>
         </div>
     </div>
-    
 
     <!-- FILTER DIALOG -->
     <dialog class="mdl-dialog">
@@ -101,7 +103,7 @@
         <!-- <p>Please choose the appropriate filters</p> -->
         <form action="demo_form.asp">
           <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-            <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+            <input type="checkbox" id="switch-1" class="mdl-switch__input">
             <span class="mdl-switch__label">Child Safe</span>
           </label>
           <br><br>
@@ -116,7 +118,7 @@
           </label>
           <br><br>
           <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-4">
-            <input type="checkbox" id="switch-4" class="mdl-switch__input" checked>
+            <input type="checkbox" id="switch-4" class="mdl-switch__input">
             <span class="mdl-switch__label">Outdoors</span>
           </label>
         </form>
@@ -155,6 +157,14 @@
       {
             window.location.href = '/login';
       }
+
+      function expandToWindow(element) {
+         var margin = 0; 
+
+         if (element.style.height < window.innerHeight) { 
+            element.style.height = window.innerHeight - (2 * margin) 
+         }
+    }
     </script>
 
     <!-- Custom Theme JavaScript -->
@@ -229,7 +239,7 @@
 
 
         function initMap() {
-          var center = {lat: 32.715738, lng: -117.161084};
+          var center = {lat: 32.722679, lng: -117.162289};
           var style = [
               {
                 featureType: "all",
@@ -257,15 +267,7 @@
         }
 
 
-        // var legend = document.getElementById('legend');
-        // var div = document.createElement('div');
-        // div.innerHTML = '<h1>hi</hi>';
-        // legend.appendChild(div);
-
-        //map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
-
-
-        function addMarkers(color)
+        function addMarkers(orgcolor)
         {
             var infowindow = new google.maps.InfoWindow();
             var childproof_bool = (document.getElementById("switch-1").checked)&1;
@@ -277,8 +279,9 @@
 
             // LOOP THROUGH ACTIVITIES TO CREATE MARKER
             for(var i=0; i<activities.activities.length; i++) {
+                color = orgcolor;
                 var filter = activities.activities[i].filters;
-                if(filter[0].value==childproof_bool&&filter[1].value==outdoor_bool&&filter[2].value==alcohol_bool&&filter[3].value==food_bool){
+                if((filter[0].value==childproof_bool&&filter[1].value==outdoor_bool&&filter[2].value==alcohol_bool&&filter[3].value==food_bool)||!(childproof_bool||outdoor_bool||alcohol_bool||food_bool)){
 
                   for(var j=0; j<activitylog.activitylog.length; j++) {
                     if(activitylog.activitylog[j].activityid == activities.activities[i].id)
