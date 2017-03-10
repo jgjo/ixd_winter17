@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <% include ../views/partials/head %>
+  <link rel="stylesheet" href="stylesheets/form-basic.css">
+
+</head>
+
+<body>
+  <header>
+    <% include ../views/partials/header %>
+  </header>
+
+    <div class="main-content">
+
+        <!-- You only need this form and the form-basic.css -->
+
+        <form class="form-basic" method="post" action="#">
+
+            <div class="form-title-row">
+                <h1>Edit Profile</h1>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Full name</span>
+                    <input type="text" name="name">
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Location</span>
+                    <input type="email" name="email">
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Bio</span>
+                    <textarea name="textarea"></textarea>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <div class="text-center">
+                  <button type="submit">Save Edits</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
