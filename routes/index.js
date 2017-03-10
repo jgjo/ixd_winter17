@@ -118,7 +118,7 @@ router.post('/api/activity', function (req, res) {
   location.lat = location.lat + 0.01;
   location.lng = location.lng + 0.01;
   console.log(newActivity);
-  activities.activities.push(newActivity);
+  console.log(activities.activities.push(newActivity));
   res.sendStatus(200);
 });
 
