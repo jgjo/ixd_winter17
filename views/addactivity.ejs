@@ -14,19 +14,14 @@
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
                     <h4>Add Activity</h4>
+                  <form id="addActivityForm">
 
-                  <img id='img-upload' class="img-thumbnail"/>
-                  <div class="input-group" style="margin: 15px">
+                      <img id='img-upload' class="img-thumbnail"/>
+
+                      <div class="input-group" style="margin: 15px">
                           <span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
-                          <input id="addmomentbtn" type="password" class="form-control" placeholder="add picture " required>
-                        </div>
-
-                      <!--div id="addmomentdiv" class="col-lg-12 text-center" style="margin: 5px 5px;">
-                        <img src="/images/dummyPicture.jpg" style="width: 50%; height: 50%;">
-                        <button id="addmomentbtn" onclick='addclick()' class="modalbtn mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="background-color:#446EB6; margin:10px auto;">
-                          <i class="material-icons">add</i>
-                        </button>
-                      </div-->
+                          <input id="addmomentbtn" type="button" class="form-control" placeholder="add picture " required>
+                      </div>
 
                       <div class="input-group" style="margin: 15px">
                         <span class="input-group-addon"><i class="fa fa-globe" aria-hidden="true"></i></span>
@@ -50,7 +45,7 @@
 
                       <div class="input-group" style="margin: 15px">
                         <span class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                        <select class="form-control" id="timeeSelect">
+                        <select class="form-control" id="timeSelect" name="time">
                           <option>30 mins</option>
                           <option>1 hr</option>
                           <option>2 hrs</option>
@@ -60,17 +55,16 @@
                         </select>
                       </div>
 
-                      <div class="form-group">
                         <label>Choose Tags</label>
                         <div class="input-group" style="margin: 5px 20px;">
                           <span class="input-group-addon"><i class="fa fa-child" aria-hidden="true"></i></span>
-                          <input id="user" type="checkbox" class="form-control" name="childsafe" value="" placeholder="cost">
+                          <input type="checkbox" class="form-control" name="childsafe">
                           <span class="input-group-addon"><i class="fa fa-tree" aria-hidden="true"></i></span>
-                          <input id="user" type="checkbox" class="form-control" name="outdoor" value="" placeholder="cost">
+                          <input type="checkbox" class="form-control" name="outdoor">
                           <span class="input-group-addon"><i class="fa fa-beer" aria-hidden="true"></i></span>
-                          <input id="user" type="checkbox" class="form-control" name="alcohol" value="" placeholder="cost">
+                          <input type="checkbox" class="form-control" name="alcohol">
                           <span class="input-group-addon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
-                          <input id="user" type="checkbox" class="form-control" name="food" value="" placeholder="cost">
+                          <input type="checkbox" class="form-control" name="food">
                         </div>
                         <div class="row" style="margin: 0px 10px;">
                           <div class="col-lg-3 col-xs-3 col-sm-3">Childproof</div>
@@ -78,11 +72,8 @@
                           <div class="col-lg-3 col-xs-3 col-sm-3">Alcohol</div>
                           <div class="col-lg-3 col-xs-3 col-sm-3">Food</div>
                         </div>
-                      </div>
                       <!-- Accent-colored raised button with ripple -->
-                      <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" style="background-color:#446EB6">
-                        SUBMIT
-                      </button>
+                      <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" style="background-color:#446EB6">SUBMIT</button>
                     </form>
                 </div>
             </div>
@@ -224,12 +215,25 @@
           $('#addActivityForm').submit(function (event) {
             event.preventDefault();
             var formData = $(this).serializeObject();
+            /*
+            console.log(formData);
+            console.log(formData.name);
+            console.log(formData.description);
+            console.log(formData.location);
+            console.log(formData.maxCost);
+            console.log(formData.time);
+            console.log(!!formData.childsafe);
+            console.log(!!formData.outdoor);
+            console.log(!!formData.alcohol);
+            console.log(!!formData.food);
+            */
             var data = {
               name: formData.name,
               description: formData.description,
-              maxCost: parseInt(formData.maxCost),
-              maxTimeInMin: parseInt(formData.maxTimeInMin),
-              childsafe: !!formData.childSafe,
+              location: formData.location,
+              maxCost: formData.maxCost,
+              maxTimeInMin: formData.time,
+              childsafe: !!formData.childsafe,
               outdoor: !!formData.outdoor,
               alcohol: !!formData.alcohol,
               food: !!formData.food
