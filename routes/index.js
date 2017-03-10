@@ -7,7 +7,7 @@ var moments = require('../public/data/moments.json');
 var activitylog = require('../public/data/activitylog.json');
 var users = require('../public/data/users.json');
 
-var id = 105;
+var id = 115;
 var hostID = 69;
 var location = {
   "lat": 32.712705,
@@ -114,7 +114,7 @@ router.post('/api/activity', function (req, res) {
     location: location,
     pictures: [{"src": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487334028/dummy_host4_v2wfpn.jpg"}],
     filters: [
-      {"name":"childsafe", "value": req.body.childSafe},
+      {"name":"childsafe", "value": req.body.childsafe},
       {"name":"outdoor", "value": req.body.outdoor},
       {"name":"alcohol", "value": req.body.alcohol},
       {"name":"food", "value": req.body.food}
@@ -122,6 +122,7 @@ router.post('/api/activity', function (req, res) {
   };
   location.lat = location.lat + 0.01;
   location.lng = location.lng + 0.01;
+  console.log(newActivity);
   activities.activities.push(newActivity);
   res.sendStatus(200);
 });
