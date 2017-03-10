@@ -150,30 +150,37 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
             var btn3 = function() 
             {
                 document.getElementById("modalContent").innerHTML='<div><br/><p>Experience abandoned!</p><br/></div>';
-                modal.style.display = "block";
-                  //window.alert("Experience abandoned!");
-                setTimeout(function() {window.location.href = '/';}, 100);
+                modal.style.display = "block";                
+                  
+                setTimeout(function() {
+                    var data = {
+                    activityid: activity.id
+                    };
+                    $.post('/api/abandonexperience', data, function success() {
+                        window.location.href = '/';
+                    });
+                }, 100);
             }
     </script>
     
 	<script>
     	  var showModalImage = function() 
     	  {
-            addpicbtn
+            //addpicbtn
     		document.getElementById("addmomentimg").className = "show";
             document.getElementById("addpicbtn").className = "hide"; 
   		  }
 
           var showModalImage_save = function() 
           {
-            addpicbtn
+            //addpicbtn
             document.getElementById("addmomentimg").className = "show";
             document.getElementById("addpicbtn").className = "hide"; 
           }
 
           var showModalImage_abandon = function() 
           {
-            addpicbtn
+            //addpicbtn
             document.getElementById("addmomentimg").className = "show";
             document.getElementById("addpicbtn").className = "hide"; 
           }

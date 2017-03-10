@@ -220,4 +220,21 @@ router.post('/api/startlogexperience', function (req, res) {
 
 });
 
+router.post('/api/abandonexperience', function (req, res) {
+  if (!(req.body.activityid)) {
+    return res.status(400).json({error: 'Missing fields'});
+  }
+
+  var objectExists = false;
+  for(var i=0; i<activitylog.activitylog.length; i++) {
+    if(activitylog.activitylog[i].activityid == req.body.activityid)
+    {
+      objectExists = true;
+      activitylog.activitylog[i].past = true;
+      res.sendStatus(200);
+    }
+  }
+
+});
+
 module.exports = router;
