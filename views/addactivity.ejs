@@ -13,15 +13,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
-                    <h4>Add Activity</h4>
+                    <h2>Add Activity</h2>
                   <form id="addActivityForm">
 
                     <div id="addmomentbtn">
-                      <img id='img-upload' src="http://c.dryicons.com/images/icon_sets/shine_icon_set/png/256x256/image_add.png" class="img-thumbnail"/>
-
-                      <div class="input-group" style="margin: 15px">
-                          <span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
-                          <input id="picUploadText" type="text" class="form-control" placeholder="add picture ">
+                      <img id='img-upload' src="https://res.cloudinary.com/din6mjlbd/image/upload/v1488516490/takeAPicture_fiogit.png" class="img-thumbnail"/>
+                      <div>
+                      <span><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp &nbsp Cortez Hill, San Diego, CA 92101, USA</span>
                       </div>
                     </div>
 
@@ -33,11 +31,6 @@
                       <div class="input-group" style="margin: 15px">
                         <span class="input-group-addon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
                         <input id="desc" type="text" class="form-control" name="description" placeholder="description" required>
-                      </div>
-
-                      <div class="input-group" style="margin: 15px">
-                        <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                        <input id="user" type="text" class="form-control" name="location" placeholder="location" required>
                       </div>
 
                       <div class="input-group" style="margin: 15px">
@@ -57,7 +50,7 @@
                         </select>
                       </div>
 
-                        <label>Choose Tags</label>
+<!--                         <label>Choose Tags</label>
                         <div class="input-group" style="margin: 5px 20px;">
                           <span class="input-group-addon"><i class="fa fa-child" aria-hidden="true"></i></span>
                           <input type="checkbox" class="form-control" name="childsafe">
@@ -73,177 +66,128 @@
                           <div class="col-lg-3 col-xs-3 col-sm-3">Outdoors</div>
                           <div class="col-lg-3 col-xs-3 col-sm-3">Alcohol</div>
                           <div class="col-lg-3 col-xs-3 col-sm-3">Food</div>
+                        </div> -->
+                        <div class="row text-center">
+                          <div class="col-xs-12 col-md-8 col-sm-6">
+                          <table style="width:100%; text-align:center">
+                            <tr>
+                              <td style="width:20%">
+                                <div id="childsafe" onclick=filterClick("childsafe") style="background-color:rgba(68, 110, 182, 0.31); padding-top: 6px; padding-bottom: 6px; margin: 2px;"> 
+                                  <i id="childsafei" class="fa fa-child" aria-hidden="true" style="color:#446EB6; opacity:0.3; font-size:40px"></i>
+                                </div> Childsafe
+                              </td>
+                              <td style="width:20%">
+                                <div id="alcohol" onclick=filterClick("alcohol") style="background-color:rgba(68, 110, 182, 0.31); padding-top: 6px; padding-bottom: 6px; margin: 2px;"> 
+                                  <i id="alcoholi" class="fa fa-glass" aria-hidden="true" style="color:#446EB6; opacity:0.3; font-size:40px"></i>
+                                </div> Alcohol
+                              </td>
+                              <td style="width:20%">
+                                <div id="food" onclick=filterClick("food") style="background-color:rgba(68, 110, 182, 0.31); padding-top: 6px; padding-bottom: 6px; margin: 2px;"> 
+                                  <i id="foodi" class="fa fa-cutlery" aria-hidden="true" style="color:#446EB6; opacity:0.3; font-size:40px"></i>
+                                </div> Food
+                              </td>
+                              <td style="width:20%">
+                                <div id="outdoor" onclick=filterClick("outdoor") style="background-color:rgba(68, 110, 182, 0.31); padding-top: 6px; padding-bottom: 6px; margin: 2px;"> 
+                                  <i id="outdoori" class="fa fa-tree" aria-hidden="true" style="color:#446EB6; opacity:0.3; font-size:40px"></i>
+                                </div> Outdoor
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
                         </div>
                       <!-- Accent-colored raised button with ripple -->
-                      <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" style="background-color:#446EB6">SUBMIT</button>
+                      <br/>
+                      <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" style="background-color:#446EB6; width:40%">SUBMIT</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div class="container">
-      <div id="activitydiv" style="text-align: center; text-transform: uppercase; padding: 10px; font-size: 20px; color: #555">
-      </div>
-    </div> -->
-
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <a id="addpicbtn" class="show" onclick="showModalImage()"><img src="https://res.cloudinary.com/din6mjlbd/image/upload/v1488516490/takeAPicture_fiogit.png"></img></a>
-        <img id="addmomentimg" class="hide" height="180" width="100%" src="https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg"></img>
-        <br/><br/>
-        <input id="txt_caption" placeholder="caption" type="text" style="width:100%;"/>
-        <br/><br/>
-        <button id="savemomentbtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="background-color:#446EB6; border-radius: 45px; width: 30%;">
-          Save
-        </button>
-      </div>
-    </div>
 
     <script>
-      $(document).ready( function() {
-        $(document).on('change', '.btn-file :file', function() {
-          var input = $(this),
-            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-          input.trigger('fileselect', [label]);
-        });
 
-        $('.btn-file :file').on('fileselect', function(event, label) {
+      var childsafe=false;
+      var outdoor=false;
+      var food=false;
+      var alcohol=false;
+      
+      //Save and Close Button
+      var pictureUpload = document.getElementById("img-upload");
 
-          var input = $(this).parents('.input-group').find(':text'),
-            log = label;
+      pictureUpload.onclick = function() {
+        document.getElementById("img-upload").src = "https://res.cloudinary.com/din6mjlbd/image/upload/v1487334028/dummy_host4_v2wfpn.jpg";
+        //document.getElementById("picUploadText").placeholder = "change picture";
+      }
 
-          if( input.length ) {
-            input.val(log);
-          } else {
-            if( log ) alert(log);
-          }
+      var filterClick = function(filter)
+      {
+        var checked = false;
 
-        });
-        function readURL(input) {
-          if (input.files && input.files[0]) {
-            var reader = new FileReader();
+        var filterDiv = document.getElementById(filter);
+        var iEl = document.getElementById(filter+'i');
 
-            reader.onload = function (e) {
-              $('#img-upload').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-          }
+        if(filter=="childsafe")
+        {
+            childsafe = !childsafe;
+            checked = childsafe ? true : false;
+        }
+        else if (filter=="alcohol")
+        {
+            alcohol = !alcohol;
+            checked = alcohol ? true : false;
+        }
+        else if (filter=="food")
+        {
+            food = !food;
+            checked = food ? true : false;
+        }
+        else if (filter=="outdoor")
+        {
+            outdoor = !outdoor;
+            checked = outdoor ? true : false;
         }
 
-        $("#imgInp").change(function(){
-          readURL(this);
+        if(checked)
+        {          
+          filterDiv.style.backgroundColor = "#446EB6";
+          filterDiv.style.boxShadow = "2px 4px 8px 2px rgba(0,0,0,0.1)";
+          iEl.style.color = "white";
+          iEl.style.opacity= "1";
+        }
+        else
+        {
+          filterDiv.style.backgroundColor = "rgba(68, 110, 182, 0.31)";
+          filterDiv.style.boxShadow = "0px 0px 0px 0px rgba(0,0,0,0.1)";
+          iEl.style.color = "#446EB6";
+          iEl.style.opacity= "0.3";
+        }
+
+      }
+
+      var btn1 = function() 
+      {            
+        window.alert("Location changes (happens with a map plugin)");
+      }
+
+
+      $('#addActivityForm').submit(function (event) {
+        event.preventDefault();
+        var formData = $(this).serializeObject();
+        var data = {
+          name: formData.name,
+          description: formData.description,
+          //location: {lat: 32.722679, lng: -117.162289},
+          maxCost: formData.maxCost,
+          maxTimeInMin: formData.time,
+          childsafe: childsafe,
+          outdoor: outdoor,
+          alcohol: alcohol,
+          food: food
+        };
+        $.post('/api/activity', data, function success() {
+          window.location.href = '/';
         });
       });
-    </script>
-
-    <script>
-      var showModalImage = function()
-      {
-        addpicbtn
-        document.getElementById("addmomentimg").className = "show";
-        document.getElementById("addpicbtn").className = "hide";
-      }
-      var hideModalImage = function()
-      {
-        document.getElementById("addmomentimg").className = "hide";
-        document.getElementById("addpicbtn").className = "show";
-      }
-    </script>
-
-    <script>
-      // Get the modal
-      var modal = document.getElementById('myModal');
-
-      // Get the button that opens the modal
-      var btn = document.getElementById("addmomentbtn");
-
-      //Save and Close Button
-      var savebtn = document.getElementById("savemomentbtn");
-
-
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-
-      // When the user clicks on the button, open the modal
-      btn.onclick = function() {
-        //var openModal = function() {
-        modal.style.display = "block";
-        ga("send", "event", "clickAdd", "addMoment");
-      }
-
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-
-      savebtn.onclick = function() {
-        modal.style.display = "none";
-
-        hideModalImage();
-        document.getElementById("img-upload").src = document.getElementById("addmomentimg").src;
-        document.getElementById("picUploadText").placeholder = "change picture";
-        //populateMoment(document.getElementById("txt_caption").value);
-
-
-      }
-
-
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    </script>
-
-    <script>
-          var goBack = function()
-          {
-            window.location.href = '/'
-          }
-    </script>
-
-    <script>
-          var btn1 = function() 
-          {            
-            window.alert("Location changes (happens with a map plugin)");
-          }
-
-          $('#addActivityForm').submit(function (event) {
-            event.preventDefault();
-            var formData = $(this).serializeObject();
-            /*
-            console.log(formData);
-            console.log(formData.name);
-            console.log(formData.description);
-            console.log(formData.location);
-            console.log(formData.maxCost);
-            console.log(formData.time);
-            console.log(!!formData.childsafe);
-            console.log(!!formData.outdoor);
-            console.log(!!formData.alcohol);
-            console.log(!!formData.food);
-            */
-            var data = {
-              name: formData.name,
-              description: formData.description,
-              location: formData.location,
-              maxCost: formData.maxCost,
-              maxTimeInMin: formData.time,
-              childsafe: !!formData.childsafe,
-              outdoor: !!formData.outdoor,
-              alcohol: !!formData.alcohol,
-              food: !!formData.food
-            };
-            $.post('/api/activity', data, function success() {
-              window.location.href = '/';
-            });
-          });
     </script>
   </body>
 </html>

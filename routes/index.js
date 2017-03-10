@@ -106,7 +106,7 @@ router.post('/api/activity', function (req, res) {
     hostID: hostID++,
     maxCost: req.body.maxCost,
     maxTimeInMin: req.body.maxTimeInMin,
-    location: location,
+    location: {"lat": 32.722679, "lng": -117.162289},
     pictures: [{"src": "https://res.cloudinary.com/din6mjlbd/image/upload/v1487334028/dummy_host4_v2wfpn.jpg"}],
     filters: [
       {"name":"childsafe", "value": req.body.childsafe},
@@ -115,8 +115,8 @@ router.post('/api/activity', function (req, res) {
       {"name":"food", "value": req.body.food}
     ]
   };
-  location.lat = location.lat + 0.01;
-  location.lng = location.lng + 0.01;
+  location.lat = location.lat;
+  location.lng = location.lng;
   console.log(newActivity);
   console.log(activities.activities.push(newActivity));
   res.sendStatus(200);
