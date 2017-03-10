@@ -4,7 +4,8 @@
 <head>
     <% include ../views/partials/head %>
     
-    <link rel="stylesheet" type="text/css" href="stylesheets/myprofile.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/profile.css">
 
 </head>
 
@@ -13,124 +14,44 @@
         <% include ../views/partials/header %>
     </header>
 
-    <!-- Profile Area -->
-    <aside class="profile-card">
-      <header>
-        <!-- here’s the avatar -->
-        <a href="#">
-          <img src="https://cdn.famousoutfits.com/wp-content/uploads/2014/09/profile-chris-pratt.png">
-        </a>
-        <!-- the username -->
-        <h1>Your Name Here</h1>
-        <!-- and role or location -->
-        <h2>Where do you currently live?</h2>
-      </header>
-      <!-- bit of a bio; who are you? -->
-      <div class="profile-bio">
-        <p>Write out a brief bio about yourself so other users can get to know you!
-        </p>
-      </div>
-    </aside>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
 
-    <!-- the edit button 
-    <div class="row">
+                <div class="card hovercard">
+                    <div class="cardheader">
 
-        <div class="col-lg-12 text-center" style="margin: 5px 5px;">
-          <button id="update" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="background-color: #446EB6">
-              <i class="material-icons">mode_edit</i>
-          </button>
-        </div>  
+                    </div>
+                    <div class="avatar">
+                        <img alt="" src="https://cdn.famousoutfits.com/wp-content/uploads/2014/09/profile-chris-pratt.png">
+                    </div>
+                    <div class="info">
+                        <div class="title">
+                            <h1>Joe Maxim</h1>
+                        </div>
+                        <div class="desc"><h4>I have a very very very very very very very very very very very very very very very very very very very very very very very very very very cool bio.  Very very very very very very very very very very very very very very very very very very very very very very very very cool indeed. </h4></div>
+                    </div>
+                    <div class="bottom">
+                        <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        &nbsp &nbsp &nbsp
+                        <a class="btn btn-danger btn-sm" rel="publisher"
+                           href="#">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        &nbsp &nbsp &nbsp
+                        <a class="btn btn-primary btn-sm" rel="publisher"
+                           href="#">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
-    -->
-    
-    <script type="text/javascript"></script>
-     
-    <!-- jQuery -->
-    <script src="javascripts/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="javascripts/bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <!--<script>
-    // // Closes the sidebar menu
-    // $("#menu-close").click(function(e) {
-    //     e.preventDefault();
-    //     $("#sidebar-wrapper").toggleClass("active");
-    // });
-    // // Opens the sidebar menu
-    // $("#menu-toggle").click(function(e) {
-    //     e.preventDefault();
-    //     $("#sidebar-wrapper").toggleClass("active");
-    // });
-    // // Scrolls to the selected menu item on the page
-    // $(function() {
-    //     $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
-    //         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-    //             var target = $(this.hash);
-    //             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-    //             if (target.length) {
-    //                 $('html,body').animate({
-    //                     scrollTop: target.offset().top
-    //                 }, 1000);
-    //                 return false;
-    //             }
-    //         }
-    //     });
-    // });
-    // //#to-top button appears after scrolling
-    // var fixed = false;
-    // $(document).scroll(function() {
-    //     if ($(this).scrollTop() > 250) {
-    //         if (!fixed) {
-    //             fixed = true;
-    //             // $('#to-top').css({position:'fixed', display:'block'});
-    //             $('#to-top').show("slow", function() {
-    //                 $('#to-top').css({
-    //                     position: 'fixed',
-    //                     display: 'block'
-    //                 });
-    //             });
-    //         }
-    //     } else {
-    //         if (fixed) {
-    //             fixed = false;
-    //             $('#to-top').hide("slow", function() {
-    //                 $('#to-top').css({
-    //                     display: 'none'
-    //                 });
-    //             });
-    //         }
-    //     }
-    // });
-    // // Disable Google Maps scrolling
-    // // See http://stackoverflow.com/a/25904582/1607849
-    // // Disable scroll zooming and bind back the click event
-    // var onMapMouseleaveHandler = function(event) {
-    //     var that = $(this);
-    //     that.on('click', onMapClickHandler);
-    //     that.off('mouseleave', onMapMouseleaveHandler);
-    //     that.find('iframe').css("pointer-events", "none");
-    // }
-    // var onMapClickHandler = function(event) {
-    //         var that = $(this);
-    //         // Disable the click handler until the user leaves the map area
-    //         that.off('click', onMapClickHandler);
-    //         // Enable scrolling zoom
-    //         that.find('iframe').css("pointer-events", "auto");
-    //         // Handle the mouse leave event
-    //         that.on('mouseleave', onMapMouseleaveHandler);
-    //     }
-    //     // Enable map zooming with mouse scroll when the user clicks the map
-    // $('.map').on('click', onMapClickHandler);
-    // </script>
-
-    <script>
-          var goBack = function()
-          {
-            window.location.href = '/'
-          }
-    </script>-->
 
 </body>
 

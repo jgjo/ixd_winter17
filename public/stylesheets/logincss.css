@@ -2,7 +2,7 @@
 
 .login-page {
   width: 280px;
-  padding: 8% 0 0;
+  padding: 35% 0 30%;
   margin: auto;
 }
 .form {
@@ -90,10 +90,10 @@
 }
 body {
   background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #446EB6, #446EB6);
-  background: -moz-linear-gradient(right, #446EB6, #446EB6);
-  background: -o-linear-gradient(right, #446EB6, #446EB6);
-  background: linear-gradient(to left, #446EB6, #446EB6);
+  background: -webkit-linear-gradient(right, #3f63a1, #3f63a1);
+  background: -moz-linear-gradient(right, #3f63a1, #3f63a1);
+  background: -o-linear-gradient(right, #3f63a1, #3f63a1);
+  background: linear-gradient(to left, #3f63a1, #3f63a1);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      

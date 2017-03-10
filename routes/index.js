@@ -66,11 +66,6 @@ router.get('/addactivity', function(req, res, next) {
   res.render('addactivity', { title: 'IXD' });
 });
 
-/* GET filterpopup page. */
-router.get('/filterpopup', function(req, res, next) {
-  res.render('filterpopup', { title: 'IXD' });
-});
-
 /* GET activity page. */
 router.get('/activity', function(req, res, next) {
   res.render('activity', { title: 'IXD', activitiesJSON: activities});
