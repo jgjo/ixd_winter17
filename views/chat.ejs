@@ -132,27 +132,46 @@
           $('<div class="message loading new"><figure class="avatar"><img src="images/otherUser.png" /></figure><span></span></div>').appendTo($('.mCSB_container'));
           updateScrollbar();
 
+          var i = Math.floor(Math.random() * (8));
           setTimeout(function() {
             $('.message.loading').remove();
             $('<div class="message new"><figure class="avatar"><img src="images/otherUser.png" /></figure>' + Fake[i] + '</div>').appendTo($('.mCSB_container')).addClass('new');
             setDate();
             updateScrollbar();
-            i++;
           }, 100 + (Math.random() * 20) * 100);
 
         }
-    </script>
 
-    <script>
+        function historyHostMessage(message) {
+          $('<div class="message new"><figure class="avatar"><img src="images/otherUser.png" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
+          setDate();
+          updateScrollbar();
+        }
+
+        function historyOwnMessage(message) {
+          msg = message;
+          $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
+          setDate();
+          $('.message-input').val(null);
+          updateScrollbar();
+          setTimeout(function() {
+            fakeMessage();
+          }, 100 + (Math.random() * 20) * 100);
+        }
+
+
           var urlParams = new URLSearchParams(window.location.search);
           id = urlParams.get('id');
+          if(id==null)
+          {
+            console.log("null");
+          }
+          hostid = urlParams.get('hostid');
           var goBack = function()
           {
             window.location.href = '/activity?id='+id
           }
-    </script>
 
-    <script>
           var btn1 = function() 
           {
             window.location.href = '/logexperience'
@@ -165,13 +184,19 @@
           }
 
           var activities =<%-JSON.stringify(activitiesJSON)%>
+          var users =<%-JSON.stringify(usersJSON)%>
           var activity;   
-          var urlParams = new URLSearchParams(window.location.search);
-          id = urlParams.get('id');
+          var host;
           for(var i=0; i<activities.activities.length; i++) {
               if(activities.activities[i].id == id)
               {
                   activity = activities.activities[i];
+              }
+          }
+          for(var i=0; i<users.users.length; i++) {
+              if(users.users[i].id == hostid)
+              {
+                  host = users.users[i];
               }
           }
 
@@ -188,6 +213,23 @@
             document.getElementById("goingbtn").href="/logexperience?id="+activity.id;
           }
 
+          var populateprevmessages = function()
+          {
+            messageHistory = host.chatMessages;
+            for(var i = 0;i<messageHistory.length;i++)
+            {
+              if(messageHistory[i].own)
+              {
+                  historyOwnMessage(messageHistory[i].message);
+              }
+              else
+              {
+                  //historyHostMessage(messageHistory[i].message);
+              }
+            }
+          }
+
+          //populateprevmessages();
           populatePage_hostName();
           updateRedirect();
     </script>

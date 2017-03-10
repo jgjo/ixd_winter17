@@ -33,9 +33,9 @@
             }
         }
 
-        var btn1 = function(id) 
+        var btn1 = function(id,hostid) 
         {
-        window.location.href = '/chat?id='+id;
+        window.location.href = '/chat?id='+id+'&hostid='+hostid;
         }
 
         var populatePage = function(location){
@@ -128,7 +128,7 @@
 
             document.getElementById("tagtable").innerHTML+= taghtml;
 
-            document.getElementById("exitbtndiv").innerHTML+= '<a onclick=\'btn1('+activity.id+')\'> <button class="mdl-button mdl-js-button" style="width:100%; color:#f5f5f5; min-height: 50px; height:8%; border-left: white; border-left-style: solid; font-size:16px"><i class="fa fa-comments" style="color:white; font-size:30px" aria-hidden="true"></i>&nbsp &nbsp Chat with &nbsp '+activity.hostName+'</button></a>  ';
+            document.getElementById("exitbtndiv").innerHTML+= '<a onclick=\'btn1('+activity.id+','+activity.hostID+')\'> <button class="mdl-button mdl-js-button" style="width:100%; color:#f5f5f5; min-height: 50px; height:8%; border-left: white; border-left-style: solid; font-size:16px"><i class="fa fa-comments" style="color:white; font-size:30px" aria-hidden="true"></i>&nbsp &nbsp Chat with &nbsp '+activity.hostName+'</button></a>  ';
         }
 
 

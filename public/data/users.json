@@ -2,39 +2,58 @@
   "users": [
     {
       "id": 1,
-      "username": "Ann Paul"
+      "username": "Ann Paul",
+      "chatMessages": [
+          {
+            "own":true,
+            "message":"Hi!"
+          },
+          {
+            "own":false,
+            "message":"Hello!"
+
+          }
+        ]
     },
     {
       "id": 2,
-      "username": "Ryan J"
+      "username": "Ryan J",
+      "chatMessages": []
     },
     {
       "id": 3,
-      "username": "Rady Muller"
+      "username": "Rady Muller",
+      "chatMessages": []
     },
     {
       "id": 4,
-      "username": "Giselle Maren"
+      "username": "Giselle Maren",
+      "chatMessages": []
     },
     {
       "id": 5,
-      "username": "Olivia Z"
+      "username": "Olivia Z",
+      "chatMessages": []
     },
     {
       "id": 6,
-      "username": "Anang K"
+      "username": "Anang K",
+      "chatMessages": []
     },
     {
       "id": 7,
-      "username": "Julie Simmons"
+      "username": "Julie Simmons",
+      "chatMessages": []
     },
     {
       "id": 8,
-      "username": "Dan Rogers"
+      "username": "Dan Rogers",
+      "chatMessages": []
     },
     {
       "id": 9,
-      "username": "Ginny Lander"
+      "username": "Ginny Lander",
+      "chatMessages": []
     }
   ]
 }
