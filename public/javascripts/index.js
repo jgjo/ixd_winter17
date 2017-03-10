@@ -32,14 +32,14 @@ var ongoingclick = function()
 
 var activityclick = function(id,current=false) 
 {
-	if(current)
-	{
-		window.location.href = '/logexperience?id='+id
-	}
-	else
-	{
+	// if(current)
+	// {
+	// 	window.location.href = '/logexperience?id='+id
+	// }
+	// else
+	// {
 	  window.location.href = '/activity?id='+id
-	}
+	// }
 }
 
 var changediv = function() 
