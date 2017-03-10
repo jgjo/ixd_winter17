@@ -91,6 +91,10 @@ router.get('/viewmemory', function(req, res, next) {
   res.render('viewmemory', { title: 'IXD', activitylogJSON: activitylog, activitiesJSON: activities });
 });
 
+/* GET editmyprofile page. */
+router.get('/editmyprofile', function(req, res, next) {
+  res.render('editmyprofile', { title: 'IXD' });
+});
 
 router.post('/api/activity', function (req, res) {
   if (!(req.body.name && req.body.description && req.body.maxCost && req.body.maxTimeInMin
