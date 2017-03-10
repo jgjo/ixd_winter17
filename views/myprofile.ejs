@@ -23,13 +23,13 @@
 
                     </div>
                     <div class="avatar">
-                        <img alt="" src="https://cdn.famousoutfits.com/wp-content/uploads/2014/09/profile-chris-pratt.png">
+                        <img id="userImage" alt="" src="https://cdn.famousoutfits.com/wp-content/uploads/2014/09/profile-chris-pratt.png">
                     </div>
                     <div class="info">
                         <div class="title">
-                            <h1>Joe Maxim</h1>
+                            <h1 id="userName">Joe Maxim</h1>
                         </div>
-                        <div class="desc"><h4>I have a very very very very very very very very very very very very very very very very very very very very very very very very very very cool bio.  Very very very very very very very very very very very very very very very very very very very very very very very very cool indeed. </h4></div>
+                        <div class="desc"><h4 id="userBio">I have a very very very very very very very very very very very very very very very very very very very very very very very very very very cool bio.  Very very very very very very very very very very very very very very very very very very very very very very very very cool indeed. </h4></div>
                     </div>
                     <div class="bottom">
                         <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
@@ -52,6 +52,31 @@
 
         </div>
     </div>
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var userid = urlParams.get('id');
+        if(userid=="undefined"||userid==null)
+        {
+            //do nothing
+        }
+        else
+        {
+            var user;
+            var users =<%-JSON.stringify(usersJSON)%>
+            for(var i=0; i<users.users.length; i++) {
+                      if(users.users[i].id == userid)
+                      {
+                          user = users.users[i];
+                      }
+            }
+
+            document.getElementById("userName").innerHTML = user.username;
+            document.getElementById("userImage").src = "images/otherUser.png";
+            document.getElementById("userBio").innerHTML = "This is my very very very very very very very very very very very very very very very very very very very very very very very very very very interesting bio.";
+
+        }        
+    </script>
 
 </body>
 

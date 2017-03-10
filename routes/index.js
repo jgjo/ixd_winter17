@@ -73,7 +73,7 @@ router.get('/activity', function(req, res, next) {
 
 /* GET myprofile page. */
 router.get('/myprofile', function(req, res, next) {
-  res.render('myprofile', { title: 'IXD' });
+  res.render('myprofile', { title: 'IXD', usersJSON: users});
 });
 
 /* GET login page. */

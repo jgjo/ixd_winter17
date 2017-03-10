@@ -276,116 +276,96 @@
             var outdoor_bool = (document.getElementById("switch-4").checked)&1;
 
             var current = false;
+            var viewStr = "View details";
 
             // LOOP THROUGH ACTIVITIES TO CREATE MARKER
             for(var i=0; i<activities.activities.length; i++) {
                 color = orgcolor;
+                //viewStr = "View details";
                 var filter = activities.activities[i].filters;
                 if((filter[0].value==childproof_bool&&filter[1].value==outdoor_bool&&filter[2].value==alcohol_bool&&filter[3].value==food_bool)||!(childproof_bool||outdoor_bool||alcohol_bool||food_bool)){
 
-                  for(var j=0; j<activitylog.activitylog.length; j++) {
-                    if(activitylog.activitylog[j].activityid == activities.activities[i].id)
+                    for(var j=0; j<activitylog.activitylog.length; j++) {
+                      if(activitylog.activitylog[j].activityid == activities.activities[i].id)
+                      {
+                          current = false;
+                          if(activitylog.activitylog[j].past)
+                          {
+                            continue;
+                          }
+                          else
+                          {
+                            color="6ab344";
+                            current = true;
+                            //viewStr = "Continue logging";
+                          }
+                      }
+                    }
+
+                    if(activities.activities[i].own==1)
                     {
-                        current = false;
-                        if(activitylog.activitylog[j].past)
+                      color="E67E22";
+                    }
+
+                    // CREATE PIN
+                    var pinColor = color;
+                    var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+                      new google.maps.Size(21, 34),
+                      new google.maps.Point(0,0),
+                      new google.maps.Point(10, 34));
+                    var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
+                      new google.maps.Size(40, 37),
+                      new google.maps.Point(0, 0),
+                      new google.maps.Point(12, 35));
+
+                    var latLng = new google.maps.LatLng(activities.activities[i].location.lat,activities.activities[i].location.lng);
+
+                    var marker = new google.maps.Marker({
+                      position: latLng,
+                      map: map,
+                      icon: pinImage,
+                      shadow: pinShadow
+                    });
+
+                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                      return function() {
+                        if(activities.activities[i].own==1)
                         {
-                          continue;
+                          infowindow.setContent('<div id="content">'+
+                            '<div id="siteNotice">'+
+                            '</div>'+
+                            '<h1 id="firstHeading" class="firstHeading">'+activities.activities[i].name+'</h1>'+
+                            '<div id="bodyContent">'+
+                            '<p>'+activities.activities[i].description+'</p>'+
+                            '<p>Host: '+activities.activities[i].hostName+
+                            '</p>'+
+                            '<img height="140" width="140" src="'+activities.activities[i].pictures[0].src+'">'+
+                            '<p> </div>'+
+                            '</div>');
+
                         }
                         else
                         {
-                          color="6ab344";
-                          current = true;
+                          //viewStr = current?"Continue logging":"View details";
+                          infowindow.setContent(
+                            '<div onclick=activityclick('+activities.activities[i].id+','+current+') style="width:100%;text-align: center;padding-top:10px">'+
+                              '<img height="130" width="130" style="border-radius:100px" onclick=activityclick('+activities.activities[i].id+','+current+') src="'+activities.activities[i].pictures[0].src+'"alt="Picture">'+
+
+                              '<div class="service-item">'+
+                                ' <h3 onclick=activityclick('+activities.activities[i].id+','+current+') >' + activities.activities[i].name + '</h3>'+
+                                ' <h5>'+ '<span> <img height="40" width="40" padding="12px" style = "margin-right:8px" src="images/otherUser.png"> '+ activities.activities[i].hostName + '</span> </h5> '+
+                              ' </div>'+
+
+                              '<div onclick=activityclick('+activities.activities[i].id+','+current+') style="width:100%; text-align:center"> '+
+                              ' <a href="#" onclick=activityclick('+activities.activities[i].id+','+current+')>'+viewStr+'</a> '+
+                              ' </div>'+
+                            '</div>'
+                            );
                         }
-                    }
-                  }
 
-                  if(activities.activities[i].own==1)
-                  {
-                    color="E67E22";
-                  }
-
-                  // CREATE PIN
-                  var pinColor = color;
-                  var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-                    new google.maps.Size(21, 34),
-                    new google.maps.Point(0,0),
-                    new google.maps.Point(10, 34));
-                  var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
-                    new google.maps.Size(40, 37),
-                    new google.maps.Point(0, 0),
-                    new google.maps.Point(12, 35));
-
-                  var latLng = new google.maps.LatLng(activities.activities[i].location.lat,activities.activities[i].location.lng);
-
-                  var marker = new google.maps.Marker({
-                    position: latLng,
-                    map: map,
-                    icon: pinImage,
-                    shadow: pinShadow
-                  });
-
-                  google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                      if(activities.activities[i].own==1)
-                      {
-                        infowindow.setContent('<div id="content">'+
-                          '<div id="siteNotice">'+
-                          '</div>'+
-                          '<h1 id="firstHeading" class="firstHeading">'+activities.activities[i].name+'</h1>'+
-                          '<div id="bodyContent">'+
-                          '<p>'+activities.activities[i].description+'</p>'+
-                          '<p>Host: '+activities.activities[i].hostName+
-                          '</p>'+
-                          '<img height="140" width="140" src="'+activities.activities[i].pictures[0].src+'">'+
-                          '<p> </div>'+
-                          '</div>');
-
+                        infowindow.open(map, marker);
                       }
-                      else
-                      {
-                        infowindow.setContent(
-                          '<div>'+
-                            '<h3 id="firstHeading" onclick=activityclick('+activities.activities[i].id+','+current+') class="firstHeading">'+activities.activities[i].name+'</h3>'+
-
-                            '<div id="bodyContent" style="content-align:center">'+
-                              '<table style="content-align:center">'+
-                                '<tr style="content-align:center">'+
-                                  '<td style="content-align:center">'+   
-                                    '<table>'+
-                                      '<tr>'+
-                                        '<td>'+                          
-                                        '<img height="40" width="40" padding="8px" src="images/otherUser.png">'+
-                                        '</td>'+
-
-                                        '<td style="vertical-align: center">'+   
-                                        '<h5>'+activities.activities[i].hostName+'</h5>'+                       
-                                        '</td>'+
-                                      '</tr>'+
-                                    '</table>'+                      
-                                  '</td>'+
-                                '</tr>'+
-
-                                '<tr>'+
-                                  '<td>'+                          
-                                  '<img onclick=activityclick('+activities.activities[i].id+','+current+') height="120" width="120" src="'+activities.activities[i].pictures[0].src+'">'+
-                                  '</td>'+                                  
-                                '</tr>'+
-
-                                '<tr>'+
-                                  '<td>'+                          
-                                  '<p><br/><a href="#" onclick=activityclick('+activities.activities[i].id+','+current+')>View</a></p>'+
-                                  '</td>'+
-                                '</tr>'+
-                              '</table>'+
-                            '</div>'+
-                          '</div>'
-                          );
-                      }
-
-                      infowindow.open(map, marker);
-                    }
-                  })(marker, i));
-
+                    })(marker, i));
                 }
                 else {
                 }
