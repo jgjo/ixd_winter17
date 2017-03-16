@@ -13,6 +13,11 @@ var profileclick = function()
   window.location.href = '/myprofile'
 }
 
+var hostprofileclick = function(id) 
+{
+  window.location.href = '/myprofile?id='+id
+}
+
 var aboutclick = function() 
 {
   window.location.href = '/about'
