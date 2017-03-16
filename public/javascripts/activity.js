@@ -38,7 +38,7 @@ var populatePage = function(location){
         ' </div>'+
 
         ' <div class="col-xs-12 col-md-8" style = "padding-top:9px">'+
-            ' <img height="220" width="100%" src="'+activity.pictures[0].src+'">'+
+            ' <img height="200" src="'+activity.pictures[0].src+'">'+
             '<h5>'+activity.description+'</h5>'+ 
         ' </div>'+
 
@@ -58,7 +58,7 @@ var populatePage = function(location){
         if(activity.filters[i].value == 1)
         {
             divstyle="padding-top: 3px; padding-bottom: 3px; margin: 2px;";
-            istyle="color:#446EB6; font-size:36px";
+            istyle="color:#446EB6; font-size:26px";
 
             if(activity.filters[i].name=="childsafe")
             {
@@ -92,17 +92,17 @@ var populatePage = function(location){
     }
     // Add cost and time to the page
     taghtml+= '<td style="max-width: 40px;" width:"20%"">'+
-                            '<div style="padding-top: 3px; padding-bottom: 3px; margin: 2px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:#446EB6; font-size:40px"></i></div>'+activity.maxTimeInMin+'&nbsp min'+
+                            '<div style="padding-top: 3px; padding-bottom: 3px; margin: 2px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:#446EB6; font-size:26px"></i></div>'+activity.maxTimeInMin+'&nbsp min'+
                 '</td>'+
                 '<td style="max-width: 40px;" width:"20%"">'+
-                    '<div style="padding-top: 3px; padding-bottom: 3px; margin: 2px;"><i class="fa fa-dollar" aria-hidden="true" style="color:#446EB6; font-size:35px"></i></div>Max &nbsp'+activity.maxCost+
+                    '<div style="padding-top: 3px; padding-bottom: 3px; margin: 2px;"><i class="fa fa-dollar" aria-hidden="true" style="color:#446EB6; font-size:26px"></i></div>Max &nbsp'+activity.maxCost+
                 '</td>';
     taghtml+= '</tr>';
 
     document.getElementById("tagtable").innerHTML+= taghtml;
 
     // redirect to correct chat page
-    document.getElementById("exitbtndiv").innerHTML+= '<a onclick=\'btn1('+activity.id+','+activity.hostID+')\'> <button class="mdl-button mdl-js-button" style="width:100%; color:#f5f5f5; min-height: 30px; height: 7%; border-left: white; border-left-style: solid; font-size:16px"><i class="fa fa-comments" style="color:white; font-size:30px" aria-hidden="true"></i>&nbsp &nbsp Chat with &nbsp '+activity.hostName+'</button></a>  ';
+    document.getElementById("exitbtndiv").innerHTML+= '<a onclick=\'btn1('+activity.id+','+activity.hostID+')\'> <button class="mdl-button mdl-js-button" style="width:100%; margin-top:5px; color:#f5f5f5; min-height: 30px; height: 7%; border-left: white; border-left-style: solid; font-size:16px"><i class="fa fa-comments" style="color:white; font-size:30px" aria-hidden="true"></i>&nbsp &nbsp Chat with &nbsp '+activity.hostName+'</button></a>  ';
 }
 
 // display address corresponding to activity location
