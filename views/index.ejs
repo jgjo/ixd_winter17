@@ -42,13 +42,13 @@
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
                 <i class="material-icons">menu</i>
             </button>
-            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-left" for="hdrbtn">
-              <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#3f63a1" href="#" onclick='profileclick()'>My Profile</span></li>
-              <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#3f63a1" href="#" onclick='ongoingclick()'>Ongoing Activities</span></li>        
-              <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#3f63a1" href="#" onclick='memoryclick()'>Memories</span></li>
-              <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#3f63a1" href="#" onclick='aboutclick()'>About</span></li>
-              <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#3f63a1" href="#" onclick='logoutClick()'>Logout</span></li>
-            </ul>
+              <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-left" for="hdrbtn">
+                <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#3f63a1" href="#" onclick='profileclick()'>My Profile</span></li>
+                <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#3f63a1" href="#" onclick='ongoingclick()'>Ongoing Activities</span></li>        
+                <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#3f63a1" href="#" onclick='memoryclick()'>Memories</span></li>
+                <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#3f63a1" href="#" onclick='aboutclick()'>About</span></li>
+                <li class="mdl-menu__item"><span class="mdl-navigation__link" style="color:#3f63a1" href="#" onclick='logoutClick()'>Logout</span></li>
+              </ul>
             <!-- Add spacer, to align navigation to the right in desktop -->
             <div class="android-header-spacer mdl-layout-spacer"></div>
             <span class="android-mobile-title mdl-layout-title">
@@ -63,6 +63,7 @@
       <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     </header>
     
+    <!-- Legend for the map -->
     <div class="col-xs-12 col-md-8" id="legend" style="text-align:center">
               <span>
                 <img style="opacity: 0.8;" src="images/blueMarker.png"></img>&nbsp Available Activities &nbsp
@@ -70,6 +71,7 @@
                 <img style="opacity: 0.8;" src="images/orangeMarker.png"></img>&nbsp Own Activities &nbsp
               </span>
     </div>
+
     <!-- PAGE CONTENT -->
     <div id="wrapper">
        <!-- Google map -->
@@ -78,13 +80,11 @@
        </div>
         <!-- Add activity and filter buttons overlayed on map -->
         <div id="over_map" width="100%" height="650px">
-
             <div class="row">
-
                 <div class="col-lg-12 text-center" style="margin: 5px 5px;">
-                <button onclick='addclick()' class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="background-color:#3f63a1">
-                  <i class="material-icons">add</i>
-                </button>
+                  <button onclick='addclick()' class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="background-color:#3f63a1">
+                    <i class="material-icons">add</i>
+                  </button>
                 </div>
 
                 <div class="col-lg-12 text-center" style="margin: 10px 5px;">
@@ -100,7 +100,6 @@
     <dialog class="mdl-dialog">
       <h3 style="color:#3f63a1;" class="mdl-dialog__title">Filters</h3>
       <div class="mdl-dialog__content">
-        <!-- <p>Please choose the appropriate filters</p> -->
         <form action="demo_form.asp">
           <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
             <input type="checkbox" id="switch-1" class="mdl-switch__input">
@@ -128,269 +127,23 @@
       </div>
     </dialog>
 
+    <!-- Javascript functions for the page -->
+    <script src="javascripts/index.js"></script>
 
-    <!-- SCRIPT FOR FILTER DIALOG -->
+    <!-- GET GLOBAL VARIABLES -->
     <script>
-
-      var dialog = document.querySelector('dialog');
-      var showDialogButton = document.querySelector('#show-dialog');
-      if (! dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-      }
-      showDialogButton.addEventListener('click', function() {
-        dialog.showModal();
-      });
-      dialog.querySelector('.close').addEventListener('click', function() {
-        var childproof_bool = (document.getElementById("switch-1").checked);
-        var alcohol_bool = (document.getElementById("switch-2").checked);
-        var food_bool = (document.getElementById("switch-3").checked);
-        var outdoor_bool = (document.getElementById("switch-4").checked);
-        dialog.close();
-      });
+      var activities = <%-JSON.stringify(activitiesJSON)%>
+      var ownactivities = <%-JSON.stringify(ownactivitiesJSON)%>
+      var activitylog =<%-JSON.stringify(activitylogJSON)%>
+      initPage();
     </script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="javascripts/bootstrap.min.js"></script>
 
-    <script>
-      var logoutClick = function()
-      {
-            window.location.href = '/login';
-      }
-
-      function expandToWindow(element) {
-         var margin = 0; 
-
-         if (element.style.height < window.innerHeight) { 
-            element.style.height = window.innerHeight - (2 * margin) 
-         }
-    }
-    </script>
-
-    <!-- Custom Theme JavaScript -->
-    <script>
-        // Closes the sidebar menu
-        $("#menu-close").click(function(e) {
-            e.preventDefault();
-            $("#sidebar-wrapper").toggleClass("active");
-        });
-        // Opens the sidebar menu
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#sidebar-wrapper").toggleClass("active");
-        });
-        // Scrolls to the selected menu item on the page
-        $(function() {
-            $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
-                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-                    var target = $(this.hash);
-                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                    if (target.length) {
-                        $('html,body').animate({
-                            scrollTop: target.offset().top
-                        }, 1000);
-                        return false;
-                    }
-                }
-            });
-        });
-        //#to-top button appears after scrolling
-        var fixed = false;
-        $(document).scroll(function() {
-            if ($(this).scrollTop() > 250) {
-                if (!fixed) {
-                    fixed = true;
-                    // $('#to-top').css({position:'fixed', display:'block'});
-                    $('#to-top').show("slow", function() {
-                        $('#to-top').css({
-                            position: 'fixed',
-                            display: 'block'
-                        });
-                    });
-                }
-            } else {
-                if (fixed) {
-                    fixed = false;
-                    $('#to-top').hide("slow", function() {
-                        $('#to-top').css({
-                            display: 'none'
-                        });
-                    });
-                }
-            }
-        });
-    </script>
-
     <!-- Maps -->
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdV_CqEBtoB4xae7DEXjtsHSCTZOZI9m0&callback=initMap">
-    </script>
-
-    <!-- Create pins on map based on activities and their state -->
-    <script>
-        var dialog = document.querySelector('dialog');
-        dialog.querySelector('.close').addEventListener('click', function() {
-          initMap();
-        });
-        var map;
-        var activities = <%-JSON.stringify(activitiesJSON)%>
-        var ownactivities = <%-JSON.stringify(ownactivitiesJSON)%>
-        var activitylog =<%-JSON.stringify(activitylogJSON)%>
-
-
-        function initMap() {
-          var center = {lat: 32.722679, lng: -117.162289};
-          var style = [
-              {
-                featureType: "all",
-                elementType: "all",
-                stylers: [
-                  { saturation: -100 } // <-- THIS
-                ]
-              }
-          ];
-
-          map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 14,
-            center: center,
-            streetViewControl: false,
-            mapTypeControlOptions: {
-                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'greyscale']
-               }
-          });
-
-          var mapType = new google.maps.StyledMapType(style, { name:"Grayscale" });    
-          map.mapTypes.set('greyscale', mapType);
-          map.setMapTypeId('greyscale');     
-
-          addMarkers("3f63a1");
-        }
-
-
-        function addMarkers(orgcolor)
-        {
-            var infowindow = new google.maps.InfoWindow();
-            var childproof_bool = (document.getElementById("switch-1").checked)&1;
-            var alcohol_bool = (document.getElementById("switch-2").checked)&1;
-            var food_bool = (document.getElementById("switch-3").checked)&1;
-            var outdoor_bool = (document.getElementById("switch-4").checked)&1;
-
-            var current = false;
-
-            // LOOP THROUGH ACTIVITIES TO CREATE MARKER
-            for(var i=0; i<activities.activities.length; i++) {
-                color = orgcolor;
-                var filter = activities.activities[i].filters;
-                if((filter[0].value==childproof_bool&&filter[1].value==outdoor_bool&&filter[2].value==alcohol_bool&&filter[3].value==food_bool)||!(childproof_bool||outdoor_bool||alcohol_bool||food_bool)){
-
-                  for(var j=0; j<activitylog.activitylog.length; j++) {
-                    if(activitylog.activitylog[j].activityid == activities.activities[i].id)
-                    {
-                        current = false;
-                        if(activitylog.activitylog[j].past)
-                        {
-                          continue;
-                        }
-                        else
-                        {
-                          color="6ab344";
-                          current = true;
-                        }
-                    }
-                  }
-
-                  if(activities.activities[i].own==1)
-                  {
-                    color="E67E22";
-                  }
-
-                  // CREATE PIN
-                  var pinColor = color;
-                  var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-                    new google.maps.Size(21, 34),
-                    new google.maps.Point(0,0),
-                    new google.maps.Point(10, 34));
-                  var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
-                    new google.maps.Size(40, 37),
-                    new google.maps.Point(0, 0),
-                    new google.maps.Point(12, 35));
-
-                  var latLng = new google.maps.LatLng(activities.activities[i].location.lat,activities.activities[i].location.lng);
-
-                  var marker = new google.maps.Marker({
-                    position: latLng,
-                    map: map,
-                    icon: pinImage,
-                    shadow: pinShadow
-                  });
-
-                  google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                      if(activities.activities[i].own==1)
-                      {
-                        infowindow.setContent('<div id="content">'+
-                          '<div id="siteNotice">'+
-                          '</div>'+
-                          '<h1 id="firstHeading" class="firstHeading">'+activities.activities[i].name+'</h1>'+
-                          '<div id="bodyContent">'+
-                          '<p>'+activities.activities[i].description+'</p>'+
-                          '<p>Host: '+activities.activities[i].hostName+
-                          '</p>'+
-                          '<img height="140" width="140" src="'+activities.activities[i].pictures[0].src+'">'+
-                          '<p> </div>'+
-                          '</div>');
-
-                      }
-                      else
-                      {
-                        infowindow.setContent(
-                          '<div>'+
-                            '<h3 id="firstHeading" onclick=activityclick('+activities.activities[i].id+','+current+') class="firstHeading">'+activities.activities[i].name+'</h3>'+
-
-                            '<div id="bodyContent" style="content-align:center">'+
-                              '<table style="content-align:center">'+
-                                '<tr style="content-align:center">'+
-                                  '<td style="content-align:center">'+   
-                                    '<table>'+
-                                      '<tr>'+
-                                        '<td>'+                          
-                                        '<img height="40" width="40" padding="8px" src="images/otherUser.png">'+
-                                        '</td>'+
-
-                                        '<td style="vertical-align: center">'+   
-                                        '<h5>'+activities.activities[i].hostName+'</h5>'+                       
-                                        '</td>'+
-                                      '</tr>'+
-                                    '</table>'+                      
-                                  '</td>'+
-                                '</tr>'+
-
-                                '<tr>'+
-                                  '<td>'+                          
-                                  '<img onclick=activityclick('+activities.activities[i].id+','+current+') height="120" width="120" src="'+activities.activities[i].pictures[0].src+'">'+
-                                  '</td>'+                                  
-                                '</tr>'+
-
-                                '<tr>'+
-                                  '<td>'+                          
-                                  '<p><br/><a href="#" onclick=activityclick('+activities.activities[i].id+','+current+')>View</a></p>'+
-                                  '</td>'+
-                                '</tr>'+
-                              '</table>'+
-                            '</div>'+
-                          '</div>'
-                          );
-                      }
-
-                      infowindow.open(map, marker);
-                    }
-                  })(marker, i));
-
-                }
-                else {
-                }
-            }
-        }
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdV_CqEBtoB4xae7DEXjtsHSCTZOZI9m0&callback=initMap">
     </script>
 
 </body>
