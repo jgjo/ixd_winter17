@@ -111,8 +111,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
       </div>
     </div>
 
+    <!-- TIMELINE: WILL BE DYNAMICALLY POPULATED -->
     <section id="cd-timeline" class="cd-container">
-
     </section> 
 
     <!-- jQuery -->
@@ -124,224 +124,15 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="javascripts/timelinemain.js"></script> <!-- Resource jQuery -->
 
+    <!-- Get global variables -->
     <script>
-            var urlParams = new URLSearchParams(window.location.search);
-            id = urlParams.get('id');
-            var goBack = function()
-            {
-                window.location.href = '/chat?id='+id;
-            }
-            var btn2 = function() 
-            {
-                document.getElementById("modalContent").innerHTML='<div><br/><p>Experience saved!</p><br/></div>';
-                modal.style.display = "block";
-                setTimeout(function() {
-                    ga("send", "event", "clickSave", "savedMemory");
-                    var data = {
-                    activityid: activity.id
-                    };
-                    $.post('/api/endlogexperience', data, function success() {
-                        window.location.href = '/';
-                    });
-                }, 100);
-                
-            }
-
-            var btn3 = function() 
-            {
-                document.getElementById("modalContent").innerHTML='<div><br/><p>Experience abandoned!</p><br/></div>';
-                modal.style.display = "block";                
-                  
-                setTimeout(function() {
-                    var data = {
-                    activityid: activity.id
-                    };
-                    $.post('/api/abandonexperience', data, function success() {
-                        window.location.href = '/';
-                    });
-                }, 100);
-            }
-    </script>
-    
-	<script>
-    	  var showModalImage = function() 
-    	  {
-            //addpicbtn
-    		document.getElementById("addmomentimg").className = "show";
-            document.getElementById("addpicbtn").className = "hide"; 
-  		  }
-
-          var showModalImage_save = function() 
-          {
-            //addpicbtn
-            document.getElementById("addmomentimg").className = "show";
-            document.getElementById("addpicbtn").className = "hide"; 
-          }
-
-          var showModalImage_abandon = function() 
-          {
-            //addpicbtn
-            document.getElementById("addmomentimg").className = "show";
-            document.getElementById("addpicbtn").className = "hide"; 
-          }
-
-          var hideModalImage = function() 
-          {
-            document.getElementById("addmomentimg").className = "hide"; 
-            document.getElementById("addpicbtn").className = "show"; 
-          }
-    </script>
-
-
-    <script>
-
-        var populatePrevMoments = function(){
-
-            var prevmoments=[];
-            
-            for(var i=0; i<activitylog.activitylog.length; i++) {
-              if(activitylog.activitylog[i].activityid == id)
-              {
-                  prevmoments = activitylog.activitylog[i].log;
-              }
-            }
-
-            console.log(prevmoments);
-
-            for(var i=0; i<prevmoments.length; i++) {
-                var prevmoment = prevmoments[i];
-                var parent = document.getElementById("cd-timeline");
-                var newdiv = document.createElement("div");
-                newdiv.className = "cd-timeline-block";
-                newdiv.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="100" width="100" src="'+prevmoment.pictureSrc+'" alt="Picture"> <p>'+prevmoment.caption+'</p> <a href="#0" class="cd-read-more">'+prevmoment.username+'</a> <span class="cd-date">Jan 24</span> </div>';
-                parent.insertBefore(newdiv, parent.firstChild);
-            }   
-        }
-
         var moments = <%-JSON.stringify(momentsJSON)%>
-
         var activities = <%-JSON.stringify(activitiesJSON)%>
-
         var activitylog =<%-JSON.stringify(activitylogJSON)%>
-        console.log(activitylog);
-
-        var urlParams = new URLSearchParams(window.location.search);
-        id = urlParams.get('id');
-
-        //Get current activity
-        var activity;
-        for(var i=0; i<activities.activities.length; i++) {
-          if(activities.activities[i].id == id)
-          {
-              activity = activities.activities[i];
-          }
-        }
-
-        //populate prev moments        
-        populatePrevMoments();
-        
-        var data = {
-            activityid: activity.id
-        };
-        $.post('/api/startlogexperience', data, function success() {
-            var x = 10;
-        });
-
-        var parent = document.getElementById("activitydiv");
-        var newdiv = document.createElement("h1");
-        newdiv.innerHTML = activity.name;
-        parent.append(newdiv); 
-        newdiv = document.createElement("div");
-        newdiv.innerHTML = '<br> <figure> <img src="images/otherUser.png" style="height:40px; width:40px;" /> </figure> <h1 style="font-size:13px"> with '+activity.hostName+'</h1>'
-        parent.append(newdiv);
-
-        var addMoment = function(){ 
-
-            var rand = Math.floor(Math.random() * 3);
-            var username = activity.hostName;
-
-            var moment = moments.moments[rand+1];
-            console.log(moment.pictureSrc);
-            var parent = document.getElementById("cd-timeline");
-            var newdiv = document.createElement("div");
-            newdiv.className = "cd-timeline-block";
-            newdiv.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="100" width="100" src="'+moment.pictureSrc+'" alt="Picture"> <p>'+moment.caption+'</p> <a href="#0" class="cd-read-more">'+username+'</a> <span class="cd-date">Jan 24</span> </div>';
-            parent.insertBefore(newdiv, parent.firstChild);
-
-            persistMoment(moment.caption,username,moment.pictureSrc);
-        }
-
-        var populateMoment = function(caption)
-        {
-            var p = document.getElementById("cd-timeline");
-            var n = document.createElement("div");
-            n.className = "cd-timeline-block";
-            n.innerHTML = '<div class="cd-timeline-img cd-picture"> <img src="img/cd-icon-picture.svg" alt="Picture"> </div> <div class="cd-timeline-content"> <img height="100" width="100" src="https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg" alt="Picture"> <p>'+caption+'</p> <a href="#0" class="cd-read-more">You</a> <span class="cd-date">Jan 24</span> </div>';
-            p.insertBefore(n, p.firstChild);
-
-            persistMoment(caption,"You","https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg");
-
-            if(Math.random()>0.4){
-                addMoment();
-            }
-
-        }
-
-        var persistMoment = function(caption,username,pictureSrc)
-        {
-            var data = {
-              activityid: activity.id,
-              caption: caption,
-              username: username,
-              pictureSrc: pictureSrc
-            };
-            $.post('/api/moments', data, function success() {
-              var x = 10;
-            });
-        }
-
     </script>
 
-    <script>
-        // Get the modal
-        var modal = document.getElementById('myModal');
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("addmomentbtn");
-
-        //Save and Close Button        
-        var savebtn = document.getElementById("savemomentbtn");
-
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on the button, open the modal 
-        btn.onclick = function() {
-        //var openModal = function() {        
-            modal.style.display = "block";
-            ga("send", "event", "clickAdd", "addMoment");
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        savebtn.onclick = function() {
-            modal.style.display = "none";
-            hideModalImage();
-            populateMoment(document.getElementById("txt_caption").value);
-        }
-
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
+    <!-- Javascript functions for the page -->
+    <script src="javascripts/logexperience.js"></script>
+            
 </body>
 </html>

@@ -30,7 +30,7 @@ router.get('/logexperience', function(req, res, next) {
   res.render('logexperience', { title: 'IXD', momentsJSON: moments, activitiesJSON: activities, activitylogJSON: activitylog });
 });
 
-/* GET logexperience page. */
+/* GET logexperience page. B of AB test */
 router.get('/logexperience_B', function(req, res, next) {
   res.render('logexperience_B', { title: 'IXD', momentsJSON: moments, activitiesJSON: activities, activitylogJSON: activitylog });
 });
