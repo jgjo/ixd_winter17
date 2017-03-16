@@ -13,15 +13,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
-                    <h2>Add Activity</h2>
-                  <form id="addActivityForm">
+                    
+                  <form id="addActivityForm">             
 
-                    <div id="addmomentbtn">
-                      <img id='img-upload' src="https://res.cloudinary.com/din6mjlbd/image/upload/v1488516490/takeAPicture_fiogit.png" class="img-thumbnail"/>
-                      <div>
-                      <span><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp &nbsp Cortez Hill, San Diego, CA 92101, USA</span>
+                      <div id="addmomentbtn">
+                        <img id='img-upload' src="https://res.cloudinary.com/din6mjlbd/image/upload/v1488516490/takeAPicture_fiogit.png" class="img-thumbnail"/>
+                        <div>
+                        <span><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp &nbsp Cortez Hill, San Diego, CA 92101, USA</span>
+                        </div>
                       </div>
-                    </div>
 
                       <div class="input-group" style="margin: 15px">
                         <span class="input-group-addon"><i class="fa fa-globe" aria-hidden="true"></i></span>
@@ -50,25 +50,8 @@
                         </select>
                       </div>
 
-<!--                         <label>Choose Tags</label>
-                        <div class="input-group" style="margin: 5px 20px;">
-                          <span class="input-group-addon"><i class="fa fa-child" aria-hidden="true"></i></span>
-                          <input type="checkbox" class="form-control" name="childsafe">
-                          <span class="input-group-addon"><i class="fa fa-tree" aria-hidden="true"></i></span>
-                          <input type="checkbox" class="form-control" name="outdoor">
-                          <span class="input-group-addon"><i class="fa fa-beer" aria-hidden="true"></i></span>
-                          <input type="checkbox" class="form-control" name="alcohol">
-                          <span class="input-group-addon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
-                          <input type="checkbox" class="form-control" name="food">
-                        </div>
-                        <div class="row" style="margin: 0px 10px;">
-                          <div class="col-lg-3 col-xs-3 col-sm-3">Childproof</div>
-                          <div class="col-lg-3 col-xs-3 col-sm-3">Outdoors</div>
-                          <div class="col-lg-3 col-xs-3 col-sm-3">Alcohol</div>
-                          <div class="col-lg-3 col-xs-3 col-sm-3">Food</div>
-                        </div> -->
-                        <div class="row text-center">
-                          <div class="col-xs-12 col-md-8 col-sm-6">
+                      <div class="row text-center">
+                        <div class="col-xs-12 col-md-8 col-sm-6">
                           <table style="width:100%; text-align:center">
                             <tr>
                               <td style="width:20%">
@@ -94,10 +77,10 @@
                             </tr>
                           </table>
                         </div>
-                        </div>
+                      </div>
+
                       <!-- Accent-colored raised button with ripple -->
-                      <br/>
-                      <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" style="background-color:#446EB6; width:40%">SUBMIT</button>
+                      <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" style="background-color:#446EB6; margin-top:5px">DONE</button>
                     </form>
                 </div>
             </div>
@@ -116,7 +99,6 @@
 
       pictureUpload.onclick = function() {
         document.getElementById("img-upload").src = "https://res.cloudinary.com/din6mjlbd/image/upload/v1487334028/dummy_host4_v2wfpn.jpg";
-        //document.getElementById("picUploadText").placeholder = "change picture";
       }
 
       var filterClick = function(filter)
@@ -164,11 +146,6 @@
 
       }
 
-      var btn1 = function() 
-      {            
-        window.alert("Location changes (happens with a map plugin)");
-      }
-
 
       $('#addActivityForm').submit(function (event) {
         event.preventDefault();
@@ -176,7 +153,6 @@
         var data = {
           name: formData.name,
           description: formData.description,
-          //location: {lat: 32.722679, lng: -117.162289},
           maxCost: formData.maxCost,
           maxTimeInMin: formData.time,
           childsafe: childsafe,

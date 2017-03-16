@@ -14,7 +14,7 @@
 <body>
     <header>
         <% include ../views/partials/header%>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </header>
 
     <div style="text-align: center">
@@ -24,9 +24,7 @@
             </div>
     </div>
 
-
     <script>
-
         var activitylog =<%-JSON.stringify(activitylogJSON)%> 
         activitylog = activitylog.activitylog;
         var activities =<%-JSON.stringify(activitiesJSON)%>
@@ -51,11 +49,6 @@
                 }
               }
             }
-        }
-
-        var goBack = function()
-        {
-          window.location.href = '/'
         }
 
     	  var btn1 = function() 
