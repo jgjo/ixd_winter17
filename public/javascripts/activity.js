@@ -38,7 +38,7 @@ var populatePage = function(location){
         ' </div>'+
 
         ' <div class="col-xs-12 col-md-8" style = "padding-top:9px">'+
-            ' <img height="260" width="100%" src="'+activity.pictures[0].src+'">'+
+            ' <img height="220" width="100%" src="'+activity.pictures[0].src+'">'+
             '<h5>'+activity.description+'</h5>'+ 
         ' </div>'+
 
