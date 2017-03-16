@@ -109,7 +109,7 @@ var populatePage_hostName = function(){
     var parent = document.getElementById("userdiv");
     var newdiv = document.createElement("h1");
     newdiv.innerHTML = activity.hostName;
-    newdiv.style = "padding-top: 8px;";s
+    newdiv.style = "padding-top: 8px;";
     parent.append(newdiv);              
 }
 
