@@ -58,7 +58,7 @@ var populatePage = function(location){
         if(activity.filters[i].value == 1)
         {
             divstyle="padding-top: 3px; padding-bottom: 3px; margin: 2px;";
-            istyle="color:#446EB6; font-size:26px";
+            istyle="color:#446EB6; font-size:20px";
 
             if(activity.filters[i].name=="childsafe")
             {
@@ -92,10 +92,10 @@ var populatePage = function(location){
     }
     // Add cost and time to the page
     taghtml+= '<td style="max-width: 40px;" width:"20%"">'+
-                            '<div style="padding-top: 3px; padding-bottom: 3px; margin: 2px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:#446EB6; font-size:26px"></i></div>'+activity.maxTimeInMin+'&nbsp min'+
+                            '<div style="padding-top: 3px; padding-bottom: 3px; margin: 2px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:#446EB6; font-size:20px"></i></div>'+activity.maxTimeInMin+'&nbsp min'+
                 '</td>'+
                 '<td style="max-width: 40px;" width:"20%"">'+
-                    '<div style="padding-top: 3px; padding-bottom: 3px; margin: 2px;"><i class="fa fa-dollar" aria-hidden="true" style="color:#446EB6; font-size:26px"></i></div>Max &nbsp'+activity.maxCost+
+                    '<div style="padding-top: 3px; padding-bottom: 3px; margin: 2px;"><i class="fa fa-dollar" aria-hidden="true" style="color:#446EB6; font-size:20px"></i></div>Max &nbsp'+activity.maxCost+
                 '</td>';
     taghtml+= '</tr>';
 

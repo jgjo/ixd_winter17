@@ -124,7 +124,6 @@ function initMap() {
 
 function addMarkers(orgcolor)
 {
-
     var infowindow = new google.maps.InfoWindow();
 
     //Get filter button values
@@ -210,7 +209,7 @@ function addMarkers(orgcolor)
                   '<h1 id="firstHeading" class="firstHeading">'+activities.activities[i].name+'</h1>'+
                   '<div id="bodyContent">'+
                   '<p>'+activities.activities[i].description+'</p>'+
-                  '<p>Host: '+activities.activities[i].hostName+
+                  '<p>Host:'+activities.activities[i].hostName+
                   '</p>'+
                   '<img height="140" width="140" src="'+activities.activities[i].pictures[0].src+'">'+
                   '<p> </div>'+
@@ -248,18 +247,18 @@ function addMarkers(orgcolor)
                   '<div>'+
                     '<h3 id="firstHeading" onclick=activityclick('+activities.activities[i].id+','+current+') class="firstHeading">'+activities.activities[i].name+'</h3>'+
 
-                    '<div id="bodyContent" style="content-align:center">'+
+                    '<div id="bodyContent" style="content-align:center; text-align:center">'+
                       '<table style="content-align:center">'+
                         '<tr style="content-align:center">'+
                           '<td style="content-align:center">'+   
                             '<table>'+
                               '<tr>'+
                                 '<td>'+                          
-                                '<img height="40" width="40" padding="8px" src="images/otherUser.png">'+
+                                '<img style="height:40px; width:40px; margin:8px" src="images/otherUser.png">'+
                                 '</td>'+
 
                                 '<td style="vertical-align: center">'+   
-                                '<h5>'+activities.activities[i].hostName+'</h5>'+                       
+                                '<h5>&nbsp'+activities.activities[i].hostName+'</h5>'+                       
                                 '</td>'+
                               '</tr>'+
                             '</table>'+                      
@@ -268,7 +267,7 @@ function addMarkers(orgcolor)
 
                         '<tr>'+
                           '<td>'+                          
-                          '<img onclick=activityclick('+activities.activities[i].id+','+current+') height="120" width="120" src="'+activities.activities[i].pictures[0].src+'">'+
+                          '<img onclick=activityclick('+activities.activities[i].id+','+current+') style="height:120px; width:120px; margin-left:17px;" src="'+activities.activities[i].pictures[0].src+'">'+
                           '</td>'+                                  
                         '</tr>'+
 
@@ -289,5 +288,6 @@ function addMarkers(orgcolor)
         }
     }
 }
+
 
 

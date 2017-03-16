@@ -1,0 +1,20 @@
+#map {
+ width: 100%;
+ min-height: 588px;
+ height:100%;
+ background-color: grey;
+ top: 0px;
+}
+
+#wrapper { position: relative; height:89%; }
+
+#over_map { position: absolute; top: 59px; right: 15px; z-index: 99; }
+
+#legend {
+  height:37px;
+  background: #fff;
+  padding: 0px;
+  margin: 1px;            
+ border-bottom: #c5c5c5;
+ border-bottom-style: solid;
+}
