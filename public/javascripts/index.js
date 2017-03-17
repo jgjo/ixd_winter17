@@ -257,7 +257,7 @@ function addMarkers(orgcolor)
                                 '<img style="height:40px; width:40px; margin:8px" src="images/otherUser.png">'+
                                 '</td>'+
 
-                                '<td style="vertical-align: center">'+   
+                                '<td onclick="hostprofileclick('+activities.activities[i].hostID+')" style="vertical-align: center">'+   
                                 '<h5>&nbsp'+activities.activities[i].hostName+'</h5>'+                       
                                 '</td>'+
                               '</tr>'+

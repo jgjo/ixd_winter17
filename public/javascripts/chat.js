@@ -108,9 +108,10 @@ var btn2 = function()
 var populatePage_hostName = function(){
     var parent = document.getElementById("userdiv");
     var newdiv = document.createElement("h1");
-    newdiv.innerHTML = activity.hostName;
+    newdiv.innerHTML = '&nbsp'+activity.hostName;
     newdiv.style = "padding-top: 8px;";
-    parent.append(newdiv);              
+    parent.append(newdiv);    
+    parent.setAttribute("onclick","hostprofileclick("+hostid+")");          
 }
 
 //redirect to correct log exp

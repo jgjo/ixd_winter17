@@ -30,7 +30,7 @@ var populatePage = function(location){
             '<span><i class="material-icons" style="color:#446EB6;font-size:30px;">location_on</i>'+location+'</span>'+
         ' </div>'+
 
-        ' <div onclick="hostprofileclick('+activity.hostid+')" class="col-xs-12 col-md-8" style = "padding-top:4px">'+
+        ' <div onclick="hostprofileclick('+activity.hostID+')" class="col-xs-12 col-md-8" style = "padding-top:4px">'+
             '<span>'+
                 '<img height="35" width="35" padding="6px" style = "margin-right:8px" src="images/otherUser.png"> '+
                  '<strong>'+ activity.hostName+ '</strong>'+

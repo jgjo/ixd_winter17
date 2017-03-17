@@ -120,6 +120,7 @@ var newdiv = document.createElement("h1");
 newdiv.innerHTML = activity.name;
 parent.append(newdiv); 
 newdiv = document.createElement("div");
+newdiv.setAttribute("onclick","hostprofileclick("+activity.hostID+")");
 newdiv.innerHTML =  '<br> '+
                     ' <figure> <img src="images/otherUser.png" style="height:40px; width:40px;" /> </figure> '+
                     ' <h1 style="font-size:13px"> with '+activity.hostName+'</h1>';
@@ -138,10 +139,10 @@ var addMoment = function(){
     newdiv.innerHTML =  '<div class="cd-timeline-img cd-picture"> '+
                             ' <img src="img/cd-icon-picture.svg" alt="Picture"> '+
                         ' </div> '+
-                        ' <div class="cd-timeline-content"> '+
+                        ' <div onclick="hostprofileclick('+activity.hostID+')" class="cd-timeline-content"> '+
                             ' <img height="100" width="100" src="'+moment.pictureSrc+'" alt="Picture"> '+
                             ' <p>'+moment.caption+'</p> '+
-                            ' <a href="#0" class="cd-read-more">'+username+'</a> '+
+                            ' <a href="#" class="cd-read-more">'+username+'</a> '+
                             ' <span class="cd-date">Jan 24</span> '+
                         ' </div>';
     parent.insertBefore(newdiv, parent.firstChild);
@@ -159,7 +160,7 @@ var populateMoment = function(caption)
                     ' <div class="cd-timeline-content"> '+
                         ' <img height="100" width="100" src="https://res.cloudinary.com/din6mjlbd/image/upload/v1487322946/dummy_host_cbgagu.jpg" alt="Picture"> '+
                         ' <p>'+caption+'</p> '+
-                        ' <a href="#0" class="cd-read-more">You</a> '+
+                        ' <a href="#" class="cd-read-more">You</a> '+
                         ' <span class="cd-date">Jan 24</span> '+
                     ' </div>';
     p.insertBefore(n, p.firstChild);
